@@ -1,0 +1,20 @@
+.service {
+    box-sizing: border-box;
+    box-shadow: 5px 5px 10px #999;
+    border-radius: none;
+}
+
+.cards { 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .service {
+    width: 18%;
+    flex-shrink: 0;
+    padding: 15px;
+    margin: 2px;
+    background-color: white !important;
+  }
+

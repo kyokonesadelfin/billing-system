@@ -100,7 +100,7 @@ ul {
         color: #0B0B0E;
         opacity: 0.75;
     }
-        input {
+        #referenceNo {
             width: 200px;
             height: 45px;
             padding: 10px;
@@ -108,28 +108,28 @@ ul {
             border-radius: 5px;
             margin-bottom: 5px;
         }
-        input::-webkit-input-placeholder {
+        #referenceNo::-webkit-input-placeholder {
             font-weight: normal;
             border-bottom: 2px solid #000000;
             font-family: 'Segoe UI';
             font-size: 13px;
             letter-spacing: 0.02px;
         }
-        input::-moz-placeholder {
+        #referenceNo::-moz-placeholder {
             font-weight: normal;
             border-bottom: 2px solid #000000;
             font-family : Segoe UI;
             font-size: 13px;
             letter-spacing: 0.02px;
         }
-        input:-moz-placeholder {   /* Older versions of Firefox */  
+        #referenceNo:-moz-placeholder {   /* Older versions of Firefox */  
             font-weight: normal;
             border-bottom: 2px solid #000000;
             font-family : Segoe UI;
             font-size: 13px;
             letter-spacing: 0.02px;
         }
-        input:-ms-input-placeholder { 
+        #referenceNo:-ms-input-placeholder { 
             font-weight: normal;
             text-decoration: underline;
             font-family : Segoe UI;
@@ -138,19 +138,62 @@ ul {
         }
 
         /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
+        #referenceNo::-webkit-outer-spin-button,
+        #referenceNo::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
         }
 
+        #applicantName {
+            width: 200px;
+            height: 45px;
+            padding: 10px;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        #applicantName::-webkit-input-placeholder {
+            font-weight: normal;
+            border-bottom: 2px solid #000000;
+            font-family: 'Segoe UI';
+            font-size: 13px;
+            letter-spacing: 0.02px;
+        }
+        #applicantName::-moz-placeholder {
+            font-weight: normal;
+            border-bottom: 2px solid #000000;
+            font-family : Segoe UI;
+            font-size: 13px;
+            letter-spacing: 0.02px;
+        }
+        #applicantName:-moz-placeholder {   /* Older versions of Firefox */  
+            font-weight: normal;
+            border-bottom: 2px solid #000000;
+            font-family : Segoe UI;
+            font-size: 13px;
+            letter-spacing: 0.02px;
+        }
+        #applicantName:-ms-input-placeholder { 
+            font-weight: normal;
+            text-decoration: underline;
+            font-family : Segoe UI;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        #applicantName::-webkit-outer-spin-button,
+        #applicantName::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
         /* Firefox */
         input[type=number] {
         -moz-appearance: textfield;
         }
-        .applicantName {
-            margin-left: 10px;
-        }
+    #applicantName {
+        margin-left: 10px;
+    }
     #settings {
         margin-left: 20px;
         margin-bottom: 5px;
@@ -170,14 +213,14 @@ ul {
         border-radius: 10px;
         background-color: #004ea2;
         position: relative;
-        bottom: 15px;
+        bottom: 10px;
         left: 150px;
+        #newLoanTxt {
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 500;
+        }
     }   
-    #newLoanTxt {
-        color: #FFFFFF;
-        font-size: 14px;
-        font-weight: 500;
-    }
 }
 
 .label {
@@ -216,5 +259,9 @@ ul {
     tr:last-child{
         border-bottom: 2px solid #004EA2;
         padding: 50px;
+    }
+    .moreInfoBtn {
+        font-size: 20px;
+        cursor: pointer;
     }
 }

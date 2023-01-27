@@ -119,7 +119,7 @@ function Access() {
                   </tr>
                 </table>
                       <div className='col-md-2' style={{position: "absolute", right: "0", width: "100%", maxWidth: "75vh"}}>
-                        <button style={{position: "absolute", right: "100px", width: "160px", padding: "5px", borderRadius: "10px", fontSize: "14px"}}>Create new role</button>
+                        <button id='addNewBranchBtn' style={{position: "absolute", right: "100px", width: "160px", padding: "5px", borderRadius: "10px", fontSize: "14px"}}>Create new role</button>
                       </div>   
               </div>
 

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import '../sass/loan_management.scss'
 
 
 export default function LoanManagement() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
   
   return (
     <div>
@@ -96,11 +98,11 @@ export default function LoanManagement() {
 
       <div className="searchList">
         <p id='search'>Search</p>
-        <input type="number" placeholder='Reference No.' className='referenceNo'/>
-        <input type="text" placeholder="Applicant's Name" className='applicantName'/>
+        <input type="number" placeholder='Reference No.' id='referenceNo'/>
+        <input type="text" placeholder="Applicant's Name" id='applicantName'/>
         <img src='/assets/settings.png' alt='settings' width="50" height="45" id='settings' />
         <span id='filters'>Filters:<span id='myApplication'>My Application only</span></span>
-        <button id='newLoanBtn' className='w-25'><span id='newLoanTxt'>New Loan</span></button> 
+        <button id='newLoanBtn'><span id='newLoanTxt'>New Loan</span></button> 
       </div>
 
       <div className='label'>
@@ -128,7 +130,14 @@ export default function LoanManagement() {
             <td>12/02/2022 12:55PM</td>
             <td>10 % annually</td>
             <td>Completed</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
+            {
+            moreInfo
+            ?
+            <></>
+            :
+            <h1>A Computer Science Portal for Geeks</h1>
+            }
           </tr>
           <tr>
             <td>Cavite</td>
@@ -139,7 +148,7 @@ export default function LoanManagement() {
             <td>12/02/2022 12:45PM</td>
             <td>10 % annually</td>
             <td>In progress</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
           <tr>
             <td>Makati</td>
@@ -150,7 +159,7 @@ export default function LoanManagement() {
             <td>12/02/2022 12:35PM</td>
             <td>10 % annually</td>
             <td>Waiting for approval</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
           <tr>
             <td>Manila</td>
@@ -161,7 +170,7 @@ export default function LoanManagement() {
             <td>12/02/2022 12:25PM</td>
             <td>5 % annually</td>
             <td>Released</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
           <tr>
             <td>Manila</td>
@@ -172,7 +181,7 @@ export default function LoanManagement() {
             <td>12/02/2022 12:15PM</td>
             <td>5 % annually</td>
             <td>Cancelled</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
           <tr className="lastRow">
             <td>Manila</td>
@@ -183,7 +192,7 @@ export default function LoanManagement() {
             <td>12/02/2022 12:10PM</td>
             <td>5 % annually</td>
             <td>Rejected</td>
-            <td></td>
+            <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
         </table>
       </div>

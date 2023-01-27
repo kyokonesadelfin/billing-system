@@ -111,7 +111,7 @@ function Operation() {
                         <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" value="Search"/>
                         <img src='/assets/settings.png' alt='settings' width="30" height="30" className='mt-2'/>
                         <span style={{fontSize: "14px"}}>Filtered: &nbsp; &nbsp; &nbsp; Branch-GMS Cebu; Active accounts</span>
-                        <button style={{position: "absolute", right: "120px", width: "150px", fontSize: "14px"}}>Create Account</button>
+                        <button id='createAccountBtn' style={{position: "absolute", right: "120px", width: "150px", fontSize: "14px"}}>Create Account</button>
                   </form>
                 </div>
               <div className='d-flex flex-row mt-5'>

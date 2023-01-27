@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import '../sass/access.scss';
 
 function Access() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
+
   return (
     <div>
         <div className="container-fluid">
@@ -162,7 +165,7 @@ function Access() {
                       <td>Active</td>
                       <td>Jan 01,2022 2:40 PM</td>
                       <td>Jan 01,2022 2:40 PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr>
                       <td>
@@ -176,7 +179,7 @@ function Access() {
                       <td>Active</td>
                       <td>Dec. 01,2022 2:00 PM</td>
                       <td>Dec. 01,2022 2:00 PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr>
                       <td>
@@ -190,7 +193,7 @@ function Access() {
                       <td>Active</td>
                       <td>Feb. 24,2023 10:30 AM</td>
                       <td>Feb. 24,2023 10:30 AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr>
                       <td>
@@ -204,7 +207,7 @@ function Access() {
                       <td>Active</td>
                       <td>Jan.14,2022 9:25 AM</td>
                       <td>Jan.14,2022 9:25 AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr>
                       <td>
@@ -218,7 +221,7 @@ function Access() {
                       <td>Active</td>
                       <td>Nov.25,2022 3:35 PM</td>
                       <td>Nov.25,2022 3:35 PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                   </tbody>
                 </table>

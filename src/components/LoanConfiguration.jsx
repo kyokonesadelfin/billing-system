@@ -66,7 +66,7 @@ export default function LoanConfiguration() {
         </div>
       </nav>
 
-      <div className="navbar" style={{height: "100%", width: "100%", maxHeight: "13vh", padding: "0", position: "fixed", background: "white"}}>
+      <div className="navbar" style={{height: "11vh", width: "100%", padding: "0", position: "fixed", background: "white"}}>
         <div className="col-md-2">
         
         </div>
@@ -78,7 +78,7 @@ export default function LoanConfiguration() {
             </li>
           </ul>
         </div>
-        <div className="col-md-2" style={{background: "white", marginTop: "5px"}}>
+        <div className="col-md-2" style={{background: "white", marginBottom: "10px"}}>
           <img src="https://github.com/mdo.png" alt="logo5" width="26" height="26" className="rounded-circle me-2"/>   
           <span className='text-dark fw-bold'>Kyokonesa Delfin</span>
         </div>

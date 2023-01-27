@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../sass/admin.scss';
 
 
 function Admin() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
+
   return (
        <div>
           <div className="container-fluid">
@@ -156,7 +159,7 @@ function Admin() {
                       <td>01.24.2022</td>
                       <td>GMS Makati</td>
                       <td>Jan.10,2023 2:30AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -173,7 +176,7 @@ function Admin() {
                       <td>01.30.2022</td>
                       <td>GMS Makati</td>
                       <td>Jan.10,2023 2:30AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -190,7 +193,7 @@ function Admin() {
                       <td>02.24.2023</td>
                       <td>GMS Cebu</td>
                       <td>Dec.13,2022 4:45PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -207,7 +210,7 @@ function Admin() {
                       <td>12.14.2022</td>
                       <td>GMS Cebu</td>
                       <td>Nov. 24,2022 6:23AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -224,7 +227,7 @@ function Admin() {
                       <td>11.25.2022</td>
                       <td>GMS Japan</td>
                       <td>Sept. 5,2022 4:30PM</td>  
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -241,7 +244,7 @@ function Admin() {
                       <td>10.03.2022</td>
                       <td>GMS Japan</td>
                       <td>Dec. 09,2022 3:30PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                   </tbody>
                 </table>

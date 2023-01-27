@@ -115,7 +115,7 @@ function Branch() {
                     </div>
                       
                       <div className='col-md-2' style={{position: "absolute", right: "0", width: "100%", maxWidth: "75vh"}}>
-                        <button style={{position: "absolute", right: "100px", width: "150px", fontSize: "14px"}}>Add New Branch</button>
+                        <button id='addNewBranchBtn' style={{position: "absolute", right: "100px", width: "150px", fontSize: "14px"}}>Add New Branch</button>
                       </div>   
                 </form>
               </div>

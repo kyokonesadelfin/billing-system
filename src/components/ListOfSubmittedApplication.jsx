@@ -103,7 +103,7 @@ export default function ListOfSubmittedApp() {
           <li>
             <span id='totalPendingVal' style={{fontSize: '30px'}}>00000000001000</span>
             <span id='totalUnreadVal'>00000000001000</span>
-            <button id='refreshBtn' className='w-25'><span id='refreshBtnTxt'>Refresh</span></button>
+            <button id='refreshBtn'><span id='refreshBtnTxt'>Refresh</span></button>
           </li>
         </ul>
         

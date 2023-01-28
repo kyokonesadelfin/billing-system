@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Position() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
+
   return (
     <div>
        <div className="container-fluid">
@@ -153,7 +156,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 10</td>
                       <td>Jan 24, 2023, 4:35AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "black"}}>
                       <td>
@@ -167,7 +170,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 5</td>
                       <td>Jan. 10, 2022 10:30PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "black"}}>
                       <td>
@@ -181,7 +184,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 6</td>
                       <td>Dec 01,2022 4:30PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "black"}}>
                       <td>
@@ -195,7 +198,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 10</td>
                       <td>Nov. 01,2022 6:34PM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "black"}}>
                       <td>
@@ -209,7 +212,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 11</td>
                       <td>Sept. 06, 2022 5:34AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "black"}}>
                       <td>
@@ -223,7 +226,7 @@ function Position() {
                       <td>Active</td>
                       <td>Level 4</td>
                       <td>Jan. 04,2023 7:35AM</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                   </tbody>
                 </table>

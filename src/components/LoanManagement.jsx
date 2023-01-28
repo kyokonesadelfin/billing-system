@@ -68,18 +68,18 @@ export default function LoanManagement() {
         </div>
       </nav>
 
-      <div className="navbar" style={{height: "100%", width: "100%", maxHeight: "13vh", padding: "0", position: "fixed", background: "white"}}>
+      <div className="navbar" style={{height: "11vh", width: "100%", padding: "0", position: "fixed", background: "white"}}>
         <div className="col-md-2">
       </div>
         <div className="col-md-8 mt-3 navOptions" style={{background: "white"}}>
           <ul style={{listStyle: "none", overflow: "hidden"}}>
             <li className='navOptions1'>
-              <NavLink to='/loan-management' className='tab1 me-5 pe-4'>Loan Application</NavLink>
+              <NavLink to='/loan-management' className='tab1 me-5 pe-4'><span className='firstWord'>Loan</span> Application</NavLink>
               <NavLink to='/loan-configuration' className='tab2 p-3'>Loan Configuration</NavLink>
             </li>
           </ul>
         </div>
-        <div className="col-md-2" style={{background: "white", marginTop: "5px"}}>
+        <div className="col-md-2" style={{background: "white", marginBottom: "10px"}}>
           <img src="https://github.com/mdo.png" alt="logo5" width="26" height="26" className="rounded-circle me-2"/>   
           <span className='text-dark fw-bold'>Kyokonesa Delfin</span>
         </div>
@@ -108,7 +108,7 @@ export default function LoanManagement() {
       <div className='label'>
         <p id='caseSensitive'>Case-sensitive</p>
       </div> 
-      <div>
+
       <table className='applicationsTable'>
           <tr className='tableColumnHeads'>
             <th>Area</th>
@@ -195,7 +195,6 @@ export default function LoanManagement() {
             <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
           </tr>
         </table>
-      </div>
       
     </div>
   )

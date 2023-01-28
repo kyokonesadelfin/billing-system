@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import '../sass/branch.scss'
 
 function Branch() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
+
   return (
     <div>
         <div className="container-fluid">
@@ -155,7 +158,7 @@ function Branch() {
                       <td>Active</td>
                       <td>Jan 01,2022</td>
                       <td>-</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -169,7 +172,7 @@ function Branch() {
                       <td>Active</td>
                       <td>Dec. 01,2022</td>
                       <td>02 888 8888</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -183,7 +186,7 @@ function Branch() {
                       <td>Active</td>
                       <td>02.24.2023</td>
                       <td>-</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -197,7 +200,7 @@ function Branch() {
                       <td>Active</td>
                       <td>12.14.2022</td>
                       <td>-</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -211,7 +214,7 @@ function Branch() {
                       <td>Active</td>
                       <td>11.25.2022</td>
                       <td>-</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                     <tr style={{color: "#004ea2"}}>
                       <td>
@@ -225,7 +228,7 @@ function Branch() {
                       <td>Active</td>
                       <td>10.03.2022</td>
                       <td>-</td>
-                      <td>...</td>
+                      <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                     </tr>
                   </tbody>
                 </table>

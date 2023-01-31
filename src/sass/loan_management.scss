@@ -16,50 +16,46 @@ ul {
      overflow-x: hidden; 
  }
 
- body {
-    position: inherit;
-    z-index: -1;
- }
-
 // Nav
 .navOptions1 {
     .tab1 {
         font-weight: 700;
         text-decoration: none;
         color: #004ea2;
+        .firstWord {     
+            border-bottom: 2px solid #004ea2;
+            padding-bottom: 10px;
+        }
     }
 
     .tab2 {
         font-weight: 700;
         text-decoration: none;
         color: #000000;
-        margin-left: 50px;
     }
  }
 
 .instruction {
     position: relative;
-    top: 110px;
-    margin-top: 0px;
+    margin-bottom: 30px;
     margin-left: 305px;
         .loan-application {
             text-align: left;
             font: normal normal 600 18px Segoe UI;
-            letter-spacing: 0px;
             color: #101114;
             text-shadow: 0px 3px 6px #FFFFFF4F;
             opacity: 1;
         }
         .new-loan {
             font: normal normal 600 14px Segoe UI;
-            margin-top: 20px;
+            margin-top: 10px;
             text-shadow: 0px 3px 6px #FFFFFF4F;
             color: #101114;
             opacity: 0.5;
         }
         ul {
             padding: 0;
-            margin-top: 50px;
+            margin-top: 30px;
             .navOptions2 {
                 a {
                     color: #000000;
@@ -110,34 +106,30 @@ ul {
         }
         #referenceNo::-webkit-input-placeholder {
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family: 'Segoe UI';
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #referenceNo::-moz-placeholder {
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #referenceNo:-moz-placeholder {   /* Older versions of Firefox */  
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #referenceNo:-ms-input-placeholder { 
             font-weight: normal;
-            text-decoration: underline;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.5px;
         }
 
-        /* Chrome, Safari, Edge, Opera */
+        // /* Chrome, Safari, Edge, Opera */
         #referenceNo::-webkit-outer-spin-button,
         #referenceNo::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -154,30 +146,26 @@ ul {
         }
         #applicantName::-webkit-input-placeholder {
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family: 'Segoe UI';
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #applicantName::-moz-placeholder {
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #applicantName:-moz-placeholder {   /* Older versions of Firefox */  
             font-weight: normal;
-            border-bottom: 2px solid #000000;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.02px;
         }
         #applicantName:-ms-input-placeholder { 
             font-weight: normal;
-            text-decoration: underline;
             font-family : Segoe UI;
-            font-size: 13px;
+            font-size: 14px;
             letter-spacing: 0.5px;
         }
 
@@ -197,6 +185,7 @@ ul {
     #settings {
         margin-left: 20px;
         margin-bottom: 5px;
+        padding: 5px;
     }
     #filters {
         font-weight: 500;
@@ -208,8 +197,9 @@ ul {
         border-bottom: 2px solid #000000;
     }
     #newLoanBtn {
-        padding: 10px 25px 10px 25px;
+        padding: 10px 30px 10px 30px;
         margin-bottom: 10px;
+        margin-top: 10px;
         border-radius: 10px;
         background-color: #004ea2;
         position: relative;
@@ -226,24 +216,22 @@ ul {
 .label {
     #caseSensitive {
         position: relative;
-        top: 100px;
+        top: 105px;
         left: 310px;
         font-weight: 800;
         font-size: .5rem;
-        margin-bottom: 15px;
     }
 }
 
 .applicationsTable {
-    position: relative;
-    top: 150px;
     margin-left: 305px;
-    margin-bottom: 100px;
+    margin-bottom: 500px;
     margin-right: 50px; 
     td {
-        padding: 15px;
+        padding: 10px;
         font-size: 14px;
         font-weight: 600;
+        box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3);
     }
     th {
         padding: 13px 15px 10px 15px;

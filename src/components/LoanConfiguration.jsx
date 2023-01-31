@@ -68,7 +68,7 @@ export default function LoanConfiguration() {
           <ul style={{listStyle: "none", overflow: "hidden"}}>
             <li className='navOptions1'>
               <NavLink to='/loan-management' className='loan-app me-5 pe-4'>Loan Application</NavLink>
-              <NavLink to='/loan-configuration' className='loan-config p-3'>Loan Configuration</NavLink>
+              <NavLink to='/loan-configuration' className='loan-config p-3'><span className='firstWord'>Loan</span> Configuration</NavLink>
             </li>
           </ul>
         </div>
@@ -77,7 +77,7 @@ export default function LoanConfiguration() {
                          <span className='profile-name text-dark'>Dhanny Sumilang</span>
         </div>
       </div>
-      <div className="container-fluid" style={{marginLeft: "10px"}}>
+      <div className="container-fluid">
           <div className="instruction">
             <p className="loan-application">Loan configurations</p>
             <span className="new-loan">Select from existing loan configurations below and take actions by clicking on "more".</span>

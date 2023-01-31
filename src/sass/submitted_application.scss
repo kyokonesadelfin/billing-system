@@ -7,15 +7,6 @@ ul {
     }
  } 
 
- html,body
- {
-     width: 100%;
-     height: 100%;
-     margin: 0px;
-     padding: 0px;
-     overflow-x: hidden; 
- }
-
  body {
     position: inherit;
     z-index: -1;
@@ -27,6 +18,9 @@ ul {
         font-weight: 700;
         text-decoration: none;
         color: #004ea2;
+        .firstWord {     
+            border-bottom: 2px solid #004ea2;
+        }
     }
 
     .tab2 {
@@ -38,10 +32,6 @@ ul {
  }
 
 .instruction {
-    position: relative;
-    top: 110px;
-    margin-top: 0px;
-    margin-left: 305px;
         .loan-application {
             text-align: left;
             font: normal normal 600 18px Segoe UI;
@@ -49,6 +39,7 @@ ul {
             color: #101114;
             text-shadow: 0px 3px 6px #FFFFFF4F;
             opacity: 1;
+            
         }
         .new-loan {
             font: normal normal 600 14px Segoe UI;
@@ -58,8 +49,6 @@ ul {
             opacity: 0.5;
         }
         ul {
-            padding: 0;
-            margin-top: 50px;
             .navOptions2 {
                 a {
                     color: #000000;
@@ -80,6 +69,7 @@ ul {
                     opacity: 1;
                     font-size: 14px;
                     color: #000000;
+                    
                 }
                 .submitApp {
                     font-size: 14px;
@@ -141,33 +131,5 @@ ul {
         font-weight: 500;
         color: #FFFFFF;
         font-size: 14px;
-    }
-}
-
-.applicationsTable {
-    position: relative;
-    top: 150px;
-    margin-left: 305px;
-    margin-bottom: 100px;
-    margin-right: 50px; 
-    td {
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 600;
-    }
-    th {
-        padding: 13px 15px 10px 15px;
-        width: 300px;
-        font-size: 14px;
-    }
-
-    .tableColumnHeads {
-        color: #6E6E6E;
-        border-bottom: 2px solid #004EA2;
-        padding: 50px;
-    }
-    tr:last-child{
-        border-bottom: 2px solid #004EA2;
-        padding: 50px;
     }
 }

@@ -121,10 +121,10 @@ function Branch() {
         </header>
 
 
-        <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "170vh", marginLeft: "20px"}}>  
+        <main style={{overflowY: "scroll", paddingBottom: "15vh", width: "100%", maxWidth: "160vh", marginLeft: "20px"}}>  
 
-              <section style={{marginBottom: "30vh"}}>
-              <table className="table" style={{width: "160vh"}} id="table-font">
+              <section style={{marginBottom: "20vh"}}>
+              <table className="table" style={{width: "150vh"}} id="table-font">
                     <tr>
                       <td className='p-3'>
                         <div className="form-check">
@@ -152,7 +152,7 @@ function Branch() {
                       <td>Active</td>
                       <td>Jan 01,2022</td>
                       <td>-</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -166,7 +166,7 @@ function Branch() {
                       <td>Active</td>
                       <td>Dec. 01,2022</td>
                       <td>02 888 8888</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -180,7 +180,7 @@ function Branch() {
                       <td>Active</td>
                       <td>02.24.2023</td>
                       <td>-</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -194,7 +194,7 @@ function Branch() {
                       <td>Active</td>
                       <td>12.14.2022</td>
                       <td>-</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -208,7 +208,7 @@ function Branch() {
                       <td>Active</td>
                       <td>11.25.2022</td>
                       <td>-</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -222,7 +222,7 @@ function Branch() {
                       <td>Active</td>
                       <td>10.03.2022</td>
                       <td>-</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                   </tbody>
                 </table>

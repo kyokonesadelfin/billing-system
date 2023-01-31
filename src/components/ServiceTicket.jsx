@@ -84,7 +84,7 @@ function ServiceTicket() {
          </nav>
             </header>
 
-            <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "180vh", position: "fixed", left: "250px", top: "80px",backgroundColor: "#F2F2F2" }}>
+            <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "173vh", position: "fixed", left: "250px", top: "80px",backgroundColor: "#F2F2F2" }}>
                 <div className='container-fluid'>
                    <div className='row d-flex justify-content-left align-items-left' style={{marginTop: "3vh", marginLeft: "0", marginRight: "0"}}>
                    <div className="cards">

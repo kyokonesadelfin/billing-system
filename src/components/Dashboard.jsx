@@ -148,7 +148,7 @@ class Dashboard extends Component {
 
         </header>
 
-        <main style={{position: "fixed", left: "35vh", height: "100%", marginTop: "11vh",paddingBottom: "25vh", width: "100%", maxWidth: "180vh", paddingTop: "30px", backgroundColor: "#F2F2F2", paddingRight:"20px", paddingLeft: "30px", overflowY: "scroll"}}>
+        <main style={{position: "fixed", left: "35vh", height: "100%", marginTop: "11vh",paddingBottom: "25vh", width: "100%", maxWidth: "180vh", paddingTop: "30px", backgroundColor: "#F2F2F2", paddingRight:"20px", paddingLeft: "25px", overflowY: "scroll"}}>
         <div className="container-fluid" style={{backgroundColor: "#F2F2F2"}}>
         <section
             id="card-md"
@@ -157,93 +157,85 @@ class Dashboard extends Component {
           >
             <div id="loan-details" className="row d-flex flex-row w-100">
               <div className="col-md-10 d-flex flex-columm vertical-align-top w-90">
-                <h5 className="fw-bold" style={{color: "#004ea2"}}>
+                <h6 id='dashboard_title'>
                   Loan Details
-                </h5>
+                </h6>
               </div>
               <div className="col-md-2 d-flex flex-columm vertical-align-top w-10">
-              <button className="p-1 text-secondary w-100" id="more-details" style={{ backgroundColor: "white", borderRadius: "15px" }}>More Details...</button>
+              <button className="p-1 text-secondary w-75" id="more-details" style={{ backgroundColor: "white"}}>More Details...</button>
               </div>
             </div>
 
-            <hr style={{border: "4px solid gray"}}/>
+            <hr id='hr_border'/>
             <div className="row d-flex flex-row w-100 p-4">
+
               <div className="col-md-3 d-flex flex-column vertical-align-top p-3">
-                <div class="row g-0" style={{textAlign: "right"}}>
-                        <div className="col-md-5 mt-3">
-                        <img src='/assets/receipt.png' alt="house" width="100" height="60" className='mb-2'/>
-                        </div> 
-                        <div class="col-md-7">
-                          <div class="card-body">
-                            <h6>Approved Loans</h6>
-                            <h1>3K</h1>
-                          </div>
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                        <img src='/assets/receipt.png' alt="house" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                            <span id="top_label">Approved Loans</span><br/>
+                            <span id='lvl'>3K</span><br/> 
+                            <span id='grow_rate'>Grow rate: <small className="text-success">&#9650; 10.50%</small></span>
                         </div>
-                <span className='fw-bold p-2' style={{textAlign: "right"}}>Grow rate: <small className="text-success">&#9650; 10.50%</small></span>
-                <div className="progress-bar">
-                  <div class="progress-bar-fill" style={{ width: "70%" }}></div>
+                <div className="progress-bar mt-3">
+                  <div class="progress-bar-fill" style={{ width: "61%"}}></div>
                 </div>
-                <p className="p-1" style={{ fontSize: "11px",textAlign: "right" }}>3000/4900-total loan application &nbsp;&nbsp;<medium className="text-success">61%</medium></p>
-              </div>
+                    <p id="small_font">3000/4900-total loan application &nbsp;&nbsp;<medium className="text-success"> &nbsp; &nbsp; &nbsp;61%</medium></p>
+                 </div>
               </div>
 
               <div className="col-md-3 d-flex flex-column vertical-align-top p-3">
-              <div class="row g-0" style={{textAlign: "right"}}>
-                        <div className="col-md-5 mt-3">
-                        <img src='/assets/delivery-man.png' alt="house" width="80" height="60" className='mb-2'/>
-                        </div> 
-                        <div class="col-md-7">
-                          <div class="card-body">
-                            <h6>Active Loans</h6>
-                            <h1>2K</h1>
-                          </div>
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                         <img src='/assets/delivery-man.png' alt="house" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                            <span id="top_label">Active Loans</span><br/>
+                            <span id='lvl'>2K</span><br/> 
+                            <span id='grow_rate'>Grow rate: <small className="text-success">&#9650; 5.50%</small></span>
                         </div>
-                    <span className='fw-bold p-2' style={{textAlign: "right"}}>Grow rate: <small className="text-success">&#9650; 5.50%</small></span>
-                <div class="progress-bar">
-                  <div class="progress-bar-fill" style={{ width: "40%" }}></div>
+                <div className="progress-bar mt-3">
+                  <div class="progress-bar-fill" style={{ width: "66.70%"}}></div>
                 </div>
-                <p className="p-1" style={{ fontSize: "11px", textAlign: "right" }}>2000/3000-total approved loans &nbsp;&nbsp;<medium className="text-success">66.70%</medium></p>
-              </div>
+                    <p id="small_font">2000/3000-total approved loans &nbsp;&nbsp;<medium className="text-success">&nbsp; &nbsp;66.70%</medium></p>
+                 </div>
               </div>
 
               <div className="col-md-3 d-flex flex-column vertical-align-top p-3">
-              <div class="row g-0" style={{textAlign: "right"}}>
-                        <div className="col-md-5 mt-3">
-                        <img src='/assets/headache.png' alt="house" width="80" height="60" className='mb-2' />
-                        </div> 
-                        <div class="col-md-7">
-                          <div class="card-body">
-                            <h6>Paid Loans</h6>
-                            <h1>900</h1>
-                          </div>
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                         <img src='/assets/headache.png' alt="delivery-man" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                            <span id="top_label">Paid Loans</span><br/>
+                            <span id='lvl'>900</span><br/> 
+                            <span id='grow_rate'>Grow rate: <small className="text-danger">&#x25BC; 5.50%</small></span>
                         </div>
-                    <span className='fw-bold p-2' style={{textAlign: "right"}}>Grow rate: <small className="text-danger">&#x25BC; 5.50%</small></span>
-                <div class="progress-bar">
-                  <div class="progress-bar-fill" style={{ width: "40%" }}></div>
+                <div className="progress-bar mt-3">
+                  <div class="progress-bar-fill" style={{ width: "40%"}}></div>
                 </div>
-                <p className="p-1" style={{ fontSize: "11px", textAlign: "right" }}>900/3000-total approved loans &nbsp;&nbsp;<medium className="text-success">30%</medium></p>
-              </div>
+                    <p id="small_font">900/3000-total approved loans &nbsp;&nbsp;<medium className="text-success">40%</medium></p>
+                 </div>
               </div>
 
 
               <div className="col-md-3 d-flex flex-column vertical-align-top p-3">
-              <div class="row g-0" style={{textAlign: "right"}}>
-                        <div className="col-md-5 mt-3">
-                        <img src='/assets/relax.png' alt="house" width="80" height="60" className='mb-2' />
-                        </div> 
-                        <div class="col-md-7">
-                          <div class="card-body">
-                          <h6>Unpaid Loans</h6>
-                           <h1>100</h1>
-                          </div>
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                         <img src='/assets/relax.png' alt="relax" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                          <span id="top_label">Unpaid Loans</span><br/>
+                          <span id='lvl'>100</span><br/> 
+                            <span id='grow_rate'>Grow rate: <small className="text-success">&#9650; 5.50%</small></span>
                         </div>
-                    <span className='fw-bold p-2' style={{textAlign: "right"}}>Grow rate: <small className="text-success">&#9650;
-                  5.50%</small></span>
-                <div class="progress-bar">
-                  <div class="progress-bar-fill" style={{ width: "3.30%" }}></div>
+                <div className="progress-bar mt-3">
+                  <div class="progress-bar-fill" style={{ width: "40%"}}></div>
                 </div>
-                <p className="p-1" style={{ fontSize: "11px", textAlign: "right" }}>100/3000-total loan application &nbsp;&nbsp;<medium className="text-success">3.30%</medium></p>
-              </div>
+                    <p id="small_font">100/3000-total loan application &nbsp;&nbsp;<medium className="text-success">3.30%</medium></p>
+                 </div>
               </div>
                 
             </div>
@@ -256,29 +248,38 @@ class Dashboard extends Component {
           >
             <div id="loan-applicant-status" className="row d-flex flex-row w-100">
               <div className="col-md-10 d-flex flex-columm vertical-align-top w-90 p-3">
-                <h5 className="display-7 fw-bold" style={{color: "#004ea2"}}>
+                <h6 id='dashboard_title'>
                   Loan Applicant Status
-                </h5>
+                </h6>
               </div>
               <div className="col-md-2 d-flex flex-column vertical-align-top w-10 p-3">
-              <button className="p-1 text-secondary w-100" id="more-details" style={{ backgroundColor: "white", borderRadius: "15px" }}>More Details...</button>
+              <button className="p-1 text-secondary w-75" id="more-details" style={{ backgroundColor: "white"}}>More Details...</button>
               </div>
             </div>
 
-            <hr style={{border: "4px solid gray"}}/>
-            <div className="row d-flex flex-row w-100 p-4">
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-25">
-                <h6>Total Loan Application</h6>
-                <h1><img src='/assets/receipt.png' alt="house" width="40" height="40" className='me-3 mb-2' />4.9K</h1>
-                <span className='fw-bold'>Grow rate: <small className="text-success">&#9650; 5.00%</small></span>
+            <hr id='hr_border'/>
+            <div className="row d-flex flex-row w-100 p-3">
+
+            <div className="col-md-3 d-flex flex-column vertical-align-top w-25 p-3">
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                         <img src='/assets/receipt.png' alt="receipt" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                          <span id="top_label">Total Loan Application</span><br/>
+                          <span id='lvl'>4.9K</span><br/> 
+                            <span id='grow_rate'>Grow rate: &nbsp; &nbsp; <small className="text-success">&#9650; 5.00%</small></span>
+                        </div>
+                 </div>
               </div>
 
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-25">
+
+              <div id='loan_area' className="col-md-3 d-flex flex-column vertical-align-top w-25">
                 <h6>Area</h6>
-                <p className="p-1" style={{ fontSize: "12px", fontWeight: "bold", lineHeight: "40px" }}>
+                <p className="p-1">
                   <span>
                     Luzon &nbsp;&nbsp;- 3K
-                    <medium className="text-success">66.70%</medium>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <medium className="text-success">66.70%</medium>
                     <medium>
                       <div class="progress-bar">
                         <div class="progress-bar-fill" style={{ width: "61.22%" }}></div>
@@ -306,15 +307,22 @@ class Dashboard extends Component {
                 </p>
               </div>
 
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-25">
-                <h6>Total Applicant</h6>
-                <h1><img src='/assets/delivery-man.png' alt="house" width="40" height="40" className='me-3 mb-2' />4.5K</h1>
-                <span className='fw-bold'>Grow rate: <small className="text-success">&#9650; 2.50%</small></span>
+              <div className="col-md-3 d-flex flex-column vertical-align-top w-25 p-3">
+                <div class="row g-0" style={{textAlign: "left"}}>
+                        <div className="col-md-4 mt-2">
+                         <img src='/assets/delivery-man.png' alt="delivery-man" width="70" height="80" className='mb-2'/>
+                        </div>  
+                        <div class="col-md-8">
+                          <span id="top_label">Total Applicant</span><br/>
+                          <span id='lvl'>4.5K</span><br/> 
+                            <span id='grow_rate'>Grow rate: &nbsp; &nbsp; <small className="text-success">&#9650; 2.50%</small></span>
+                        </div>
+                 </div>
               </div>
 
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-25">
-                <medium>Area</medium>
-                <p className="p-1" style={{ fontSize: "12px", fontWeight: "bold", lineHeight: "40px" }}>
+              <div id='loan_area' className="col-md-3 d-flex flex-column vertical-align-top w-25">
+                <h6>Area</h6>
+                <p className="p-1">
                   <span>
                     Luzon &nbsp;&nbsp;- 2.6K
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <medium className="text-success">57.78%</medium>
@@ -346,10 +354,10 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr style={{border: "4px solid gray"}}/>
+            <hr id='hr_border'/>
 
-            <div id="approved-loans" className="row d-flex flex-row w-100 p-4">
-              <div className="col-md-2 d-flex flex-column vertical-align-top w-20">
+            <div className="row d-flex flex-row w-100 p-4" id='approved_loans'>
+              <div className="col-md-2 d-flex flex-column vertical-align-top w-20 p-2">
                 <h6>Approved Loans</h6>
                 <h1><img src='/assets/road.png' alt="house" width="40" height="40" className='me-3 mb-2' />3K</h1>
                 <h6>Grow rate: <small className="text-success">&#9650; 10.50%</small></h6>
@@ -389,11 +397,11 @@ class Dashboard extends Component {
                 </p>
               </div>
 
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-20">
+              <div className="col-md-3 d-flex flex-column vertical-align-top w-20 p-2">
                 <Chart options={this.state.options} series={this.state.series} type="donut" height="400px"/>
               </div>
 
-              <div className="col-md-3 d-flex flex-column vertical-align-top w-20">
+              <div className="col-md-3 d-flex flex-column vertical-align-top w-20 p-3">
                 <h6>Pending Loan Application</h6>
                 <h1><img src='/assets/headache.png' alt="house" width="40" height="40" className='me-3 mb-2' />1.4K</h1>
                 <h6>Grow rate:  <small className="text-success">&#9650;
@@ -413,7 +421,7 @@ class Dashboard extends Component {
               </div>
 
 
-              <div className="col-md-2 d-flex flex-column vertical-align-top w-20">
+              <div className="col-md-2 d-flex flex-column vertical-align-top w-20 p-2">
                 <h5>Status</h5>
                 <p className="p-1" style={{ fontSize: "12px", fontWeight: "bold" }}>
                   <span>
@@ -495,7 +503,7 @@ class Dashboard extends Component {
                 </p>
               </div>
 
-              <div className="col-md-2 d-flex flex-column vertical-align-top w-20">
+              <div className="col-md-2 d-flex flex-column vertical-align-top w-20 p-2">
                 <Chart id="chart" options={this.state.options1} series={this.state.series1} type="donut" />
                 <br /> <br />
                 <Chart id="chart" options={this.state.options2} series={this.state.series2} type="donut" />
@@ -512,13 +520,13 @@ class Dashboard extends Component {
 
           <section id="card-md4" className="mt-4 p-3" style={{backgroundColor: "white", textAlign: "center"}}>
             <div className="row d-flex flex-row w-100">
-              <div className="col-md-10 d-flex flex-columm vertical-align-top w-90">
-                <h5 className="display-7 fw-bold p-2" style={{color: "#004ea2"}}>
+              <div className="col-md-10 d-flex flex-columm vertical-align-top w-90 p-3">
+                <h5 id='dashboard_title'>
                   Billing
                 </h5>
               </div>
               <div className="col-md-2 d-flex flex-column vertical-align-top w-10 p-3">
-              <button className="p-1 text-secondary w-100" id="more-details" style={{ backgroundColor: "white", borderRadius: "15px" }}>More Details...</button>
+              <button className="p-1 text-secondary w-75" id="more-details" style={{ backgroundColor: "white"}}>More Details...</button>
               </div>
             </div>
 
@@ -648,16 +656,16 @@ class Dashboard extends Component {
           <section
             id="card-md5"
             className="mt-4 p-4"
-            style={{backgroundColor: "white", textAlign: "center"}}
+            style={{backgroundColor: "white", textAlign: "left"}}
           >
             <div className="row d-flex flex-row w-100">
               <div className="col-md-10 d-flex flex-columm vertical-align-top w-80">
-                <h5 className="display-7 fw-bold" style={{color: "#004ea2"}}>
+                <h5 id='dashboard_title'>
                   TODA / Client
                 </h5>
               </div>
               <div className="col-md-2 d-flex flex-column vertical-align-top w-10 p-3">
-                <button className="p-1 text-secondary w-100" id="more-details" style={{ backgroundColor: "white", borderRadius: "15px" }}>More Details...</button>
+                <button className="p-1 text-secondary w-75" id="more-details" style={{ backgroundColor: "white"}}>More Details...</button>
               </div>
             </div>
 

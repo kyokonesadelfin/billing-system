@@ -67,7 +67,7 @@ export default function ListOfSubmittedApp() {
         <div className="col-md-8 mt-3 navOptions" style={{background: "white"}}>
           <ul style={{listStyle: "none", overflow: "hidden"}}>
             <li className='navOptions1'>
-              <NavLink to='/loan-management' className='tab1 me-5 pe-4'>Loan Application</NavLink>
+              <NavLink to='/loan-management' className='tab1 me-5 pe-4'><span className='firstWord'>Loan</span> Application</NavLink>
               <NavLink to='/loan-configuration' className='tab2 p-3'>Loan Configuration</NavLink>
             </li>
           </ul>
@@ -77,7 +77,7 @@ export default function ListOfSubmittedApp() {
                          <span className='profile-name text-dark'>Dhanny Sumilang</span>
          </div>
       </div>
-      <div className="container-fluid" style={{marginLeft: "10px"}}>
+      <div className="container-fluid">
         <div className="instruction">
           <p className="loan-application">Loan applications review</p>
           <p className="new-loan">Select from existing loan applications below or start a new application by clicking on "New Loan"</p>

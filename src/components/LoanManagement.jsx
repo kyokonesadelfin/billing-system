@@ -5,7 +5,16 @@ import '../sass/loan_management.scss'
 
 export default function LoanManagement() {
 
-  const [moreInfo, setMoreInfo] = useState(true);
+  const [moreInfo, setMoreInfo] = useState(true);;
+
+  function uncheckAll(e) {
+    
+    e.preventDefault()
+
+    document.querySelectorAll('input[type="checkbox"]')
+      .forEach(el => el.checked = false);
+
+  }
 
   return (
     <div>
@@ -76,7 +85,7 @@ export default function LoanManagement() {
           <span className='profile-name text-dark'>Dhanny Sumilang</span>
         </div>
       </div>
-      <div className="container-fluid" style={{ marginLeft: "10px" }}>
+      <div className="container-fluid">
         <div className="instruction">
           <p className="loan-application">Loan applications review</p>
           <p className="new-loan">Select from existing loan applications below or start a new application by clicking on "New Loan"</p>
@@ -93,13 +102,93 @@ export default function LoanManagement() {
           <p id='search'>Search</p>
           <input type="number" placeholder='Reference No.' id='referenceNo' />
           <input type="text" placeholder="Applicant's Name" id='applicantName' />
-          <img src='/assets/settings.png' alt='settings' width="50" height="45" id='settings' />
+          <img src='/assets/settings.png' alt='settings' width="50" height="45" id='settings' onClick={() => setMoreInfo(!moreInfo)} style={{ cursor: "pointer" }} />
           <span id='filters'>Filters:<span id='myApplication'>My Application only</span></span>
           <NavLink type='btn' to='/new-loan-product' id='newLoanBtn'><span id='newLoanTxt'>New Loan</span></NavLink>
+
         </div>
 
         <div className='label'>
           <p id='caseSensitive'>Case-sensitive</p>
+          {
+          moreInfo
+          ?
+          <></>
+          :
+          
+          <form className='filterOptions'>
+            <div className="container">
+              <div className="row">
+                <div className='col-md-4'>
+                  <p style={{marginTop: "15px"}}>Filter<span style={{marginLeft: "50px"}}><button onClick = {(e) => uncheckAll(e)} style={{backgroundColor: '#004EA2', color: "#FFFFFF", borderRadius: "3px"}}>Reset</button></span></p>
+                  <p>Loan application overview</p>
+                  <ul style={{listStyle: "none"}}>
+                    <li>
+                      <label for="myApplicationOnly">My application only
+                      <input type="checkbox" id="myApplicationOnly" name="loan_type" value="My application only"/>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="allApplications" name="loan_type" value="See all applications"/>
+                      <label for="allApplications">See all applications</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="toUpdate" name="loan_type" value="To update" />
+                      <label for="toUpdate">To update</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="toApprove" name="loan_type" value="To approve" />
+                      <label for="toApprove">To approve</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="toRelease" name="loan_type" value="To release" />
+                      <label for="toRelease">To release</label>
+                    </li>
+                  </ul>
+                </div>
+                <div className='col-md-4'>
+                  <p style={{marginTop: "69px"}}>Application Status</p>
+                  <ul style={{listStyle: "none"}}>
+                    <li>
+                      <input type="checkbox" id="inProgress" name="applicationStatus" value="In progress"/>
+                      <label for="inProgress">In progress</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="released" name="applicationStatus" value="Released" />
+                      <label for="released">Released</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="canceled" name="applicationStatus" value="Canceled" />
+                      <label for="canceled">Canceled</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="deferred" name="applicationStatus" value="Deferred" />
+                      <label for="deferred">Deferred</label>
+                    </li>
+                  </ul>
+                </div>
+                <div className='col-md-4'>
+                  <p style={{marginTop: "67px"}}>Approval Status</p>
+                  <ul style={{listStyle: "none"}}>
+                    <li>
+                      <input type="checkbox" id="notRequired" name="approvalStatus" value="Not required"/>
+                      <label for="notRequired">Not required</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="rejected" name="approvalStatus" value="Rejected" />
+                      <label for="rejected">Rejected</label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="waitingApproval" name="approvalStatus" value="Waiting for approval" />
+                      <label for="waitingApproval">Waiting for approval</label>
+                    </li>  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </form>
+  
+          }
         </div>
         <div>
           <table className='applicationsTable'>

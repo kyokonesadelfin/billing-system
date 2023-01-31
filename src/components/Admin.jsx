@@ -122,9 +122,9 @@ function Admin() {
 
 
         </header>
-           <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "170vh", marginLeft: "20px"}}> 
-              <section style={{marginBottom: "30vh"}}>
-              <table className="table" style={{width: "160vh", fontSize: "14px"}} id="table-font">
+           <main style={{overflowY: "scroll", paddingBottom: "15vh", width: "100%", maxWidth: "160vh", marginLeft: "20px"}}> 
+              <section style={{marginBottom: "20vh"}}>
+              <table className="table" style={{width: "150vh", fontSize: "14px"}} id="table-font">
                     <tr>
                       <td className='p-3'>
                         <div className="form-check">
@@ -156,7 +156,7 @@ function Admin() {
                       <td>01.24.2022</td>
                       <td>GMS Makati</td>
                       <td>Jan.10,2023 2:30AM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -173,7 +173,7 @@ function Admin() {
                       <td>01.30.2022</td>
                       <td>GMS Makati</td>
                       <td>Jan.10,2023 2:30AM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -190,7 +190,7 @@ function Admin() {
                       <td>02.24.2023</td>
                       <td>GMS Cebu</td>
                       <td>Dec.13,2022 4:45PM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -207,7 +207,7 @@ function Admin() {
                       <td>12.14.2022</td>
                       <td>GMS Cebu</td>
                       <td>Nov. 24,2022 6:23AM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -224,7 +224,7 @@ function Admin() {
                       <td>11.25.2022</td>
                       <td>GMS Japan</td>
                       <td>Sept. 5,2022 4:30PM</td>  
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -241,7 +241,7 @@ function Admin() {
                       <td>10.03.2022</td>
                       <td>GMS Japan</td>
                       <td>Dec. 09,2022 3:30PM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-secondary"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                   </tbody>
                 </table>

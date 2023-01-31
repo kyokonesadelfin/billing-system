@@ -93,10 +93,10 @@ function NewLoanProduct() {
       </header>
 
       <main style={{ width: "100%", maxWidth: "180vh" }}>
-        <div className='container-fluid' style={{ marginTop: "17vh", marginLeft: "20px" }}>
+        <div className='container-fluid' style={{ marginTop: "17vh", marginLeft: "10px" }}>
           <div className="row">
-            <h5>New loan product</h5>
-            <div className="col-md-8 col-sm-6 mt-4">
+            <h5 className='p-1'>New loan product</h5>
+            <div className="col-md-8 col-sm-6 mt-4 p-2">
               <h5>1 - General</h5>
             </div>
             <div class="col-md-4 col-sm-6 mt-4">

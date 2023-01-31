@@ -182,7 +182,7 @@
     box-sizing: border-box;
     width: 100%;
     border: 4px solid rgb(200, 195, 195);
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font: normal normal 600 Segoe UI;
 }
 
@@ -194,7 +194,7 @@
     width: 100%;
     height: 90vh;
     border: 4px solid rgb(200, 195, 195);
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: Segoe UI;
 }
 
@@ -206,16 +206,15 @@
     width: 100%;
     height: 90vh;
     border: 4px solid rgb(200, 195, 195);
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-family: Segoe UI;
 }
 
 
 
 .progress-bar {
-    margin-left: 40px;
-    width: 100%; 
-    max-width: 170px;
+    margin-left: 0;
+    width: 200px;
     height: 15px;
     background-color: #F2F2F2;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -237,17 +236,49 @@
     padding: 15px;
 }
 
+#grow_rate {
+    text-align: "right";
+    font: normal normal 400 14px Segoe UI;
+}
+
+#small_font {
+    font-size: 12px;
+    text-align: "left"; 
+    margin-top: 5px;
+}
+
+#hr_border {
+    border: 5px solid gray;
+}
 
 
 #more-details {
     box-sizing: border-box;
-    border: 1px solid rgb(183, 152, 152);
+    border: 1px solid rgb(12, 12, 12);
     font-size: 14px;
     background-color: "white";
-    border-radius: "15px"
-
+    border-radius: "15px";
+    font-Weight: "700";
 }
 
+#loan_area {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+#top_label {
+    font: normal normal 500 14px Segoe UI;
+}
+
+#lvl {
+    font: normal normal bolder 40px Segoe UI;
+}
+
+#approved_loans {
+    text-align: left;
+}
 
 .breadcrumb {
     margin: 0;

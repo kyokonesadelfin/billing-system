@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import '../sass/loan_configuration.scss'
 
 
 export default function LoanConfiguration() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
   
   return (
     <div>
@@ -102,8 +104,7 @@ export default function LoanConfiguration() {
                     <td>GMSF 01 </td>
                     <td>Web, Desktop, Mobile</td>
                     <td>Published</td>
-                    <td>More</td>
-                    <td></td>
+                    <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                 </tr>
                 <tr>
                     <td>002</td>
@@ -113,8 +114,7 @@ export default function LoanConfiguration() {
                     <td>GMSF 01 </td>
                     <td>Desktop, Mobile</td>
                     <td>Draft</td>
-                    <td>More</td>
-                    <td></td>
+                    <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
                 </tr>
             </table>
           </div>

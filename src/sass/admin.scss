@@ -62,15 +62,17 @@ main {
         img {
             margin-left: 20px
         }
-        button {
-            width: 30%;
-            padding: 8px;
-            border-radius: 10px;
-            background-color: #035ec1;
-            color: #fff;
-            font-weight: 600;
-        }
+
     }
+}
+
+#createAccountBtn {
+    width: "150px";
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #004ea2;
+    color: #fff;
+    font-weight: 600;
 }
 
 .table-group-divider {
@@ -78,6 +80,10 @@ main {
         td{
             padding-top: 15px;
         }
+        .moreInfoBtn {
+            font-size: 20px;
+            cursor: pointer;
+        }   
     }
 }
 
@@ -162,4 +168,20 @@ div > .navbar {
     text-decoration: none;
     padding: 0px 20px 0px 0px; 
 
+}
+
+#discardBtn {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #004ea2;
+    color: #fff;
+    font-weight: 600;
+}
+
+#nextBtn {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #004ea2;
+    color: #fff;
+    font-weight: 600;
 }

@@ -115,7 +115,7 @@ function Access2() {
                         </tr>
  
                       </table>
-                      <button style={{position: "absolute", right: "120px", width: "150px", borderRadius: "10px", marginTop: "30px"}}>Create new role</button>
+                      <button id='createAccountBtn' style={{position: "absolute", right: "120px", width: "150px", marginTop: "30px"}}>Create new role</button>
                       <div className='row' style={{marginLeft: "295px", marginTop: "15vh"}}>
                           <form className="d-flex" role="search">
                           <input class="me-3" type="text" placeholder="Search" value="Search" style={{color: "#004ea2", border: "1px solid #004ea2", width: "49vh", padding: "5px", paddingLeft: "25px"}}/>

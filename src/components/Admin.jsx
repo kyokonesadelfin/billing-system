@@ -4,6 +4,8 @@ import '../sass/admin.scss';
 
 
 function Admin() {
+
+ 
   return (
     <div>
     <div className="container-fluid">
@@ -109,7 +111,7 @@ function Admin() {
                       <input class="me-3" type="text" placeholder="Search" value="Search" style={{color: "#004ea2", border: "1px solid #004ea2", width: "49vh", padding: "5px", paddingLeft: "25px"}}/>
                       <img src='/assets/settings.png' alt='settings' width="30" height="30" className='mt-1'/>
                       <span style={{fontSize: "14px", marginLeft: "40px", paddingTop: "10px", fontWeight: "bold"}}>Filtered: &nbsp; &nbsp; &nbsp; Branch - GMS Cebu; Active accounts</span>
-                      <button style={{position: "absolute", right: "120px", width: "150px", borderRadius: "10px"}}>Create Account</button>
+                      <button id='createAccountBtn' style={{position: "absolute", right: "120px"}}>Create Account</button>
                 </form>
                 <nav aria-label="breadcrumb" className='mt-4'>
                 <ol class="breadcrumb">   

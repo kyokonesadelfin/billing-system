@@ -2,6 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Department() {
+
+
+
   return (
     <div>
         <div className="container-fluid">
@@ -105,7 +108,7 @@ function Department() {
           <div className='row' style={{marginLeft: "295px", marginTop: "30px"}}>
                 <form className="d-flex" role="search" style={{display: "inline"}}>
                       <input class="me-3" type="text" placeholder="Search" value="Search" style={{color: "#004ea2", border: "1px solid #004ea2", width: "49vh", padding: "5px", paddingLeft: "25px"}}/>
-                      <button style={{position: "absolute", right: "120px", width: "200px", borderRadius: "10px"}}>Create new department</button>
+                      <button id='createAccountBtn' style={{position: "absolute", right: "120px"}}>Create new department</button>
                 </form>
                 <nav aria-label="breadcrumb" className='mt-4'>
                 <ol class="breadcrumb">   

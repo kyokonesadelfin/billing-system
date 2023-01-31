@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom'
 import '../sass/submitted_application.scss'
 
 
 export default function ListOfSubmittedApp() {
+
+  const [moreInfo, setMoreInfo] = useState(true);
   
   return (
     <div>
@@ -96,7 +98,7 @@ export default function ListOfSubmittedApp() {
             <li>
               <span id='totalPendingVal' style={{fontSize: '30px'}}>00000000001000</span>
               <span id='totalUnreadVal'>00000000001000</span>
-              <button id='refreshBtn' className='w-25'><span id='refreshBtnTxt'>Refresh</span></button>
+              <button id='refreshBtn'><span id='refreshBtnTxt'>Refresh</span></button>
             </li>
           </ul>
           
@@ -124,7 +126,7 @@ export default function ListOfSubmittedApp() {
               <td>200,000.00</td>
               <td>10 % annually</td>
               <td>Draft</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
             <tr>
               <td>Cavite</td>
@@ -135,7 +137,7 @@ export default function ListOfSubmittedApp() {
               <td>500,000.00</td>
               <td>10 % annually</td>
               <td>In progress</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
             <tr>
               <td>Makati</td>
@@ -146,7 +148,7 @@ export default function ListOfSubmittedApp() {
               <td>1,000,000.00</td>
               <td>10 % annually</td>
               <td>Waiting for approval</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
             <tr>
               <td>Manila</td>
@@ -157,7 +159,7 @@ export default function ListOfSubmittedApp() {
               <td>1,000,000.00</td>
               <td>5 % annually</td>
               <td>Released</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
             <tr>
               <td>Manila</td>
@@ -168,7 +170,7 @@ export default function ListOfSubmittedApp() {
               <td>1,000,000.00</td>
               <td>5 % annually</td>
               <td>Cancelled</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
             <tr className="lastRow">
               <td>Manila</td>
@@ -179,7 +181,7 @@ export default function ListOfSubmittedApp() {
               <td>1,000,000.00</td>
               <td>5 % annually</td>
               <td>Rejected</td>
-              <td></td>
+              <td><i className="fa fa-ellipsis-h moreInfoBtn" onClick = {() => setMoreInfo(!moreInfo)}></i></td>
             </tr>
           </table>
         </div>

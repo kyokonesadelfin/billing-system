@@ -16,7 +16,8 @@ import Access2 from './components/Access2';
 import NewLoanProduct from './components/NewLoanProduct';
 import LoanManagement from './components/LoanManagement';
 import LoanConfiguration from './components/LoanConfiguration';
-import SubmittedApplication from './components/ListOfSubmittedApplication'
+import SubmittedApplication from './components/ListOfSubmittedApplication';
+
 
 function App() {
   return (

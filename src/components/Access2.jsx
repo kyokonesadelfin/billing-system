@@ -129,9 +129,9 @@ function Access2() {
           </div>
         </header>
 
-            <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "170vh", marginLeft: "20px"}}> 
+            <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "160vh", marginLeft: "20px"}}> 
               <section style={{marginBottom: "30vh"}}>
-              <table className="table" style={{width: "160vh"}} id="table-font">
+              <table className="table" style={{width: "150vh"}} id="table-font">
                     <tr>
                       <td className='p-3'>
                         <div className="form-check">
@@ -159,7 +159,7 @@ function Access2() {
                       <td>Active</td>
                       <td>Jan 01,2022 2:40 PM</td>
                       <td>Jan 01,2022 2:40 PM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -173,7 +173,7 @@ function Access2() {
                       <td>Active</td>
                       <td>Dec. 01,2022 2:00 PM</td>
                       <td>Dec. 01,2022 2:00 PM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -187,7 +187,7 @@ function Access2() {
                       <td>Active</td>
                       <td>Feb. 24,2023 10:30 AM</td>
                       <td>Feb. 24,2023 10:30 AM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -201,7 +201,7 @@ function Access2() {
                       <td>Active</td>
                       <td>Jan.14,2022 9:25 AM</td>
                       <td>Jan.14,2022 9:25 AM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                     <tr>
                       <td>
@@ -215,7 +215,7 @@ function Access2() {
                       <td>Active</td>
                       <td>Nov.25,2022 3:35 PM</td>
                       <td>Nov.25,2022 3:35 PM</td>
-                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-2x text-black"></i></a></td>
+                      <td><a href='/#'><i className="fa fa-ellipsis-h fa-lg text-secondary"></i></a></td>
                     </tr>
                   </tbody>
                 </table>

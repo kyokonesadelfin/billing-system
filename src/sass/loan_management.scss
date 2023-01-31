@@ -16,11 +16,6 @@ ul {
      overflow-x: hidden; 
  }
 
- body {
-    position: inherit;
-    z-index: -1;
- }
-
 // Nav
 .navOptions1 {
     .tab1 {
@@ -167,11 +162,11 @@ ul {
     #newLoanBtn {
         padding: 10px 25px 10px 25px;
         margin-bottom: 10px;
+        margin-top: 10px;
         border-radius: 10px;
         background-color: #004ea2;
-        position: relative;
-        bottom: 15px;
-        left: 150px;
+        position: absolute;
+        right: 13vh;
     }   
     #newLoanTxt {
         color: #FFFFFF;

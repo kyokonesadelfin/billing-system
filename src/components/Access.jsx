@@ -81,7 +81,7 @@ function Access() {
            </div>
          </nav>
 
-         <div className="tab-container" style={{marginTop: "100px", marginLeft: "220px"}}>
+         <div className="tab-container">
           <table style={{width: "100%", maxWidth: "200vh", textAlign: "center", lineHeight: "5px"}}>
               <tr style={{height: "40px"}}>
               <td style={{borderRight: "3px solid lightgray"}}>
@@ -107,7 +107,7 @@ function Access() {
           </div>
 
           <div className='row'>
-                <table style={{width: "100%", maxWidth: "60vh", textAlign: "left", position: "absolute", left: "300px", marginTop: "30px"}}>
+                <table id='second_tab'>
                         <tr style={{height: "40px"}}>
                         <td style={{borderRight: "3px solid lightgray"}}>
                               <NavLink id="tab" to="/access" style={{paddingLeft: "30px", paddingRight: "70px", textDecoration: "none", color: "#004ea2"}}><span className='second-word'>R</span>ole</NavLink>
@@ -119,7 +119,7 @@ function Access() {
  
                       </table>
                       <button id='createAccountBtn' style={{position: "absolute", right: "120px", width: "150px", marginTop: "30px"}}>Create new role</button>
-                      <div className='row' style={{marginLeft: "295px", marginTop: "15vh"}}>
+                      <div id='search_form2' className='row'>
                           <form className="d-flex" role="search">
                           <input class="me-3" type="text" placeholder="Search" value="Search" style={{color: "#004ea2", border: "1px solid #004ea2", width: "49vh", padding: "5px", paddingLeft: "25px"}}/>
                           </form>

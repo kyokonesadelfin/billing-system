@@ -166,9 +166,7 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr id='hr_border'/>
             <div className="row d-flex flex-row w-100 p-4">
-
               <div className="col-md-3 d-flex flex-column vertical-align-top p-3">
                 <div class="row g-0" style={{textAlign: "left"}}>
                         <div className="col-md-4 mt-2">
@@ -257,8 +255,7 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr id='hr_border'/>
-            <div className="row d-flex flex-row w-100 p-3">
+            <div id='total-loan-application' className="row d-flex flex-row w-100 p-3 mb-5">
 
             <div className="col-md-3 d-flex flex-column vertical-align-top w-25 p-3">
                 <div class="row g-0" style={{textAlign: "left"}}>
@@ -354,7 +351,6 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr id='hr_border'/>
 
             <div className="row d-flex flex-row w-100 p-4" id='approved_loans'>
               <div className="col-md-2 d-flex flex-column vertical-align-top w-20 p-2">
@@ -519,7 +515,7 @@ class Dashboard extends Component {
 
 
           <section id="card-md4" className="mt-4 p-3" style={{backgroundColor: "white", textAlign: "center"}}>
-            <div className="row d-flex flex-row w-100">
+            <div id='billing' className="row d-flex flex-row w-100 mb-5">
               <div className="col-md-10 d-flex flex-columm vertical-align-top w-90 p-3">
                 <h5 id='dashboard_title'>
                   Billing
@@ -530,7 +526,6 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr style={{border: "4px solid gray"}}/>
             <div className="row d-flex flex-row w-100 h-100 p-2">
               <div className="col-md-3 d-flex flex-column vertical-align-top w-25">
                 <h5>Total Dues Today</h5>
@@ -658,7 +653,7 @@ class Dashboard extends Component {
             className="mt-4 p-4"
             style={{backgroundColor: "white", textAlign: "left"}}
           >
-            <div className="row d-flex flex-row w-100">
+            <div id='toda' className="row d-flex flex-row w-100 mb-5">
               <div className="col-md-10 d-flex flex-columm vertical-align-top w-80">
                 <h5 id='dashboard_title'>
                   TODA / Client
@@ -669,7 +664,6 @@ class Dashboard extends Component {
               </div>
             </div>
 
-            <hr style={{border: "4px solid gray"}}/>
             <div className="row d-flex flex-row w-100 h-100">
               <div className="col-md-6 d-flex flex-column vertical-align-top w-50">
                 <h5>Total TODA/ Organization</h5>

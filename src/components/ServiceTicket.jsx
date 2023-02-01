@@ -84,7 +84,7 @@ function ServiceTicket() {
          </nav>
             </header>
 
-            <main style={{overflowY: "scroll", paddingBottom: "20vh", width: "100%", maxWidth: "173vh", position: "fixed", left: "250px", top: "80px",backgroundColor: "#F2F2F2" }}>
+            <main id='service_ticket'>
                 <div className='container-fluid'>
                    <div className='row d-flex justify-content-left align-items-left' style={{marginTop: "3vh", marginLeft: "0", marginRight: "0"}}>
                    <div className="cards">
@@ -123,7 +123,7 @@ function ServiceTicket() {
                         </div>
                         <div class="col-md-7">
                           <div class="card-body">
-                             <span style={{fontSize: "x-small", float: "right"}}>Satisfied Client</span>
+                             <span style={{fontSize: "x-small", float: "right"}}>Satisfied Client</span><br/>
                               <h1 style={{float: "right"}}>280</h1>
                               <span style={{fontSize: "small", float: "right"}}>Grow rate: <small className="text-success">&#9650; 10.50%</small></span>  
                           </div>
@@ -137,7 +137,7 @@ function ServiceTicket() {
                         </div>
                         <div class="col-md-7">
                           <div class="card-body">
-                             <span style={{fontSize: "x-small", float: "right"}}>Unhappy client</span>
+                             <span style={{fontSize: "x-small", float: "right"}}>Unhappy client</span><br/>
                               <h1 style={{float: "right"}}> 20</h1>
                               <span style={{fontSize: "small", float: "right"}}>Grow rate: <small className="text-success">&#9650; 10.50%</small></span>  
                           </div>
@@ -151,7 +151,7 @@ function ServiceTicket() {
                         </div>
                         <div class="col-md-7">
                           <div class="card-body">
-                             <span style={{fontSize: "x-small", float: "right"}}>In progress</span>
+                             <span style={{fontSize: "x-small", float: "right"}}>In progress</span><br/>
                               <h1 style={{float: "right"}}> 10</h1>
                               <span style={{fontSize: "small", float: "right"}}>Grow rate: <small className="text-success">&#9650; 10.50%</small></span>  
                           </div>
@@ -166,35 +166,35 @@ function ServiceTicket() {
                     <div style={{border: "solid 0px #000000", margin: "10px", paddingTop: "20px", backgroundColor: "white", height: "120vh", paddingLeft: "10px", paddingRight: "10px", boxShadow: "5px 5px 10px #999"}}>
                             <div className='p-3' id="table-font">
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
                                   <label class="form-check-label" for="inlineCheckbox1">Open Ticket (100)</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
                                   <label class="form-check-label" for="inlineCheckbox2">Unassigned Ticket (100)</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" />
                                   <label class="form-check-label" for="inlineCheckbox3">In progress (100)</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3"/>
                                   <label class="form-check-label" for="inlineCheckbox3">Pending (100)</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3"/>
                                   <label class="form-check-label" for="inlineCheckbox3">For Approval (100)</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" style={{border: "1px solid #000"}}/>
+                                  <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option3"/>
                                   <label class="form-check-label" for="inlineCheckbox3">Done (100)</label>
                                 </div>
                             </div>
-                         <div style={{border: "solid 0px #000000", marginTop: "5px",marginLeft: "30px", marginRight: "30px", padding: "0", backgroundColor: "#F2F2F2", height: "100vh", boxShadow: "5px 5px 10px #999"}}>
+                         <div id='inner_box'>
                               <div style={{padding: "20px"}}>
                                 <table className="table" style={{borderBottom: "1px solid black"}} id="table-font">
                                   <thead>
-                                  <span className='fw-bolder' style={{fontSize: "medium"}}>All open tickets</span>
+                                  <span className='fw-bolder'>All open tickets</span>
                                     <tr>
                                       <th scope="col">Reference Key</th>
                                       <th scope="col">Issue Type</th>

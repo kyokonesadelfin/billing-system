@@ -32,7 +32,6 @@ function Navbar() {
           >
             <li className="nav-item" id="li">
               <NavLink
-                className="nav-link active"
                 id="nl"
                 aria-current="page"
                 to="/news"
@@ -43,7 +42,6 @@ function Navbar() {
             </li>
             <li className="nav-item" id="li">
               <NavLink
-                className="nav-link"
                 id="nl"
                 to="/vision"
                 style={{ color: "white" }}
@@ -53,7 +51,6 @@ function Navbar() {
             </li>
             <li className="nav-item" id="li">
               <NavLink
-                className="nav-link"
                 id="nl"
                 to="/login"
                 style={{ color: "white" }}

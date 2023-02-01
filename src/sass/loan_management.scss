@@ -224,7 +224,7 @@ ul {
         font-size: .7rem;
         width: 37%;
         margin-bottom: 20px;
-        border: 2px solid #000000;
+        border: 1px solid #000000;
         p {
             color: #004EA2;
             font-weight: 600;
@@ -233,11 +233,14 @@ ul {
             margin-top: 5px;
         }
         input[type="checkbox"] {
-            margin-right: 10px;
+            margin-right: 0.6em;
+
             accent-color: #000000;   
         }
         label {
             display: inline-block;
+            position: relative;
+            bottom: 2px;
         }
         p {
             margin-left: 30px;  
@@ -259,7 +262,7 @@ ul {
         padding: 10px;
         font-size: 14px;
         font-weight: 600;
-        box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3);
+        border-bottom: 1px solid rgba(0,0,0,0.3);
     }
     th {
         padding: 13px 15px 10px 15px;
@@ -280,5 +283,100 @@ ul {
         font-size: large;
         color: gray;
         cursor: pointer;
+    }
+}
+
+.moreInfoSection {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    position: absolute;
+    width: 40%;
+    top: 48px;
+    right: 110px;
+    z-index: 2;
+    line-height: 2.2rem;
+    .row {
+        #firstColumn {
+            color: #004EA2;
+        }
+        ul:first-child {
+            margin-top: 20px;
+        }
+        span {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1310px),
+screen and (max-height: 1200px)
+{
+    .searchList {
+        #newLoanBtn {
+            position: relative;
+            left: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 1262px),
+screen and (max-height: 1000px)
+{
+
+    .searchList {
+        #newLoanBtn {
+            padding: 10px 20px 10px 20px;
+            position: relative;
+            left: 60px;
+        }
+        #newLoanTxt {
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 500;
+        }
+    }
+
+    .navOptions1 {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: 1200px),
+screen and (max-height: 1200px) 
+{
+    .searchList {
+        #newLoanBtn {
+            padding: 10px 10px 10px 10px;
+            position: relative;
+            left: 30px;
+        }
+        #newLoanTxt {
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .navOptions1 {
+            margin-left: 60px;
+        }
+        #applicantName {
+            width: 150px;
+        }
+        #referenceNo {
+            width: 150px;
+        }
+        #settings {
+            margin-left: 10px;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+        #filters {
+            font-weight: 500;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    }
+
+    .navOptions1 {
+        margin-left: 58px;
     }
 }

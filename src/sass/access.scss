@@ -63,3 +63,41 @@ main {
     max-height: 300vh;
 }
 
+
+@media only screen and (min-width: 1600px) {
+    #second_tab {
+        width: 100%;
+        max-width: 60vh;
+        text-align: left;
+        position: absolute;
+        left: 38vh; 
+        margin-top: 30px;
+    
+    }
+
+    #search_form2 {
+        margin-left: 40vh;
+        margin-top: 13vh;
+    }
+    
+  }
+
+
+  
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    #second_tab {
+        width: 100%;
+        max-width: 60vh;
+        text-align: left;
+        position: absolute;
+        left: 46vh; 
+        margin-top: 30px;
+    
+    }
+
+    #search_form2 {
+        margin-left: 47vh;
+        margin-top: 15vh;
+    }
+    
+  }

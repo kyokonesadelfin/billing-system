@@ -17,6 +17,7 @@ import NewLoanProduct from './components/NewLoanProduct';
 import LoanManagement from './components/LoanManagement';
 import LoanConfiguration from './components/LoanConfiguration';
 import SubmittedApplication from './components/ListOfSubmittedApplication';
+import Billing from './components/Billing';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route exact path='/loan-management' element={<LoanManagement/>}/>
         <Route exact path='/loan-configuration' element={<LoanConfiguration/>}/>
         <Route exact path='/submitted-application' element={<SubmittedApplication/>}/>
+        <Route exact path='/billing' element={<Billing/>}/>
       </Routes>
     </>
   );

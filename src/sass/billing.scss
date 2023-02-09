@@ -1,0 +1,30 @@
+.billingTable {
+    position: relative;
+    top: 100px;
+    margin-top: 0;
+    left: 50vh;
+    margin-bottom: 200px;
+    margin-right: 50px; 
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    td {
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    th {
+        padding: 13px 15px 10px 15px;
+        width: 300px;
+        font-size: 14px;
+    }
+
+    .tableColumnHeads {
+        color: #6E6E6E;
+        border-bottom: 2px solid #004EA2;
+        padding: 50px;
+    }
+    tr:last-child{
+        border-bottom: 2px solid #004EA2;
+        margin-bottom: 500px;
+    }
+}

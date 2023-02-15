@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useMemo } from 'react'
-import Pagination from './Pagination'
-import SearchIcon from '@mui/icons-material/Search';
+import React, { useEffect, useState } from 'react'
+// import Pagination from './Pagination'
+// import SearchIcon from '@mui/icons-material/Search';
 import { CircularProgress } from '@mui/material';
 import Switches from "./Switches";
 import '../sass/billing.scss'
@@ -8,28 +8,65 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column'
 import { FilterMatchMode } from 'primereact/api';
 import { InputText } from 'primereact/inputtext';
-import { Paginator } from 'primereact/paginator';
 import 'primereact/resources/themes/lara-light-indigo/theme.css'
 import 'primereact/resources/primereact.min.css'
 
 function Billing() {
     const [device, setDevice] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [dataPerPage] = useState(10);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [dataPerPage] = useState(10);
+    const [bcName, setBcName] = useState([])
     const [filters, setFilters] = useState({
         global: { value: null, matchmode: FilterMatchMode.CONTAINS }
     })
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [query, setQuery] = useState('');
+    const [activationStatus, setActivationStatus] = useState([]);
 
     useEffect(() => {
 
-        let token = 'e357da85ecec412ab0e7c5ecd1dccccc';
+        let token = '9e2ccceb14d14595a7ec01cc4789ffb3';
         setLoading(true);
 
         // Get All Devices API
-        fetch(`https://api.cloud-gms.com/v3/devices`, {
+        const fetchData = async () => {
+            await fetch(`https://api.cloud-gms.com/v3/devices?bc%5B%5D=10023650`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err)
+                })
+                .then(data => {
+                    setDevice(data.data);
+                    setLoading(false);
+                });
+        }
+
+        fetchData();
+
+        const fetchMoreData = async () => {
+            await fetch(`https://api.cloud-gms.com/v2/bc`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setBcName(data.data);
+                })
+        }
+
+        fetchMoreData();
+
+        fetch(`https://api.cloud-gms.com/v3/devices/status?bc%5B%5D=10023650`, {
+            method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -39,29 +76,27 @@ function Billing() {
                 console.error('Request failed', err)
             })
             .then(data => {
-                console.log(data)
-                setDevice(data.data);
-                setLoading(false);
-            });
-        // document.getElementById('example').DataTable();
+                setActivationStatus(data.data)
+            })
+
     }, []);
 
-    const onGlobalFilterChange = (e) => {
-        const value = e.target.value;
-        let _filters = { ...filters };
-        _filters['global'].value = value;
+    // const onGlobalFilterChange = (e) => {
+    //     const value = e.target.value;
+    //     let _filters = { ...filters };
+    //     _filters['global'].value = value;
 
-        setFilters(_filters);
-        setGlobalFilterValue(value);
-    }
+    //     setFilters(_filters);
+    //     setGlobalFilterValue(value);
+    // }
 
-    function onSubmit(e) {
-        e.preventDefault();
+    // function onSubmit(e) {
+    //     e.preventDefault();
 
-        device.filter((device) => {
-            return query.length > 2 ? (query.toLowerCase() === '' ? device : device.bcId.toString().toLowerCase().includes(query) || query.toLowerCase() === '' ? device : device.mobileNo.toString().includes(query)) : device
-        })
-    }
+    //     device.filter((device) => {
+    //         return query.length > 2 ? (query.toLowerCase() === '' ? device : device.bcId.toString().toLowerCase().includes(query) || query.toLowerCase() === '' ? device : device.mobileNo.toString().includes(query)) : device
+    //     })
+    // }
 
     // Get Current Data
     // const indexOfLastData = currentPage * dataPerPage;
@@ -69,15 +104,32 @@ function Billing() {
     // const currentDeviceData = device.slice(indexOfFirstData, indexOfLastData);
 
     // // Change page
-    const paginate = pageNumber => setCurrentPage(pageNumber);
+    // const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    const switchComponent = (device) => {
+    const switchComponent = (activationStatus) => {
+
         return (
             <>
-                <Switches data={device} />
+                <Switches data={activationStatus} />
             </>
         );
     };
+
+    // const bcNameComponent = () => {
+    //     return (
+    //         <>
+    //             {
+    //                 bcName.map((bc) => {
+    //                     return (
+    //                         <tr key={bc.id}>
+    //                             <td>{bc.name}</td>
+    //                         </tr>
+    //                     )
+    //                 })
+    //             }
+    //         </>
+    //     );
+    // };
 
     return (
 
@@ -164,29 +216,26 @@ function Billing() {
                         <Paginator rows={10}
                             rowsPerPageOptions={[10, 20, 100]}
                             totalRecords={device.length} /> */}
-                        
+
                         <div style={{ width: '70%', margin: "auto", position: "relative", marginTop: "10vh", height: "50px" }}>
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
+                            <span className="p-input-icon-left">
+                                <i className="fa fa-search" aria-hidden="true"></i>
+                                <InputText placeholder="Search" />
+                            </span>
+
 
                             <DataTable
                                 // onChange={(e) => setQuery(e.target.value)}
-                                value={device}
+                                value={activationStatus}
                                 paginator rows={10}
-                                rowsPerPageOptions={[10, 20, 100]}
-                                totalRecords={10}
+                                rowsPerPageOptions={[10, 20]}
                                 filter={filters}
                             >
-                                <Column field='bcId' header='BC ID' sortable />
-                                <Column field='mobileNo' header='Mobile No' sortable />
-                                <Column field='status' header='Status' sortable />
+
+                                <Column field='deviceId' header='Device ID' sortable />
+                                <Column field='activation.currentStatus' header='Status' sortable />
                                 <Column field={switchComponent} header='Activate/Deactivate' />
                             </DataTable>
-                            {/* <Paginator first={first} rows={rows} totalRecords={120} rowsPerPageOptions={[10, 20, 30]} onPageChange={onPageChange} />
-                            <Pagination
-                                dataPerPage={dataPerPage}
-                                totalData={device.length}
-                                paginate={paginate}
-                            /> */}
                         </div>
                     </>
             }

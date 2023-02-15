@@ -71,10 +71,10 @@ export default function LoanManagement() {
                 </NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/#">
+                <NavLink className="nav-link text-white" to="/billing">
                   <img src='/assets/headache.png' alt="house" width="20" height="20" className='me-3 mb-2' />
                   Billing
-                </a>
+                </NavLink>
               </li>
               <li class="nav-item">
                 <NavLink className="nav-link" to="/admin">
@@ -509,10 +509,7 @@ export default function LoanManagement() {
             </tr>
           </table>
         </div>
-
       </div>
-
-
     </div>
   )
 }

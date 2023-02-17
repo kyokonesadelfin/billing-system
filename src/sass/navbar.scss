@@ -1,43 +1,3 @@
-@media (max-width: 768px) and (min-width: 320px){
-  .collapse {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 250px;
-    text-align: center;
-    background-color: #004ea2;
-    padding: 30px;
-    box-sizing: border-box;
-  }
-  .collapse ul {
-    margin: 0;
-    padding: 0;
-    float: left;
-  }
-  .collapse li {
-    margin: 0;
-  }
-  .collapse #nl {
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
-    color: #333;
-    text-decoration: underline;
-  }
-
-  .navbar-toggler-icon {
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 999;
-  }
-
-}
-
-
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 728px) and (max-width: 1020px) {
@@ -128,10 +88,4 @@
 
 #nl:hover {
   text-decoration: underline;
-}
-
-.navbar-toggler-icon {
-  position: fixed;
-  top: 10px;
-  right: 10px;
 }

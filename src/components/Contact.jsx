@@ -17,7 +17,7 @@ function Contact() {
               />
             </div>
             <div className="col-md-3 d-flex flex-column w-30 mt-5">
-              <NavLink to="/login" className="text-white fw-bold">
+              <NavLink id="contact_login" to="/login" className="text-dark">
                 Login
               </NavLink>
             </div>

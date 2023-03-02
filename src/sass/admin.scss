@@ -1,12 +1,5 @@
-ul {
-    li {
-        .nav-link:hover {
-            font-size: large;
-            font-weight: 600;
-        }
-    }
 
- } 
+
 
  #top-nav {
     text-decoration: none;
@@ -97,9 +90,7 @@ main {
     padding-bottom: 10px;
 }
 
-.form-control {
-    border: 2px solid rgb(46, 83, 231) !important;
-}
+
 
 .profile-name {
     font-size: 13px;
@@ -113,39 +104,11 @@ main {
     border: 3px solid #035ec1;
 }
 
-.nav-link {
-    text-decoration: none !important;
-    color: #fff !important;
-}
-
 .third-word {
     border-bottom: 1px solid rgb(226, 223, 242) !important;
     padding-bottom: 5px;
 }
 
-
-// .navbar {
-//     border: 1px solid #004ea2;
-//     padding: 10px;
-// }
-
-div > .navbar {
-    border-bottom: 2px solid #004ea2;
-    border-right: 2px solid #004ea2;
-    position: relative;
-    z-index: 1;
-}
-
-.navbar {
-    border-bottom: 2px solid #004ea2;
-    border-right: 2px solid #004ea2;
-}
-
-.nav-list {
-    text-decoration: none !important;
-    color: #fff !important;
-
-}
 
 .fourth-word {
 
@@ -181,3 +144,20 @@ div > .navbar {
     color: #fff;
     font-weight: 600;
 }
+
+@media only screen and (min-width: 1600px) {
+    #search_form {
+        margin-left: 40vh;
+        margin-top: 30px;
+    }
+  }
+
+
+  
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    #search_form {
+        margin-left: 45vh;
+        margin-top: 40px;
+    }
+    
+  }

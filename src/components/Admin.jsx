@@ -81,7 +81,7 @@ function Admin() {
            </div>
          </nav>
 
-         <div className="tab-container" style={{marginTop: "100px", marginLeft: "220px"}}>
+         <div className="tab-container">
           <table style={{width: "100%", maxWidth: "200vh", textAlign: "center", lineHeight: "5px"}}>
               <tr style={{height: "40px"}}>
               <td style={{borderRight: "3px solid lightgray"}}>
@@ -106,7 +106,7 @@ function Admin() {
             </table>
           </div>
 
-          <div className='row' style={{marginLeft: "295px", marginTop: "30px"}}>
+          <div id='search_form' className='row'>
                 <form className="d-flex" role="search" style={{display: "inline"}}>
                       <input class="me-3" type="text" placeholder="Search" value="Search" style={{color: "#004ea2", border: "1px solid #004ea2", width: "49vh", padding: "5px", paddingLeft: "25px"}}/>
                       <img src='/assets/settings.png' alt='settings' width="30" height="30" className='mt-1'/>

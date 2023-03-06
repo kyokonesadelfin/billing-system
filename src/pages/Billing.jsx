@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import ReactPaginate from "react-paginate";
 import { CircularProgress } from '@mui/material';
-import Switches from "./Switches";
+import Switches from "../components/Switches";
+import DrivingAndMileageTimeChart from '../components/DrivingAndMileageTime';
 import '../sass/billing.scss'
 import { InputText } from 'primereact/inputtext';
 import { Modal } from 'bootstrap';
@@ -11,18 +12,19 @@ function Billing() {
     const [loading, setLoading] = useState(false);
     const [dataPerPage] = useState(10);
     const [pageNumber, setPageNumber] = useState(0);
-    const [bcName, setBcName] = useState([])
+    const [bcName, setBcName] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [companyName, setCompanyName] = useState('AEON AEON CREDIT SERVICE (PHILIPPINES) INC.');
     const [activationStatus, setActivationStatus] = useState([]);
-    const bootstrap = { Modal }
+    const bootstrap = { Modal };
     const modalRef = useRef();
     // Combine the two arrays to access VIN(Vehicle Name) property of Get All Devices Array
     const combinedArrays = activationStatus.map((item, i) => Object.assign({}, item, device[i]));
     const [filterActivationStatus, setFilterActivationStatus] = useState([...combinedArrays]);
-    const [isFiltered, setIsFiltered] = useState(false)
-    const [isCategoryFiltered, setIsCategoryFiltered] = useState(false)
+    const [isFiltered, setIsFiltered] = useState(false);
+    const [isCategoryFiltered, setIsCategoryFiltered] = useState(false);
     const [specificCategoryArray, setSpecificCategoryArray] = useState([]);
+    const [drivingandmileagetimeArray, setDrivingAndMileageTimeArray] = useState([]);
 
     useEffect(() => {
 
@@ -78,83 +80,67 @@ function Billing() {
 
                 })
 
+            await fetch(`https://api.cloud-gms.com/v3/stats/devices/10145276/reports?startDate=2023-02-04&endDate=2023-03-05&limit=100`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err)
+                })
+                .then(data => {
+                    setDrivingAndMileageTimeArray(data.data)
+                })
+
         };
+
+
 
         fetchAllData();
         setIsCategoryFiltered(true)
 
     }, [])
-    console.log(companyName)
+
     useEffect(() => {
         switch (companyName) {
             case 'AEON AEON CREDIT SERVICE (PHILIPPINES) INC.':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10000005));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'GMS4W / GLOBAL MOBILITY SERVICE PHILIPPINES, INC.':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023601));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'GMSF-LZD / GMS FINANCE - LAZADA':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023626));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'GMSF4W / GMS FINANCE - 4 WHEELS':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023618));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'GMSPF / GMS FINANCE PHILIPPINES, INC.':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023612));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'GMSP / GMS/BASIS FINANCE':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10000007));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'NB / NETBANK':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023605));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
             case 'AC4W / AEON CREDIT SERVICE (PHILIPPINES) INC.':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10000030));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
+
                 break;
             case 'GMSPH-TECH':
                 setSpecificCategoryArray(combinedArrays.filter(data => data.bcId === 10023650));
-                setFilterActivationStatus(combinedArrays);
-                setSearchValue('');
-                setIsCategoryFiltered(true);
-                setIsFiltered(false);
                 break;
         }
+        setFilterActivationStatus(combinedArrays);
+        setSearchValue('');
+        setIsCategoryFiltered(true);
+        setIsFiltered(false);
+        setPageNumber(0);
     }, [companyName])
 
-    console.log(filterActivationStatus.length)
-    console.log(specificCategoryArray.length)
     // Get Current Data
     const pagesVisited = pageNumber * dataPerPage;
 
@@ -163,20 +149,16 @@ function Billing() {
 
     // Counts the filtered search results that will be displayed under the data table
     const searchCount = Math.ceil(specificCategoryArray.length);
-
-    console.log(specificCategoryArray.length)
-
     // Search function using Device Id or Vehicle Name(VIN)
     function searchFilter(e) {
         e.preventDefault();
-        console.log(combinedArrays)
         setFilterActivationStatus(specificCategoryArray.filter((data) => {
             if (searchValue === '') {
                 setIsFiltered(false);
                 setIsCategoryFiltered(false);
                 return data;
-            } else if (data.deviceId.toString().toLowerCase().includes(searchValue.toLowerCase()) || data.tags.VIN.toLowerCase().includes(searchValue.toLowerCase())
-            ) {
+            } else if (data.deviceId.toString().toLowerCase().includes(searchValue.toLowerCase())
+                || data.tags.VIN.toLowerCase().includes(searchValue.toLowerCase())) {
                 return data;
             }
             setIsFiltered(true);
@@ -199,9 +181,11 @@ function Billing() {
 
     // Handle PageChange in table pagination
     const handlePageChange = ({ selected }) => {
-        setPageNumber(selected);
+        setPageNumber(selected)
     };
 
+    console.log(activationStatus)
+    
     // Show Map Modal
     const showModal = () => {
         const modalEle = modalRef.current;
@@ -210,8 +194,9 @@ function Billing() {
             keyboard: false
         })
         bsModal.show();
+        console.log(specificCategoryArray[0].deviceId)
     }
-
+    
     // Hide Map Modal
     const hideModal = () => {
         const modalEle = modalRef.current;
@@ -222,7 +207,6 @@ function Billing() {
     // Show Playback Button in Map Modal
     const showPlayback = (e) => {
         e.preventDefault();
-        console.log('Hehe')
     }
 
     return (
@@ -251,6 +235,18 @@ function Billing() {
                                         <iframe id='googleMap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1587818542745!5m2!1sen!2sin" width="100%" height="450" frameborder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
                                     </div>
                                     <div className="modal-footer">
+                                        <DrivingAndMileageTimeChart drivingandmileagetime={drivingandmileagetimeArray} />
+                                        {
+                                            // specificCategoryArray.map((device) => {
+                                            //     return (
+                                            //         <div key={device.deviceId} style={{ fontSize: '.8em', textAlign: 'center' }}>
+                                            //             <span>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span>{device.activation.updatedAt}</span></span>
+                                            //             <span>{device.lastCommunicatedAt}</span>
+                                            //         </div>
+                                            //     )
+                                            // })
+                                            
+                                        }
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={hideModal}>Close</button>
                                         <button type="button" className="btn btn-primary" onClick={showPlayback}>Show Playback</button>
                                     </div>
@@ -266,7 +262,7 @@ function Billing() {
                                     placeholder="Search for..."
                                     value={searchValue}
                                     onChange={(e) => {
-                                        handlePageChange({ selected: 0 });
+                                        handlePageChange({ selected: pageNumber });
                                         setSearchValue(e.target.value);
                                     }}
                                 />
@@ -349,33 +345,33 @@ function Billing() {
                                                 </tr>
                                         )
                                     }
-
                                     {loading}
                                 </tbody>
                             </table>
                             <div>
                                 {
-                                    
+
                                     combinedArrays.length > 0 && filterActivationStatus.length > 0 && specificCategoryArray.length > 0
-                                    ? 
-                                    <>
-                                    Showing results of 
-                                    {
-                                        isFiltered 
-                                        ?  " " + filterActivationStatus.length + " " 
-                                        :   (
-                                            isCategoryFiltered  
-                                                ? " " + searchCount + " "
-                                                : " " + combinedArrays.length)+ " "} 
-                                                out of {specificCategoryArray.length}
-                                    </>
-                                    :
-                                    ''
-                                    
+                                        ?
+                                        <>
+                                            Showing results of
+                                            {
+                                                isFiltered
+                                                    ? " " + filterActivationStatus.length + " "
+                                                    : (
+                                                        isCategoryFiltered
+                                                            ? " " + searchCount + " "
+                                                            : " " + combinedArrays.length) + " "}
+                                            out of {specificCategoryArray.length}
+                                        </>
+                                        :
+                                        ''
+
                                 }
                             </div>
                             <ReactPaginate
-                                marginPagesDisplayed={5}
+                                forcePage={pageNumber}
+                                marginPagesDisplayed={2}
                                 pageRangeDisplayed={2}
                                 previousLabel={"<"}
                                 nextLabel={">"}

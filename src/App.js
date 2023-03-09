@@ -1,21 +1,21 @@
 import './App.scss';
 import Sidenav from './components/Sidenav';
 import { Route, Routes  } from 'react-router-dom';
-import Admin from './components/Admin';
-import Dashboard from './components/Dashboard';
-import Contact from './components/Contact';
-import Branch from './components/Branch';
-import Department from './components/Department';
-import Position from './components/Position';
-import Access from './components/Access';
-import Operation from './components/Operation';
-import ServiceTicket from './components/ServiceTicket';
-import Access2 from './components/Access2';
-import NewLoanProduct from './components/NewLoanProduct';
-import LoanManagement from './components/LoanManagement';
-import LoanConfiguration from './components/LoanConfiguration';
-import SubmittedApplication from './components/ListOfSubmittedApplication';
-import Billing from './components/Billing';
+import Admin from './pages/Admin';
+import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contact';
+import Branch from './pages/Branch';
+import Department from './pages/Department';
+import Position from './pages/Position';
+import Access from './pages/Access';
+import Operation from './pages/Operation';
+import ServiceTicket from './pages/ServiceTicket';
+import Access2 from './pages/Access2';
+import NewLoanProduct from './pages/NewLoanProduct';
+import LoanManagement from './pages/LoanManagement';
+import LoanConfiguration from './pages/LoanConfiguration';
+import SubmittedApplication from './pages/ListOfSubmittedApplication';
+import Billing from './pages/Billing';
 import LandingPage from './landing_page/LandingPage';
 
 

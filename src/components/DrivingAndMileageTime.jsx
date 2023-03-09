@@ -52,7 +52,6 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
             y: {
                 display: true,
                 min: 0,
-                max: 100,
                 ticks: {
                     callback: function (value) {
                         return value + ' km';
@@ -66,13 +65,17 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
                 min: 0,
                 max: 10,
                 ticks: {
-                    callback: function (value, index, values) {
-                        return '' + value;
+                    callback: function (value) {
+                        return '' + value + ' h';
                     },
                     stepSize: 2,
+                    maxTicksLimit: 6,
                     beginAtZero: true
                 },
                 position: 'right',
+                grid: {
+                    drawOnChartArea: false,
+                },
             },
             x: {
                 ticks: {
@@ -90,7 +93,8 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
     }
 
     return (
-        <div style={{ height: '40vh', width: '100%' }}>
+        <div style={{ height: '30vh', width: '100%' }}>
+            <h3></h3>
             <Line
                 data={data}
                 options={options}

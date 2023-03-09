@@ -27,7 +27,6 @@ function Billing() {
     const [drivingandmileagetimeArray, setDrivingAndMileageTimeArray] = useState([]);
 
     useEffect(() => {
-
         const fetchAllData = async () => {
 
             setLoading(true);

@@ -26,7 +26,7 @@ const Carousel = ({ images, interval = 9000 }) => {
     return () => clearInterval(intervalId);
   }, [index, images.length, interval]);
 
-  return <Image src={images[index]} />;
+  return <Image src={images[index]}/>;
 };
 
 export default Carousel;

@@ -29,7 +29,6 @@ function Footer() {
           </div>
         </section>
 
-
         <section>
           <MDBContainer className='text-center text-md-start mt-5' style={{ fontSize: "12px" }}>
             <MDBRow className='mt-3'>

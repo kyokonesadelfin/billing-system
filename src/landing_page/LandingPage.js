@@ -137,10 +137,8 @@ const LandingPage = () => {
           </Form>
         </Navbar.Collapse>
       </Navbar> */}
-
-
+      
       <NavbarMenu />
-
 
       <section>
         <div className='landing-page-cover'>

@@ -5,6 +5,9 @@ import LandingPage from './landing_page/LandingPage';
 import LoginForm from './login_page/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
+import LoginForm from './login_page/LoginForm';
+import NotFound from './pages/NotFound';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -12,6 +15,10 @@ function App() {
     <>
       <Routes>
         <Route exact path='/billing' element={<Billing/>}/>
+        <Route exact path='/' element={<LandingPage/>}/>
+        <Route exact path='/login' element={<LoginForm/>}/>
+        <Route path='*' element={<NotFound/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={<LoginForm/>}/>
         <Route path='*' element={<NotFound/>} />

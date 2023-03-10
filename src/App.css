@@ -4,282 +4,685 @@
     box-sizing: border-box;
 }
 
-  html {
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 2px;
+}
+
+.sidebar-nav li {
+  text-indent: 15px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-left: red 2px solid;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+@media (min-width: 2400px) {
+  #wrapper {
+    padding-left: 250px;
   }
-  
-  /* MoveArrow.css */
-  #arrow-button {
-    background-color: #0B1CFB;
-    color: #F6F9F9;
-    border: 1px solid #f4f1f1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    font-family: "Euclid WU","Noto Sans",sans-serif;
-    width: 260px; 
-    height: 50px;
-    text-align: left;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-  }o
-  
-  #arrow-button:hover {
-    color: #efe9e9;
-    font-size: 17px;
+  .fixed-brand {
+    width: 250px;
   }
-  
-  
-  #arrow-button {
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+  #sidebar-wrapper {
+    width: 250px;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper {
+    width: 50px;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper:hover {
+    width: 250px;
+  }
+  #page-content-wrapper {
+    padding: 20px;
     position: relative;
-    display: inline-block;
-    padding: 10px 20px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
-  
-  #arrow-button:hover .arrow {
-    animation: arrow-animation 1s linear infinite;
-    transform: translateY(-10%);
-  }
-  
-  .arrow {
-    position: absolute;
-    top: 17%;
-    right: 10px;
-    font-size: 20px;
-  }
-  
-  @keyframes arrow-animation {
-    0% {
-      transform: translateX(0) translateY(0%);
-    }
-    100% {
-      transform: translateX(15px) translateY(0%);
-    }
-  }
-  
-  /* For More Info Button */
-  
-  #for-more-info-btn {
-    background-color: #0B1CFB;
-    color: #F6F9F9;
-    border: 1px solid #f4f1f1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    font-family: "Euclid WU","Noto Sans",sans-serif;
-    width: 260px; 
-    height: 50px;
-    text-align: left;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-  }
-  
-  #for-more-info-btn:hover {
-    background-color: #1000a3;
-    color: #efe9e9;
-    font-size: 17px;
-  }
-  
-  
-  #for-more-info-btn {
+  #wrapper.toggled #page-content-wrapper {
     position: relative;
-    display: inline-block;
-    padding: 10px 20px;
+    margin-right: 0;
+    padding-left: 250px;
   }
-  
-  #for-more-info-btn:hover .arrow-icon {
-    animation: arrow-animation 1s linear infinite;
-    transform: translateY(-10%);
-  }
-  
-  .arrow-icon {
-    position: absolute;
-    top: 17%;
-    right: 10px;
-    font-size: 20px;
-  }
-  
-  @keyframes arrow-animation {
-    0% {
-      transform: translateX(0) translateY(0%);
-    }
-    100% {
-      transform: translateX(15px) translateY(0%);
-    }
-  }
-  
-  
-  /* CompanyShareholders.css */
-  
-  .companyshareholders-image {
-    opacity: 1;
-  }
-  
-  
-  
-  .companyshareholders-image {
-    width: 500px;
-    height: 500px;
-    transition: all 0.1s ease-in-out;
-  }
-  
-  
-  
-  /* css for Imagecarousel */
-  
-  
-  .landing-page-cover {
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .landing-page-cover {
+  #wrapper.toggled-2 #page-content-wrapper {
     position: relative;
+    margin-right: 0;
+    margin-left: -200px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    width: auto;
   }
-  
-  .overlay-text-cover {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-family: "Euclid WU","Noto Sans",sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
+}
+
+/* MoveArrow.css */
+/* #arrow-button {
+  background-color: #0b1cfb;
+  color: #f6f9f9;
+  border: 1px solid #f4f1f1;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  width: 260px;
+  height: 50px;
+  text-align: left;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+
+#arrow-button:hover {
+  color: #efe9e9;
+  font-size: 17px;
+}
+
+#arrow-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+#arrow-button:hover .arrow {
+  animation: arrow-animation 1s linear infinite;
+  transform: translateY(-10%);
+}
+
+.arrow {
+  position: absolute;
+  top: 17%;
+  right: 10px;
+  font-size: 20px;
+}
+
+@keyframes arrow-animation {
+  0% {
+    transform: translateX(0) translateY(0%);
   }
-  
-  /* testimonials */
-  
-  
-  .testimonials-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  100% {
+    transform: translateX(15px) translateY(0%);
   }
-  
-  .testimonial {
-    width: 400px;
-    margin: 20px;
-    text-align: center;
+} */
+
+
+
+/* css for Imagecarousel */
+
+.landing-page-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page-cover {
+  position: relative;
+}
+
+.overlay-text-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: "Roboto", "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro", Verdana, "メイリオ", Meiryo, Osaka,
+    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 7rem;
+}
+
+/* testimonials */
+
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial {
+  width: 400px;
+  margin: 20px;
+  text-align: center;
+}
+
+.testimonial img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.testimonial h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: Proxima Nova, Arial, sans-serif;
+  color: #004ea2;
+  font-style: italic;
+}
+
+.testimonial p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: Proxima Nova, Arial, sans-serif;
+}
+
+/* navbar */
+
+@media (min-width: 768px) {
+  .justify-content-md-end {
+    justify-content: left;
   }
-  
-  .testimonial img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  #navbar-main-logo {
+    margin-left: 90px;
   }
-  
-  .testimonial h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-family: Proxima Nova, Arial, sans-serif;
-    color: #004ea2;
-    font-style: italic;
+}
+
+@media (min-width: 768px) {
+  #navbar-search-form {
+    margin-right: 60px;
   }
-  
-  .testimonial p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    font-family: Proxima Nova, Arial, sans-serif;
+} 
+
+
+#header1,
+#header2,
+#header3 {
+  margin-bottom: 1em;
+  padding-right: 10px;
+  text-shadow: 2px 2px 4px #666;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+}
+
+#sub-header {
+  font-size: 85px;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px #666;
+  font-family: "Roboto", sans-serif;
+}
+
+/* navbar menu hover */
+
+.nav-link-hover {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-out;
+}
+
+.nav-link-hover:hover {
+  color: #fbfcfc;
+}
+.nav-link-hover {
+  position: relative;
+  text-decoration: none;
+  color: #fbfcfc;
+}
+
+.nav-link-hover::before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #fbfcfc;
+  transition: width 0.3s ease-out;
+}
+
+.nav-link-hover:hover::before {
+  width: 100%;
+}
+
+
+/* new */
+
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #F8FCFC !important;
+  margin: 0 20px;
+}
+
+
+
+
+/* Youtube  */
+
+.video-container-youtube {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh; /* Set height to fill entire viewport */
+}
+
+/* Login  Form CSS */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 83vh;
+  background-color: #DEDFE4;
+  margin-top: 50px;
+}
+ 
+.login-form-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 80vh;
+}
+
+.form-login {
+  max-width: 400px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+}
+
+
+
+#login-label {
+  margin-bottom: 0.5rem;
+}
+
+#login-input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+#username {
+  width: 75%;
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#password {
+  width: 75%;
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#label_username, #label_password {
+  display: inline-block;
+  margin-bottom: 5px;   
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#login-button {
+  width: 75%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+#login-button:hover {
+  background-color: #3e8e41;
+}
+
+#h1_login {
+  margin-bottom: 20px;
+  color: #B4C0C0;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Google sign in */
+.separator {
+  margin: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.google-signin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.google-signin-button {
+  margin-right: 10px;
+}
+
+.google-signin-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-style: italic;
+  color: #666;
+}
+
+/* Logout Button */
+
+#logout-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#logout-button:hover {
+  background-color: #3e8e41;
+}
+
+#logout-button:active {
+  background-color: #235b27;
+}
+
+/* Footer */
+#footer-head-menu {
+  font-size: 13.5px;
+}
+
+.text-reset {
+  text-decoration: none;
+  font-size: 12.5px;
+}
+
+.text-reset:hover {
+  text-decoration: underline;
+}
+
+.footer-menu {
+  text-decoration: none;
+  color: #837c7c;
+  font-size: 12.5px;
+}
+
+.footer-menu:hover {
+  color: #837c7c;
+  text-decoration: underline;
+}
+
+/* Sidenav */
+
+.icon-bar {
+  width: 65px; /* Set a specific width */
+  background-color: #4169E1; 
+  height: 745px;
+}
+
+.icon-bar a {
+  display: block; /* Make the links appear below each other instead of side-by-side */
+  text-align: center; /* Center-align text */
+  padding: 14px; /* Add some padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 17px; /* Increased font-size */
+}
+
+.icon-bar button {
+  display: block; /* Make the links appear below each other instead of side-by-side */
+  text-align: center; /* Center-align text */
+  padding: 14px; /* Add some padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 17px; /* Increased font-size */
+}
+
+#expanded-side-menu {
+  text-align: left;
+  display: block; /* Make the links appear below each other instead of side-by-side */
+  padding: 14px; /* Add some padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 17px; /* Increased font-size */
+}
+
+.icon-bar a:hover {
+  background-color: #1E90FF; /* Add a hover color */
+  color: white;
+}
+
+.icon-bar button:hover {
+  background-color: #1E90FF; /* Add a hover color */
+}
+
+.active-icon {
+  background-color: #1A5276; /* Add an active/current color */
+}
+
+#expanded-menu-list {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+#sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 10px;
+}
+
+@media screen and (max-height: 450px) {
+  #sidenav {padding-top: 15px;}
+  #sidenav a {font-size: 18px;}
+}
+
+ /* Small screens */
+@media only screen and (max-width: 600px) {
+  #sidenav {
+    width: 65px;
   }
-  
-  /* navbar */
-  
-  @media (min-width: 768px) {
-    .justify-content-md-end {
-      justify-content: center !important;
-  
-    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 601px) {
+  #sidenav {
+    width: 250px;
   }
-  
-  
-  @media (min-width: 768px) {
-    #navbar-main-logo {
-      margin-left: 90px;
-    }
+}
+
+/* Dropdown menu */
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #1E90FF;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.dropdown-btn {
+  padding: 6px 8px 6px 12px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #1E90FF;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-container a{
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#sidenav-dropdown {
+  font-size: 12px;
+}
+
+#sidenav-dropdown:hover {
+  text-decoration: underline;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #1E90FF;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: blue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+
+/* main content */
+
+#main  {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+.topnav {
+  transition: margin-left .5s;
+  padding: 5px 0px 0px 10px;
+}
+
+/* Loading */
+
+.loading {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 800;
+  /* font-family: Source Sans Pro, Consolas, "Courier New", monospace; */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.loading span {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @media (min-width: 768px) {
-    #navbar-search-form {
-      margin-right: 90px;
-    }
+  100% {
+    transform: rotate(360deg);
   }
-  
-  
-  body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    background-color: #f7f7f7;
-    }
-    
-    
-    #header1, #header2, #header3 {
-    margin-bottom: 1em;
-    padding-right: 10px;
-    text-shadow: 2px 2px 4px #666;
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 200;
-    }
-  
-    #sub-header {
-      font-size: 85px;
-      font-weight: 500;
-      text-shadow: 2px 2px 4px #666;
-      font-family: 'Roboto', sans-serif;
-    }
-    
-    
-  /* navbar menu hover */
-  
-  .nav-link-hover {
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease-out;
-  }
-  
-  .nav-link-hover:hover {
-    color: #FBFCFC;
-  }.nav-link-hover {
-    position: relative;
-    text-decoration: none;
-    color: #FBFCFC;
-  }
-  
-  .nav-link-hover::before {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: #FBFCFC;
-    transition: width 0.3s ease-out;
-  }
-  
-  .nav-link-hover:hover::before {
-    width: 100%;
-  }
-   
-  /* Youtube  */
-  
-  .video-container-youtube {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Set height to fill entire viewport */
-  }
-  
-  
+}
+
+
+
+
+
+

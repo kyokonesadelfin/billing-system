@@ -58,7 +58,7 @@ function Dashboard() {
               <i className="fa fa-list-alt"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none' }}>
-              <a href="/billing" id='sidenav-dropdown'>Vehicles</a>
+              <a href="/#" id='sidenav-dropdown'>Vehicles</a>
             </div>
 
             <button
@@ -68,7 +68,7 @@ function Dashboard() {
               <i className="fa fa-map-o"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
-              <a href="/billing" id='sidenav-dropdown'>Vehicle</a>
+              <a href="/#" id='sidenav-dropdown'>Vehicle</a>
               <a href="/#" id='sidenav-dropdown'>Organization</a>
               <a href="/#" id='sidenav-dropdown'>TODA</a>
               <a href="/#" id='sidenav-dropdown'>Sales Person</a>
@@ -120,7 +120,7 @@ function Dashboard() {
               <i className="fa fa-list-alt"><span id='expanded-menu-list'>Billing Operations</span></i><i className="fa fa-caret-down mt-2"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none'}}>
-              <a href="/billing" id='sidenav-dropdown'>Vehicles</a>
+              <a href="/#" id='sidenav-dropdown'>Vehicles</a>
             </div>
 
             <button
@@ -131,7 +131,7 @@ function Dashboard() {
               <i className="fa fa-map-o"><span id='expanded-menu-list'>Catalog</span></i><i className="fa fa-caret-down mt-2"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
-            <a href="/billing" id='sidenav-dropdown'>Vehicle</a>
+            <a href="/#" id='sidenav-dropdown'>Vehicle</a>
               <a href="/#" id='sidenav-dropdown'>Organization</a>
               <a href="/#" id='sidenav-dropdown'>TODA</a>
               <a href="/#" id='sidenav-dropdown'>Sales Person</a>

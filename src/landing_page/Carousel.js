@@ -8,7 +8,7 @@ const Image = ({ src }) => (
     backgroundImage: `url(${src})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '100vh',
+    height: '130vh',
     width: '100%',
     transition: 'all 4500ms ease 0s',
     transform: 'translateZ(0)',

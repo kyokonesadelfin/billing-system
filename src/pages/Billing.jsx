@@ -484,9 +484,9 @@ function Billing() {
                                             {
                                                 singleActivationStatus.map((device) => {
                                                     return (
-                                                        <div key={device.deviceId} style={{ fontSize: '.8em', textAlign: 'right' }}>
-                                                            <span style={{ fontWeight: '500' }}>Status:</span><span>  {device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span style={{ fontWeight: '500' }}>{' '}{' '}<br />Updated At:{' '}</span><span>{device.activation.updatedAt === null ? 'UNKNOWN' : device.activation.updatedAt}</span></span><br />
-                                                            <span style={{ fontWeight: '500' }}>Device was Last Communicated At: </span><span>{' '}{' '}{device.lastCommunicatedAt}</span>
+                                                        <div key={device.deviceId} style={{ fontSize: '.9em' }}>
+                                                            <span style={{ fontWeight: '500' }}>Status:</span><span>  {device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span style={{ fontWeight: '500' }}>{' '}{' '}<br />Updated At:{' '}</span><span>{device.activation.updatedAt === null ? 'UNKNOWN' : moment(device.activation.updatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span></span><br />
+                                                            <span style={{ fontWeight: '500' }}>Device was Last Communicated At: </span><span>{' '}{' '}{moment(device.lastCommunicatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span>
                                                         </div>
                                                     )
                                                 })

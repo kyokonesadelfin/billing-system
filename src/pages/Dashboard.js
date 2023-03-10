@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 function Dashboard() {
-  const [width, setWidth] = useState(250);
-  const [marginLeft, setMarginLeft] = useState(250);
+  const [width, setWidth] = useState(50);
+  const [marginLeft, setMarginLeft] = useState(50);
   const [dropdownActive1, setDropdownActive1] = useState(false);
   const [dropdownActive2, setDropdownActive2] = useState(false);
   const [dropdownActive3, setDropdownActive3] = useState(false);
@@ -16,8 +16,6 @@ function Dashboard() {
       setMarginLeft(250);
     }
   };
-
-
 
   const toggleDropdown1 = () => {
     setDropdownActive1(!dropdownActive1);

@@ -32,7 +32,7 @@ const Testimonials = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [intervalId]);
+  }, []);
 
   return (
     <div className="testimonials-container">

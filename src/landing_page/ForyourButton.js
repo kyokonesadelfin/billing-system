@@ -3,9 +3,6 @@ import { Button } from 'react-bootstrap';
 import $ from 'jquery';
 import '../App.css';
 
-
-
-
 const ForyourButton = () => {
 
   useEffect(() => {

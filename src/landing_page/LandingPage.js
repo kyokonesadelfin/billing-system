@@ -8,6 +8,7 @@ import axios from 'axios';
 import Footer from './Footer';
 import NavbarMenu from './NavbarMenu';
 
+
 const apiKey = 'aP75xFG5QqFhwqJktwNRplGfXHT4okkK8IiYmNLy';
 const unitsReleasedQueryId = '187';
 const dailyActiveUnitsQueryId = '188';
@@ -136,10 +137,8 @@ const LandingPage = () => {
           </Form>
         </Navbar.Collapse>
       </Navbar> */}
-
-
+      
       <NavbarMenu />
-
 
       <section>
         <div className='landing-page-cover'>
@@ -156,31 +155,32 @@ const LandingPage = () => {
 
 
       <section>
-      <Card fluid style={{ backgroundColor: "#004EA2", backgroundSize: "cover", position: "relative", height: "300px" }}>
-          <Container style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Row className="justify-content-md-center" style={{ marginTop: "100px", color: "#FFFFFF" }}>
-              <Col lg="3" className='me-4'>
-                <div style={{lineHeight: "30px"}}>
-                {unitsReleased !== null ? <p>{unitsReleased}</p> : <p className="loading">Loading<span>...</span></p>}
-                  <p>Units released through GMS</p>
+        <Card fluid id='live-data'>
+          <Container>
+            <Row className="row-live-data align-items-center">
+              <Col md="4" className="text-center mb-3 mb-md-0">
+                <div>
+                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  <p id='loading-description'>Units released through GMS</p>
                 </div>
               </Col>
-              <Col lg="3" className='me-4' style={{marginLeft: "60px"}}>
-                <div style={{lineHeight: "30px"}}>
-                {dailyActiveUnits !== null ? <p>{dailyActiveUnits}</p> : <p className="loading">Loading<span>...</span></p>}
-                  <p>Daily active units</p> 
+              <Col md="4" className="text-center mb-3 mb-md-0">
+                <div>
+                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  <p id='loading-description'>Daily active units</p>
                 </div>
               </Col>
-              <Col lg="3" style={{marginLeft: "60px"}}>
-                <div style={{lineHeight: "30px"}}>
-                {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading">Loading<span>...</span></p>}
-                  <p>Total mileage of vehicles (km)</p>
+              <Col md="4" className="text-center">
+                <div>
+                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  <p id='loading-description'>Total mileage of vehicles (km)</p>
                 </div>
               </Col>
             </Row>
           </Container>
         </Card>
       </section>
+
 
 
 
@@ -193,13 +193,13 @@ const LandingPage = () => {
 
 
       <section>
-        <Card fluid style={{ backgroundColor: "#1E90FF", backgroundSize: "cover", height: "550px", position: "relative" }}>
+        <Card fluid style={{ backgroundColor: "#77A8F2", backgroundSize: "cover", height: "650px", position: "relative" }}>
           <Container style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
             <Row className="justify-content-md-center">
               <Col lg="6" style={{ flex: "1", padding: "10px", opacity: "1" }}>
-                <Card.Title style={{ textAlign: "center", fontWeight: "400", fontFamily: "Proxima Nova, Arial, sans-serif", fontSize: "30px", color: "#F4FAFA", marginTop: "40px" }}>Testimonials</Card.Title>
-                <Card style={{ backgroundColor: "#EFFAFA", border: "none", marginTop: "30px", width: "80vh" }}>
-                  <Card.Body style={{ position: "relative" }}>
+                <Card.Title style={{ textAlign: "center", fontWeight: "400", fontFamily: "Proxima Nova, Arial, sans-serif", fontSize: "45px", color: "#F4FAFA", marginTop: "40px" }}>Testimonials</Card.Title>
+                <Card style={{ backgroundColor: "transparent", border: "none" }}>
+                  <Card.Body>
                     <Testimonials />
                   </Card.Body>
                 </Card>

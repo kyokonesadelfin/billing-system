@@ -178,6 +178,7 @@ function Billing() {
                 console.error('Request failed', err);
             })
             .then(data => {
+                setLoading(false)
                 setDevice(data.data);
                 setIsFiltered(false);
                 setSearchValue('');

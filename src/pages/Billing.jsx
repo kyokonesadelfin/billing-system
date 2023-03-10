@@ -27,7 +27,6 @@ function Billing() {
     const combinedArrays = activationStatus.map((item, i) => Object.assign({}, item, device[i]));
     const [filterCombinedArray, setFilterCombinedArray] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
-    const [companyName, setCompanyName] = useState(false);
     const [drivingandmileagetimeArray, setDrivingAndMileageTimeArray] = useState([]);
 
     // Format dates for data in 
@@ -167,39 +166,78 @@ function Billing() {
 
     // onChange of Select
     const companyFilter = async (bcId) => {
-        await fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
-            }
-        })
-            .then(res => res.json())
-            .catch(err => {
-                console.error('Request failed', err);
+        if (bcId === 'All') {
+            await fetch(`https://api.cloud-gms.com/v3/devices`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                }
             })
-            .then(data => {
-                setDevice(data.data);
-                setIsFiltered(false);
-                setSearchValue('');
-                setPageNumber(0);
-            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setDevice(data.data);
+                    setIsFiltered(false);
+                    setSearchValue('');
+                    setPageNumber(0);
+                })
 
-        await fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
-            }
-        })
-            .then(res => res.json())
-            .catch(err => {
-                console.error('Request failed', err);
+            await fetch(`https://api.cloud-gms.com/v3/devices/status`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                }
             })
-            .then(data => {
-                setActivationStatus(data.data);
-                setIsFiltered(false);
-                setSearchValue('');
-                setPageNumber(0);
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setActivationStatus(data.data);
+                    setIsFiltered(false);
+                    setSearchValue('');
+                    setPageNumber(0);
+                })
+
+        } else {
+            await fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                }
             })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setDevice(data.data);
+                    setIsFiltered(false);
+                    setSearchValue('');
+                    setPageNumber(0);
+                })
+
+            await fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setActivationStatus(data.data);
+                    setIsFiltered(false);
+                    setSearchValue('');
+                    setPageNumber(0);
+                })
+
+
+        }
 
     }
 
@@ -376,6 +414,7 @@ function Billing() {
                                     <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
                                         <optgroup>
                                             <option style={{ display: 'none' }}>PLEASE SELECT</option>
+                                            <option value='All'>All</option>
                                             <option value='10000005'>AEON AEON CREDIT SERVICE (PHILIPPINES) INC.</option>
                                             <option value='10023601'>GMS4W / GLOBAL MOBILITY SERVICE PHILIPPINES, INC.</option>
                                             <option value='10023626'>GMSF-LZD / GMS FINANCE - LAZADA</option>
@@ -433,7 +472,7 @@ function Billing() {
                         :
                         <>
                             <div className="modal fade show" ref={modalRef} id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
-                                <div className="modal-dialog modal-dialog-centered modal-lg">
+                                <div className="modal-dialog modal-dialog-centered modal-xl">
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <h5 className="modal-title" id="exampleModalCenterTitle">Vehicle/Device Location</h5>
@@ -454,7 +493,6 @@ function Billing() {
                                             }
                                         </div>
                                         <div className="modal-footer">
-
                                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={hideModal}>Close</button>
                                             <button type="button" className="btn btn-primary" onClick={showPlayback}>Show Playback</button>
                                         </div>
@@ -473,6 +511,7 @@ function Billing() {
                                             <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
                                                 <optgroup>
                                                     <option style={{ display: 'none' }}>PLEASE SELECT</option>
+                                                    <option value='All'>All</option>
                                                     <option value='10000005'>AEON AEON CREDIT SERVICE (PHILIPPINES) INC.</option>
                                                     <option value='10023601'>GMS4W / GLOBAL MOBILITY SERVICE PHILIPPINES, INC.</option>
                                                     <option value='10023626'>GMSF-LZD / GMS FINANCE - LAZADA</option>

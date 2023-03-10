@@ -47,6 +47,7 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
     }
 
     const options = {
+        maintainAspectRatio: false,
         responsive: true,
         scales: {
             y: {
@@ -93,11 +94,12 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
     }
 
     return (
-        <div style={{ height: '30vh', width: '100%' }}>
-            <h3></h3>
+        <div style={{ height: '35vh', width: '100%' }}>
             <Line
                 data={data}
                 options={options}
+                width={'500%'}
+                height={'100%'}
             />
         </div>
     )

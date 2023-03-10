@@ -22,7 +22,7 @@ function Billing() {
     const combinedArrays = activationStatus.map((item, i) => Object.assign({}, item, device[i]));
     const [filterCombinedArray, setFilterCombinedArray] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
-    const [isCategoryFiltered, setIsCategoryFiltered] = useState(false);
+    const [companyName, setCompanyName] = useState(false);
     const [drivingandmileagetimeArray, setDrivingAndMileageTimeArray] = useState([]);
 
     // Format dates for data in 
@@ -47,11 +47,13 @@ function Billing() {
                 setIsFiltered(false);
                 return data;
             }
-            else if (data.deviceId.toString().toLowerCase().includes(searchValue.toLowerCase())
-                || device?.tags?.VIN.toString().toLowerCase().includes(searchValue.toLowerCase()) !== undefined ? 'UNKNOWN' : device?.tags?.VIN.toString().toLowerCase().includes(searchValue.toLowerCase())) {
+            else if (data?.tags?.deviceSerialNo?.toString().toLowerCase().includes(searchValue.toLowerCase())
+                || data?.tags?.VIN?.toString().toLowerCase().includes(searchValue.toLowerCase())) {
                 return data;
+                setPageNumber(0);
             }
             setIsFiltered(true);
+
             return false;
         }));
     }
@@ -121,7 +123,8 @@ function Billing() {
             })
 
     }
-
+    console.log(combinedArrays)
+    console.log(filterCombinedArray)
     // Hide Map Modal
     const hideModal = () => {
         const modalEle = modalRef.current;
@@ -149,10 +152,10 @@ function Billing() {
             .then(data => {
                 setDevice(data.data);
                 setIsFiltered(false);
-                setIsCategoryFiltered(true);
                 setSearchValue('');
                 setPageNumber(0);
             })
+
         await fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
             method: 'GET',
             headers: {
@@ -166,11 +169,10 @@ function Billing() {
             .then(data => {
                 setActivationStatus(data.data);
                 setIsFiltered(false);
-                setIsCategoryFiltered(true);
                 setSearchValue('');
                 setPageNumber(0);
             })
-            
+
     }
 
     return (
@@ -190,7 +192,7 @@ function Billing() {
                                 <InputText
                                     id='searchValue'
                                     autoComplete='off'
-                                    placeholder="Search for..."
+                                    placeholder="Device Serial No, Vehicle Name"
                                     value={searchValue}
                                     onChange={(e) => setSearchValue(e.target.value)}
                                 />
@@ -209,7 +211,6 @@ function Billing() {
                                         <option value='10000007'>GMSP / GMS/BASIS FINANCE</option>
                                         <option value='10023605'>NB / NETBANK</option>
                                         <option value='10000030'>AC4W / AEON CREDIT SERVICE (PHILIPPINES) INC. - 4 WHEELS</option>
-                                        <option value='10023650'>GMSPH-TECH</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -219,7 +220,7 @@ function Billing() {
                             <table id="billingTable" className="table table-hover table-sm" >
                                 <thead>
                                     <tr className='tableColumnHeads' style={{ fontSize: '.9em', textAlign: "center" }}>
-                                        <th>Device Id</th>
+                                        <th>Device Serial No.</th>
                                         <th>Vehicle Name</th>
                                         <th>Desired Status</th>
                                         <th>Current Status</th>
@@ -288,46 +289,47 @@ function Billing() {
                             </div>
                         </div>
 
-                        <div id='container'>
-                            <form onSubmit={(e) => {
-                                searchFilter(e);
-                                handlePageChange({ selected: pageNumber });
-                            }}>
-                                <InputText
-                                    id='searchValue'
-                                    autoComplete='off'
-                                    placeholder="Search for..."
-                                    value={searchValue}
-                                    onChange={(e) => setSearchValue(e.target.value)}
-                                />
-                                <button id='submitBtn'><i className="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
 
-                            <div id="filter-area">
-                                <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
-                                    <optgroup>
-                                        <option style={{ display: 'none' }}>PLEASE SELECT</option>
-                                        <option value='10000005'>AEON AEON CREDIT SERVICE (PHILIPPINES) INC.</option>
-                                        <option value='10023601'>GMS4W / GLOBAL MOBILITY SERVICE PHILIPPINES, INC.</option>
-                                        <option value='10023626'>GMSF-LZD / GMS FINANCE - LAZADA</option>
-                                        <option value='10023618'>GMSF4W / GMS FINANCE - 4 WHEELS</option>
-                                        <option value='10023612'>GMSPF / GMS FINANCE PHILIPPINES, INC.</option>
-                                        <option value='10000007'>GMSP / GMS/BASIS FINANCE</option>
-                                        <option value='10023605'>NB / NETBANK</option>
-                                        <option value='10000030'>AC4W / AEON CREDIT SERVICE (PHILIPPINES) INC. - 4 WHEELS</option>
-                                        <option value='10023650'>GMSPH-TECH</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
 
 
                         <div style={{ height: '800px', width: '70%', margin: 'auto' }}>
 
                             <table id="billingTable" className="table table-hover table-sm" >
+                                <div id='container'>
+                                    <div id="filter-area">
+                                        <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
+                                            <optgroup>
+                                                <option style={{ display: 'none' }}>PLEASE SELECT</option>
+                                                <option value='10000005'>AEON AEON CREDIT SERVICE (PHILIPPINES) INC.</option>
+                                                <option value='10023601'>GMS4W / GLOBAL MOBILITY SERVICE PHILIPPINES, INC.</option>
+                                                <option value='10023626'>GMSF-LZD / GMS FINANCE - LAZADA</option>
+                                                <option value='10023618'>GMSF4W / GMS FINANCE - 4 WHEELS</option>
+                                                <option value='10023612'>GMSPF / GMS FINANCE PHILIPPINES, INC.</option>
+                                                <option value='10000007'>GMSP / GMS/BASIS FINANCE</option>
+                                                <option value='10023605'>NB / NETBANK</option>
+                                                <option value='10000030'>AC4W / AEON CREDIT SERVICE (PHILIPPINES) INC. - 4 WHEELS</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <form onSubmit={(e) => {
+                                        searchFilter(e);
+                                        handlePageChange({ selected: pageNumber });
+                                    }}>
+                                        <InputText
+                                            id='searchValue'
+                                            autoComplete='off'
+                                            placeholder="Device Serial No, Vehicle Name"
+                                            value={searchValue}
+                                            onChange={(e) => setSearchValue(e.target.value)}
+                                        />
+                                        <button id='submitBtn'><i className="fa fa-search" aria-hidden="true"></i></button>
+                                    </form>
+
+
+                                </div>
                                 <thead>
                                     <tr className='tableColumnHeads' style={{ fontSize: '.9em', textAlign: "center" }}>
-                                        <th>Device Id</th>
+                                        <th>Device Serial No.</th>
                                         <th>Vehicle Name</th>
                                         <th>Desired Status</th>
                                         <th>Current Status</th>
@@ -346,7 +348,7 @@ function Billing() {
                                                         filterCombinedArray.map((device) => {
                                                             return (
                                                                 <tr key={device.deviceId} style={{ fontSize: '.8em', textAlign: 'center' }}>
-                                                                    <td>{device.deviceId}</td>
+                                                                    <td>{device?.tags?.deviceSerialNo !== undefined ? device?.tags?.deviceSerialNo : 'UNKNOWN'}</td>
                                                                     <td>{device?.tags?.VIN !== undefined ? device?.tags?.VIN : 'UNKNOWN'}</td>
                                                                     <td>{device.activation.desiredStatus === null ? 'UNKNOWN' : device.activation.desiredStatus}</td>
                                                                     <td>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</td>
@@ -361,7 +363,7 @@ function Billing() {
                                                         combinedArrays.map((device) => {
                                                             return (
                                                                 <tr key={device.deviceId} style={{ fontSize: '.8em', textAlign: 'center' }}>
-                                                                    <td>{device.deviceId}</td>
+                                                                    <td>{device?.tags?.deviceSerialNo !== undefined ? device?.tags?.deviceSerialNo : 'UNKNOWN'}</td>
                                                                     <td>{device?.tags?.VIN !== undefined ? device?.tags?.VIN : 'UNKNOWN'}</td>
                                                                     <td>{device.activation.desiredStatus === null ? 'UNKNOWN' : device.activation.desiredStatus}</td>
                                                                     <td>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</td>
@@ -434,5 +436,4 @@ function Billing() {
 }
 
 export default Billing;
-
 

@@ -7,11 +7,16 @@ import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 
 
+
 function App() {
   return (
     <>
       <Routes>
         <Route exact path='/billing' element={<Billing/>}/>
+        <Route exact path='/' element={<LandingPage/>}/>
+        <Route exact path='/login' element={<LoginForm/>}/>
+        <Route path='*' element={<NotFound/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={<LoginForm/>}/>
         <Route path='*' element={<NotFound/>} />

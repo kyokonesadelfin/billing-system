@@ -18,7 +18,6 @@ function Dashboard() {
   };
 
 
-
   const toggleDropdown1 = () => {
     setDropdownActive1(!dropdownActive1);
   };
@@ -90,7 +89,6 @@ function Dashboard() {
               </i>
             </a>
           </div>
-
           </>
         ) : null}
         {width !== 50 ? (
@@ -106,10 +104,15 @@ function Dashboard() {
               onClick={toggleDropdown1}
               id='expanded-side-menu'
             >
-              <i className="fa fa-user-times"><span id='expanded-menu-list'>Client Accounts</span></i><i className="fa fa-caret-down mt-2"></i>
+              <i className="fa fa-user-times"><span id='expanded-menu-list'>Admin Portal</span></i><i className="fa fa-caret-down mt-2"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
-              <a href="/#" id='sidenav-dropdown'>Non Graduates</a>
+              <a href="/#" id='sidenav-dropdown'>Manage User</a>
+              <a href="/#" id='sidenav-dropdown'>Branch</a>
+              <a href="/#" id='sidenav-dropdown'>Department</a>
+              <a href="/#" id='sidenav-dropdown'>Position</a>
+              <a href="/#" id='sidenav-dropdown'>Access</a>
+              <a href="/#" id='sidenav-dropdown'>Activity Logs</a>
             </div>
 
             <button
@@ -117,10 +120,16 @@ function Dashboard() {
               onClick={toggleDropdown2}
               id='expanded-side-menu'
             >
-              <i className="fa fa-list-alt"><span id='expanded-menu-list'>Billing Operations</span></i><i className="fa fa-caret-down mt-2"></i>
+              <i className="fa fa-list-alt"><span id='expanded-menu-list'>Operation</span></i><i className="fa fa-caret-down mt-2"></i>
             </button>
             <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none'}}>
-              <a href="/#" id='sidenav-dropdown'>Vehicles</a>
+              <a href="/#" id='sidenav-dropdown'>Product Vehicle</a>
+              <a href="/#" id='sidenav-dropdown'>Organization</a>
+              <a href="/#" id='sidenav-dropdown'>TODA</a>
+              <a href="/#" id='sidenav-dropdown'>Finance Company</a>
+              <a href="/#" id='sidenav-dropdown'>Vehicle</a>
+              <a href="/#" id='sidenav-dropdown'>MCCS</a>
+              <a href="/#" id='sidenav-dropdown'>Warehouse address</a>
             </div>
 
             <button
@@ -141,12 +150,12 @@ function Dashboard() {
 
             <a href="/#" id='expanded-side-menu'>
               <i className="fa fa-user-plus me-2">
-                <span id='expanded-menu-list'>Account Management</span>
+                <span id='expanded-menu-list'>Loan Management</span>
               </i>
             </a>
             <a href="/#" id='expanded-side-menu'>
               <i className="fa fa-newspaper-o me-2">
-                <span id='expanded-menu-list'>Reports</span>
+                <span id='expanded-menu-list'>Billing</span>
               </i>
             </a>
             <a href="/#" id='expanded-side-menu'>
@@ -178,7 +187,7 @@ function Dashboard() {
           }}
           onClick={toggleNav}
         >
-          {width === 65 ? '\u2630' : '\u2630'}
+          {width === 50 ? '\u2630' : '\u2630'}
         </span>
         <img src='/assets/gms_logo_w_r.svg' alt='gms-logo' width='140' height='50'/>
       </div>
@@ -186,7 +195,6 @@ function Dashboard() {
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
         <h2>Sidenav</h2>
         <p>Click on the element below to open the side navigation menu, and push this content to the right.</p>
-        <span style={{ fontSize: "30px", cursor: "pointer" }}>&#9776; open</span>
       </div>
       
     </div>

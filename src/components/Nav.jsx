@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Dashboard() {
+function Nav() {
   const [width, setWidth] = useState(250);
   const [marginLeft, setMarginLeft] = useState(250);
   const [dropdownActive1, setDropdownActive1] = useState(false);
@@ -183,14 +183,8 @@ function Dashboard() {
         <img src='/assets/gms_logo_w_r.svg' alt='gms-logo' width='140' height='50' />
       </div>
 
-      <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
-        <h2>Sidenav</h2>
-        <p>Click on the element below to open the side navigation menu, and push this content to the right.</p>
-        <span style={{ fontSize: "30px", cursor: "pointer" }}>&#9776; open</span>
-      </div>
-
     </div>
   );
 }
 
-export default Dashboard;
+export default Nav;

@@ -193,16 +193,14 @@ const LandingPage = () => {
 
 
       <section>
-        <Card fluid style={{ backgroundColor: "#77A8F2", backgroundSize: "cover", height: "650px", position: "relative" }}>
-          <Container style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+        <Card fluid id='testimonials-card'>
+          <Container id='testimonials-container'>
             <Row className="justify-content-md-center">
-              <Col lg="6" style={{ flex: "1", padding: "10px", opacity: "1" }}>
-                <Card.Title style={{ textAlign: "center", fontWeight: "400", fontFamily: "Proxima Nova, Arial, sans-serif", fontSize: "45px", color: "#F4FAFA", marginTop: "40px" }}>Testimonials</Card.Title>
-                <Card style={{ backgroundColor: "transparent", border: "none" }}>
+              <Col lg="6" id='testimonials-col'>
+                <Card.Title id='testimonials-title'>Testimonials</Card.Title>
                   <Card.Body>
                     <Testimonials />
                   </Card.Body>
-                </Card>
               </Col>
             </Row>
           </Container>

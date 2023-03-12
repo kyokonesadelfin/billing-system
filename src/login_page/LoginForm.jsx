@@ -31,7 +31,7 @@ function LoginForm() {
         if (response.status === 200) {
           alert('Login successful!');
           // redirect the user to the home page
-          window.location.href = '/';
+          window.location.href = '/dashboard';
         } else {
           alert('Invalid username or password.');
         }

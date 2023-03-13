@@ -37,7 +37,7 @@ function LoginButton() {
     <div>
       <GoogleLogin
         clientId={clientId}
-        buttonText="Google Login"
+        buttonText="Sign in with Google"
         onSuccess={onSuccess}
         onFailure={onFailure}
         cookiePolicy={'none'}

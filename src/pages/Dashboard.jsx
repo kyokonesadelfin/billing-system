@@ -49,7 +49,7 @@ function Dashboard() {
                 <i className="fa fa-user-times"></i>
               </button>
               <div className="dropdown-container" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
-                <a href="/#" id='sidenav-dropdown'>Non Graduates</a>
+                <a href="/#" id='sideicon-dropdown'>Non Graduates</a>
               </div>
               <button
                 className={dropdownActive2 ? 'dropdown-btn active' : 'dropdown-btn'}
@@ -58,7 +58,7 @@ function Dashboard() {
                 <i className="fa fa-list-alt"></i>
               </button>
               <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none' }}>
-                <a href="/billing" id='sidenav-dropdown'>Vehicles</a>
+                <a href="/billing" id='sideicon-dropdown'>Vehicles</a>
               </div>
 
               <button
@@ -68,12 +68,12 @@ function Dashboard() {
                 <i className="fa fa-map-o"></i>
               </button>
               <div className="dropdown-container" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
-                <a href="/billing" id='sidenav-dropdown'>Vehicle</a>
-                <a href="/#" id='sidenav-dropdown'>Organization</a>
-                <a href="/#" id='sidenav-dropdown'>TODA</a>
-                <a href="/#" id='sidenav-dropdown'>Sales Person</a>
-                <a href="/#" id='sidenav-dropdown'>Guarantor</a>
-                <a href="/#" id='sidenav-dropdown'>Employees</a>
+                <a href="/billing" id='sideicon-dropdown'>Vehicle</a>
+                <a href="/#" id='sideicon-dropdown'>Organization</a>
+                <a href="/#" id='sideicon-dropdown'>TODA</a>
+                <a href="/#" id='sideicon-dropdown'>Sales Person</a>
+                <a href="/#" id='sideicon-dropdown'>Guarantor</a>
+                <a href="/#" id='sideicon-dropdown'>Employees</a>
               </div>
 
             <a href="/#">

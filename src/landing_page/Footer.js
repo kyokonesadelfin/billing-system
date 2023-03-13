@@ -4,38 +4,38 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-k
 function Footer() {
   return (
     <div>
-      <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
+      <MDBFooter bgColor='light' className='text-center text-lg-start text-muted' style={{backgroundColor: "#f5f5f7"}}>
         <section className="d-flex justify-content-center justify-content-lg-start p-4 border-bottom">
           <div className="d-none d-lg-block">
-            <span className='me-4' style={{ fontSize: "13px" }}>Get connected with us on social networks:</span>
+            <span className='me-4' style={{ fontSize: "14px" }}>Get connected with us on social networks:</span>
           </div>
 
           <div>
             <a href="/" className="text-reset">
-              <MDBIcon icon="facebook-f fa-lg" className="me-4 text-primary" />
+              <MDBIcon icon="facebook-f fa-2x" className="me-4 text-primary" />
             </a>
             <a href="/" className="text-reset">
-              <MDBIcon icon="twitter fa-lg" className="me-4 text-primary" />
+              <MDBIcon icon="twitter fa-2x" className="me-4 text-primary" />
             </a>
             <a href="/" className="text-reset">
-              <MDBIcon icon="google-plus fa-lg" className="me-4 text-danger" />
+              <MDBIcon icon="google-plus fa-2x" className="me-4 text-danger" />
             </a>
             <a href="/" className="text-reset">
-              <MDBIcon icon="instagram fa-lg" className="me-4 text-success" />
+              <MDBIcon icon="instagram fa-2x" className="me-4 text-success" />
             </a>
             <a href="/" className="text-reset">
-              <MDBIcon icon="linkedin fa-lg" className="me-4 text-primary" />
+              <MDBIcon icon="linkedin fa-2x" className="me-4 text-primary" />
             </a>
           </div>
         </section>
 
         <section>
           <MDBContainer className='text-center text-md-start mt-5' style={{ fontSize: "12px" }}>
-            <MDBRow className='mt-3'>
+            <MDBRow className='mt-5'>
               <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
                 <h6 className='text-uppercase fw-bold mb-4'>
-                  <MDBIcon icon="gem" className="me-3" />
-                  <img src='/assets/logo_gms_h_ph_f.png' alt='footer-logo' className='w-50 h-50' />
+                  <MDBIcon icon="gem" className="me-5 d-flex justify-content-left align-items-left" />
+                  <img src='/assets/landinglogo.png' alt='footer-logo' className='w-75 h-75' />
                 </h6>
                 <p>
                   Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,

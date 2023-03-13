@@ -3,12 +3,6 @@ import '../App.css';
 
 const testimonials = [
   {
-    name: 'John Doe',
-    image: '/assets/john_smith.jpg',
-    description: '- TODA Member/Tricycle driver, since 2011',
-    testimonial: 'This is an amazing product. I highly recommend it to everyone.'
-  },
-  {
     name: 'Jane Doe',
     image: '/assets/jane_smith.jpg',
     description: '-Tricycle driver, since 2007',
@@ -29,7 +23,7 @@ const Testimonials = () => {
   useEffect(() => {
     const id = setInterval(() => {
       setCurrentIndex(currentIndex => (currentIndex + 1) % testimonials.length);
-    }, 4000);
+    }, 5000);
     setIntervalId(id);
     
     return () => {
@@ -41,7 +35,7 @@ const Testimonials = () => {
   return (
     <div className="testimonials-container">
       <div className="testimonial">
-        <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} />
+        <img src={testimonials[currentIndex].image} alt='{testimonials[currentIndex].name}' />
         <div id='testimonials-identity'>
         <h3>{testimonials[currentIndex].name}</h3>
         <p id='description'>{testimonials[currentIndex].description}</p>

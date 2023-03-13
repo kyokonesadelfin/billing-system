@@ -94,12 +94,16 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  line-height: 30px;
+  font-family: "Poppins", sans-serif;
+  padding: 20px ;
 }
 
 .testimonial {
   width: 400px;
   margin: 20px;
   text-align: center;
+
 }
 
 .testimonial img {
@@ -112,17 +116,15 @@ html {
 .testimonial h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  font-family: Proxima Nova, Arial, sans-serif;
   color: #f8fcfc;
-  font-style: italic;
+  font-weight: 700;
 }
 
 .testimonial p {
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
   font-size: 24px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   color: #f1f2f6;
+  font-style: italic;
 }
 
 .testimonial #description {
@@ -130,6 +132,7 @@ html {
   font-size: 16px;
   color: #f1f2f6;
   font-weight: 300;
+  margin-top: -10px;
 }
 
 #testimonials-identity {
@@ -160,7 +163,6 @@ html {
 #testimonials-title {
   text-align: center;
   font-weight: 400;
-  font-family: "Proxima Nova, Arial, sans-serif";
   font-size: 45px;
   color: #f4fafa;
   margin-top: 40px;
@@ -606,13 +608,16 @@ html {
 
 .loading {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 3rem;
   font-weight: 800;
   /* font-family: Source Sans Pro, Consolas, "Courier New", monospace; */
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: #ffffff;
-  margin-left: 50px;
+
 }
 
 .loading span {
@@ -626,6 +631,8 @@ html {
   font-size: 16px;
   font-weight: 500;
   color: #fbfcfc;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
 }
 
 @keyframes rotate {
@@ -643,7 +650,8 @@ html {
   background-color: #004ea2;
   background-size: cover;
   position: relative;
-  height: 330px;
+  height: 250px;
+  padding-top: 90px;
 }
 
 .row-live-data {

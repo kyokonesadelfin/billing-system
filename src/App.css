@@ -555,6 +555,12 @@ html {
   outline: none;
 }
 
+#sideicon-dropdown {
+  font-size: 12px;
+  text-decoration: none;
+  text-align: start;
+}
+
 
 #sidenav-dropdown {
   font-size: 12px;
@@ -603,13 +609,14 @@ html {
   font-weight: 800;
   /* font-family: Source Sans Pro, Consolas, "Courier New", monospace; */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #ccc;
+  color: #ffffff;
+  margin-left: 50px;
 }
 
 .loading span {
   position: absolute;
   top: 0;
-  left: 75%;
+  left: 40px;
   animation: rotate 1s linear infinite;
 }
 

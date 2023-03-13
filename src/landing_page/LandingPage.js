@@ -160,19 +160,19 @@ const LandingPage = () => {
             <Row className="row-live-data align-items-center">
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Units released through GMS</p>
                 </div>
               </Col>
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Daily active units</p>
                 </div>
               </Col>
               <Col md="4" className="text-center">
                 <div>
-                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Total mileage of vehicles (km)</p>
                 </div>
               </Col>

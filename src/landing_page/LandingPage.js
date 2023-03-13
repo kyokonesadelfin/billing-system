@@ -9,7 +9,7 @@ import Footer from './Footer';
 import NavbarMenu from './NavbarMenu';
 
 
-const apiKey = 'aP75xFG5QqFhwqJktwNRplGfXHT4okkK8IiYmNLy';
+const apiKey = 'eCiyNBkY4VRrg8rybvtKRrO0AIhUOqkgCGmWJ0wm';
 const unitsReleasedQueryId = '187';
 const dailyActiveUnitsQueryId = '188';
 const totalMileageQueryId = '5';

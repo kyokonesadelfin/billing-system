@@ -3,10 +3,12 @@ import ReactPaginate from "react-paginate";
 import { Skeleton } from '@mui/material';
 import Switches from "../components/Switches";
 import DrivingAndMileageTimeChart from '../components/DrivingAndMileageTime';
+import GoogleMaps from '../components/GoogleMaps';
 import '../sass/billing.scss'
 import { InputText } from 'primereact/inputtext';
 import { Modal } from 'bootstrap';
 import moment from 'moment';
+
 
 function Billing() {
     const [marginLeft, setMarginLeft] = useState(50);
@@ -23,12 +25,15 @@ function Billing() {
     const [singleActivationStatus, setSingleActivationStatus] = useState([]);
     const bootstrap = { Modal };
     const modalRef = useRef();
+    const [nextDeviceData, setNextDeviceData] = useState('');
+    const [nextStatusData, setNextStatusData] = useState('');
     // Combine the two arrays to access VIN(Vehicle Name) property of Get All Devices Array
     const combinedArrays = activationStatus.map((item, i) => Object.assign({}, item, device[i]));
     const [filterCombinedArray, setFilterCombinedArray] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
     const [drivingandmileagetimeArray, setDrivingAndMileageTimeArray] = useState([]);
-
+    const [centerPosition, setCenterPosition] = useState([]);
+    const [bcId, setBcId] = useState('All');
     // Format dates for data in 
     const today = (new Date());
     const yesterday = moment(today.setDate(today.getDate() - 1)).format('YYYY-MM-DD');
@@ -69,7 +74,7 @@ function Billing() {
     function searchFilter(e) {
         e.preventDefault();
         setFilterCombinedArray(combinedArrays.filter((data) => {
-            if (searchValue == '') {
+            if (searchValue === '') {
                 setIsFiltered(false);
                 return data;
             }
@@ -102,12 +107,12 @@ function Billing() {
         }
     }, [searchValue])
 
+
+
     // Handle PageChange in table pagination
     const handlePageChange = ({ selected }) => {
         setPageNumber(selected)
     };
-
-    console.log(pageNumber)
 
     // Show Map Modal
     const showModal = async (id) => {
@@ -119,11 +124,10 @@ function Billing() {
         bsModal.show();
 
         // Get One Device Status
-
         await fetch(`https://api.cloud-gms.com/v3/devices/${id}/status`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
             }
         })
             .then(res => res.json())
@@ -132,13 +136,14 @@ function Billing() {
             })
             .then(data => {
                 setSingleActivationStatus([data])
+                setCenterPosition(data.position);
             })
 
         // Get reports of driving time and mileage time in 30 days
-        await fetch(`https://api.cloud-gms.com/v3/stats/devices/${id}/reports?startDate=${monthAgo}&endDate=${yesterday}&limit=100`, {
+        await fetch(`https://api.cloud-gms.com/v3/stats/devices/${id}/reports?startDate=${monthAgo}&endDate=${yesterday}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
             }
         })
             .then(res => res.json())
@@ -148,10 +153,8 @@ function Billing() {
             .then(data => {
                 setDrivingAndMileageTimeArray(data.data)
             })
-
     }
-    console.log(combinedArrays)
-    console.log(filterCombinedArray)
+    
     // Hide Map Modal
     const hideModal = () => {
         const modalEle = modalRef.current;
@@ -164,13 +167,76 @@ function Billing() {
         e.preventDefault();
     }
 
-    // onChange of Select
-    const companyFilter = async (bcId) => {
+    useEffect(() => {
         if (bcId === 'All') {
-            await fetch(`https://api.cloud-gms.com/v3/devices`, {
+            fetch(`https://api.cloud-gms.com/v3/devices`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setNextDeviceData(data.next);
+                    console.log(data.next)
+                })
+            fetch(`https://api.cloud-gms.com/v3/devices/status`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setNextStatusData(data.next);
+                })
+        } else {
+            fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setNextDeviceData(data.next);
+                })
+
+            fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Request failed', err);
+                })
+                .then(data => {
+                    setNextStatusData(data.next);
+                })
+        }
+
+    }, [nextStatusData, nextDeviceData])
+    
+    // onChange of Select
+    useEffect(() => {
+        setLoading(true);
+        if (bcId === 'All') {
+
+            fetch(`https://api.cloud-gms.com/v3/devices?start=1&limit=200`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
                 }
             })
                 .then(res => res.json())
@@ -182,12 +248,13 @@ function Billing() {
                     setIsFiltered(false);
                     setSearchValue('');
                     setPageNumber(0);
+                    setLoading(false);
                 })
 
-            await fetch(`https://api.cloud-gms.com/v3/devices/status`, {
+            fetch(`https://api.cloud-gms.com/v3/devices/status?start=1&limit=200`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
                 }
             })
                 .then(res => res.json())
@@ -199,13 +266,14 @@ function Billing() {
                     setIsFiltered(false);
                     setSearchValue('');
                     setPageNumber(0);
+                    setLoading(false);
                 })
 
         } else {
-            await fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}`, {
+            fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}&start=1&limit=200`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
                 }
             })
                 .then(res => res.json())
@@ -217,12 +285,13 @@ function Billing() {
                     setIsFiltered(false);
                     setSearchValue('');
                     setPageNumber(0);
+                    setLoading(false);
                 })
 
-            await fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
+            fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}&start=1&limit=200`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
                 }
             })
                 .then(res => res.json())
@@ -234,12 +303,10 @@ function Billing() {
                     setIsFiltered(false);
                     setSearchValue('');
                     setPageNumber(0);
+                    setLoading(false);
                 })
-
-
         }
-
-    }
+    }, [bcId])
 
     return (
         <div>
@@ -377,7 +444,7 @@ function Billing() {
                     ) : null
                 }
             </div>
-            <div class="topnav" style={{ marginLeft: `${marginLeft}px` }}>
+            <div className="topnav" style={{ marginLeft: `${marginLeft}px` }}>
                 <span
                     style={{
                         fontSize: '20px',
@@ -411,7 +478,7 @@ function Billing() {
                                 </form>
 
                                 <div id="filter-area">
-                                    <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
+                                    <select name="filterDevices" id="filterDevices" value={bcId} onChange={(e) => setBcId(e.target.value)}>
                                         <optgroup>
                                             <option style={{ display: 'none' }}>PLEASE SELECT</option>
                                             <option value='All'>All</option>
@@ -479,13 +546,13 @@ function Billing() {
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
-                                            <iframe id='googleMap' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1587818542745!5m2!1sen!2sin" width="100%" height="450" frameborder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                                            <GoogleMaps position={centerPosition} />
                                             <DrivingAndMileageTimeChart drivingandmileagetime={drivingandmileagetimeArray} />
                                             {
                                                 singleActivationStatus.map((device) => {
                                                     return (
-                                                        <div key={device.deviceId} style={{ fontSize: '.9em' }}>
-                                                            <span style={{ fontWeight: '500' }}>Status:</span><span>  {device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span style={{ fontWeight: '500' }}>{' '}{' '}<br />Updated At:{' '}</span><span>{device.activation.updatedAt === null ? 'UNKNOWN' : moment(device.activation.updatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span></span><br />
+                                                        <div key={device.deviceId} style={{ fontSize: '.9em', display: 'inline-block' }}>
+                                                            <span style={{ fontWeight: '500', display: 'inline-block' }}>Status:</span><span>  {device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span style={{ fontWeight: '500' }}>{' '}{' '}<br />Updated At:{' '}</span><span>{device.activation.updatedAt === null ? 'UNKNOWN' : moment(device.activation.updatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span></span><br />
                                                             <span style={{ fontWeight: '500' }}>Device was Last Communicated At: </span><span>{' '}{' '}{moment(device.lastCommunicatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span>
                                                         </div>
                                                     )
@@ -508,7 +575,7 @@ function Billing() {
                                 <table id="billingTable" className="table table-hover table-sm" >
                                     <div id='container'>
                                         <div id="filter-area">
-                                            <select name="filterDevices" id="filterDevices" onChange={(e) => companyFilter(e.target.value)}>
+                                            <select name="filterDevices" id="filterDevices" value={bcId} onChange={(e) => setBcId(e.target.value)}>
                                                 <optgroup>
                                                     <option style={{ display: 'none' }}>PLEASE SELECT</option>
                                                     <option value='All'>All</option>
@@ -535,8 +602,6 @@ function Billing() {
                                             />
                                             <button id='submitBtn'><i className="fa fa-search" aria-hidden="true"></i></button>
                                         </form>
-
-
                                     </div>
                                     <thead>
                                         <tr className='tableColumnHeads' style={{ fontSize: '.9em', textAlign: "center" }}>

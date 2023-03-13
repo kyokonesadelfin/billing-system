@@ -35,7 +35,7 @@ const Switches = ({ data }) => {
         fetch(`https://api.cloud-gms.com/v3/devices/10227026/activation`, {
           method: 'PUT',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -78,7 +78,7 @@ const Switches = ({ data }) => {
         fetch(`https://api.cloud-gms.com/v3/devices/10227026/activation`, {
           method: 'PUT',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({

@@ -128,7 +128,7 @@ function Dashboard() {
               <a href="/#" id='sidenav-dropdown'>Organization</a>
               <a href="/#" id='sidenav-dropdown'>TODA</a>
               <a href="/#" id='sidenav-dropdown'>Finance Company</a>
-              <a href="/#" id='sidenav-dropdown'>Vehicle</a>
+              <a href="/billing" id='sidenav-dropdown'>Vehicle</a>
               <a href="/#" id='sidenav-dropdown'>MCCS</a>
               <a href="/#" id='sidenav-dropdown'>Warehouse address</a>
             </div>
@@ -154,7 +154,7 @@ function Dashboard() {
                 <span id='expanded-menu-list'>Loan Management</span>
               </i>
             </a>
-            <a href="/#" id='expanded-side-menu'>
+            <a href="/billing" id='expanded-side-menu'>
               <i className="fa fa-newspaper-o me-2">
                 <span id='expanded-menu-list'>Billing</span>
               </i>

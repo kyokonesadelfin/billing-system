@@ -417,7 +417,7 @@ html {
 
 .icon-bar {
   width: 65px; /* Set a specific width */
-  background-color: #4169E1; 
+  background-color: #000000; 
   height: 745px;
 }
 
@@ -536,7 +536,7 @@ html {
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #1E90FF;
+  background-color: #434344;
   overflow: hidden;
 }
 

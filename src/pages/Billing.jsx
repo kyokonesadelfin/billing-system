@@ -161,7 +161,7 @@ function Billing() {
         const bsModal = bootstrap.Modal.getInstance(modalEle);
         bsModal.hide();
     }
-
+    
     // Show Playback Button in Map Modal
     const showPlayback = (e) => {
         e.preventDefault();
@@ -226,7 +226,7 @@ function Billing() {
                 })
         }
 
-    }, [nextStatusData, nextDeviceData])
+    }, [])
     
     // onChange of Select
     useEffect(() => {

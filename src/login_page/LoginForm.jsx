@@ -31,7 +31,7 @@ function LoginForm() {
         if (response.status === 200) {
           alert('Login successful!');
           // redirect the user to the home page
-          window.location.href = '/';
+          window.location.href = '/dashboard';
         } else {
           alert('Invalid username or password.');
         }
@@ -48,7 +48,8 @@ function LoginForm() {
       <div className="login-form">
         <div className="login-form-container">
           <div className="form-login">
-            <h3 id='h1_login'>Log in</h3>
+            <img id='logo_login' src='/assets/logo_gms_h_ph_f.png' alt='logo' width='100' height='80'
+            />
             <label htmlFor="username" id='label_username' style={{ width: "75%", textAlign: "left" }}>Username</label>
             <input
               type="text"
@@ -72,7 +73,7 @@ function LoginForm() {
             <div className="separator"></div>
 
             <div className='google-signin-text'>
-              &nbsp; Or Sign in with Google
+              Or
             </div>
             <div className="google-signin-container">
                 {/* Login/Logout Button */}

@@ -9,7 +9,7 @@ import Footer from './Footer';
 import NavbarMenu from './NavbarMenu';
 
 
-const apiKey = 'aP75xFG5QqFhwqJktwNRplGfXHT4okkK8IiYmNLy';
+const apiKey = 'eCiyNBkY4VRrg8rybvtKRrO0AIhUOqkgCGmWJ0wm';
 const unitsReleasedQueryId = '187';
 const dailyActiveUnitsQueryId = '188';
 const totalMileageQueryId = '5';
@@ -160,19 +160,19 @@ const LandingPage = () => {
             <Row className="row-live-data align-items-center">
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Units released through GMS</p>
                 </div>
               </Col>
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Daily active units</p>
                 </div>
               </Col>
               <Col md="4" className="text-center">
                 <div>
-                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading">Loading<span><i className='fa fa-spinner text-white'></i></span></p>}
+                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
                   <p id='loading-description'>Total mileage of vehicles (km)</p>
                 </div>
               </Col>
@@ -193,16 +193,14 @@ const LandingPage = () => {
 
 
       <section>
-        <Card fluid style={{ backgroundColor: "#77A8F2", backgroundSize: "cover", height: "650px", position: "relative" }}>
-          <Container style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+        <Card fluid id='testimonials-card'>
+          <Container id='testimonials-container'>
             <Row className="justify-content-md-center">
-              <Col lg="6" style={{ flex: "1", padding: "10px", opacity: "1" }}>
-                <Card.Title style={{ textAlign: "center", fontWeight: "400", fontFamily: "Proxima Nova, Arial, sans-serif", fontSize: "45px", color: "#F4FAFA", marginTop: "40px" }}>Testimonials</Card.Title>
-                <Card style={{ backgroundColor: "transparent", border: "none" }}>
+              <Col lg="6" id='testimonials-col'>
+                <Card.Title id='testimonials-title'>Testimonials</Card.Title>
                   <Card.Body>
                     <Testimonials />
                   </Card.Body>
-                </Card>
               </Col>
             </Row>
           </Container>

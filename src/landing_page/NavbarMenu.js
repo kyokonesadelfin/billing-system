@@ -14,7 +14,8 @@ function NavbarMenu() {
           transition: "all 0.3s ease-in-out",
           display: "flex",
           maxWidth: "100%",
-          fontWeight: "400"
+          fontWeight: "400",
+          color: "#dadada"
         }}
         fixed="top"
         expand="lg"

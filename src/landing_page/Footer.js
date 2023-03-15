@@ -112,7 +112,7 @@ function Footer() {
           </MDBContainer>
         </section>
 
-        <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+        <div className='text-center p-4' style={{ backgroundColor: '#f5f5f7' }}>
           <a href='/#' className='footer-menu m-4'>
             About Us
           </a>

@@ -3,6 +3,7 @@ import { Navbar } from "react-bootstrap";
 import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import $ from 'jquery';
 
 
 
@@ -73,6 +74,15 @@ function Dashboard() {
   }, [dropdownRef]);
 
 
+  useEffect(() => {
+    $(document).ready(function() {
+      $('.dropdown-btn').click(function() {
+        $(this).toggleClass('active');
+        $(this).next('.dropdown-content').slideToggle(700);
+      });
+    });
+    
+  }, []);
 
 
 

@@ -20,15 +20,15 @@ function NavbarMenu() {
         fixed="top"
         expand="lg"
       >
-      <Navbar.Brand  className='text-md-left' href="#home" style={{display: "flex", marginLeft: "180px"}} id="navbar-brand-icon">
+      <Navbar.Brand  className='text-md-left' href="#home" id="navbar-brand-icon">
           <img src='/assets/gms_logo_w_r.svg' alt="logo" width="140" height="22"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-md-end">
           <Nav className="mr-auto justify-content-md-start">
-            <Nav.Link className="nav-link-hover" style={{ color: "#F8FCFC", marginRight: "10px" }} href="/#features">Vision</Nav.Link>
-            <Nav.Link className="nav-link-hover" style={{ color: "#F8FCFC", marginRight: "10px" }} href="/#features">Values</Nav.Link>
-            <Nav.Link className="nav-link-hover" style={{ color: "#F8FCFC", marginRight: "10px" }} href="/#home">Contact</Nav.Link>
+            <Nav.Link className="nav-link-hover"  href="/#features">Vision</Nav.Link>
+            <Nav.Link className="nav-link-hover"  href="/#features">Values</Nav.Link>
+            <Nav.Link className="nav-link-hover" href="/#home">Contact</Nav.Link>
           </Nav>
 
           <Form className="my-2 my-lg-0 mr-auto" style={{ display: "flex", marginRight: "180px" }} id='navbar-search-form'>

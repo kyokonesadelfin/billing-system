@@ -9,8 +9,6 @@ function LogoutButton() {
 
   const onLogoutSuccess = () => {
     console.log('Logout Success');
-    alert('Logout Success')
-    navigate('/login');
   };
 
   const onLogoutFailure = () => {
@@ -23,7 +21,7 @@ function LogoutButton() {
       console.log('User signed out.');
       auth2.disconnect();
       console.log('Access token revoked');
-      onLogoutSuccess();
+      onLogoutSuccess().then(() => navigate('/'));     
     }).catch(onLogoutFailure);
   };
 
@@ -43,11 +41,11 @@ function LogoutButton() {
         onClick={() => {
           logout();
         }}
-        id="logout-button"
         clientId={clientId}
         buttonText="Logout"
         onLogoutSuccess={onLogoutSuccess}
         onLogoutFailure={onLogoutFailure}
+        style={{border: "none"}}
       >
         Logout
       </button>

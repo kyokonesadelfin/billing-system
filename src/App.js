@@ -7,8 +7,6 @@ import Billing from './pages/Billing';
 import NavBar from './components/NavBar'
 
 
-
-
 function App() {
   return (
     <>

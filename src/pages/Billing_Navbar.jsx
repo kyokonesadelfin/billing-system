@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
-import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
+import Billing from '../components/Billing.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -305,7 +305,7 @@ function Dashboard() {
 
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
         <div style={{ marginTop: "70px" }}>
-          <PlaygroundSpeedDial />
+          <Billing />
         </div>
       </div>
 

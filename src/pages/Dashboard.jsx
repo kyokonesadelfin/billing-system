@@ -78,7 +78,7 @@ function Dashboard() {
     $(document).ready(function() {
       $('.dropdown-btn').click(function() {
         $(this).toggleClass('active');
-        $(this).next('.dropdown-content').slideToggle(700);
+        $(this).next('.dropdown-content').slideToggle(2000);
       });
     });
     

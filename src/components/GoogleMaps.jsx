@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 
 export default function GoogleMaps({ position, singleDevice }) {

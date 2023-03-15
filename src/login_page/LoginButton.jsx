@@ -11,7 +11,7 @@ function LoginButton() {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     const accessToken = res.tokenObj.access_token;
-    navigate('/dashboard', { state: { accessToken } }); // pass accessToken to "/dashboard" page
+    navigate('/billing', { state: { accessToken } }); // pass accessToken to "/dashboard" page
     alert('Login Successful');
   };
 

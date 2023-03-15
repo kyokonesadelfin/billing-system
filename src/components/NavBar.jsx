@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Navbar } from 'react-bootstrap';
-import Billing from './Billing';
 
 
-function Dashboard() {
+function NavBar() {
   const [width, setWidth] = useState(50);
   const [marginLeft, setMarginLeft] = useState(50);
   const [dropdownActive1, setDropdownActive1] = useState(false);
   const [dropdownActive2, setDropdownActive2] = useState(false);
   const [dropdownActive3, setDropdownActive3] = useState(false);
-
 
   const toggleNav = () => {
     if (width === 250 && marginLeft === 250) {
@@ -202,12 +200,10 @@ function Dashboard() {
 
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
         <div style={{ marginTop: "70px" }}>
-          <Billing />
         </div>
       </div>
-
     </div>
   );
 }
 
-export default Dashboard;
+export default NavBar;

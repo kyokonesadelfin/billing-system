@@ -5,7 +5,6 @@ import '../sass/billing.scss'
 const Switches = ({ data }) => {
   const [toggled, setToggled] = useState(false);
 
-
   useEffect(() => {
     
     if (data.activation.desiredStatus === 'ACTIVE' || data.activation.desiredStatus === 'ACTIVE_ONESHOT') {
@@ -20,6 +19,8 @@ const Switches = ({ data }) => {
 
   }, [data.activation.desiredStatus, data.activation.currentStatus])
 
+  
+  
   const handleChange = (nextChecked) => {
 
     setToggled(nextChecked);

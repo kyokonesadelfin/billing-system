@@ -8,16 +8,19 @@ import '../sass/billing.scss'
 import { InputText } from 'primereact/inputtext';
 import { Modal } from 'bootstrap';
 import moment from 'moment';
+import { Navbar } from 'react-bootstrap';
+
 
 
 function Billing() {
     const [device, setDevice] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [dataPerPage] = useState(10);
+    const [dataPerPage] = useState(200);
     const [pageNumber, setPageNumber] = useState(0);
     const [searchValue, setSearchValue] = useState('');
     const [activationStatus, setActivationStatus] = useState([]);
     const [singleActivationStatus, setSingleActivationStatus] = useState([]);
+    const [singleDeviceData, setSingleDeviceData] = useState([]);
     const bootstrap = { Modal };
     const modalRef = useRef();
     const [nextDeviceData, setNextDeviceData] = useState('');
@@ -33,6 +36,34 @@ function Billing() {
     const today = (new Date());
     const yesterday = moment(today.setDate(today.getDate() - 1)).format('YYYY-MM-DD');
     const monthAgo = moment(today.setDate(today.getDate() - 29)).format('YYYY-MM-DD');
+    const [width, setWidth] = useState(50);
+    const [marginLeft, setMarginLeft] = useState(50);
+    const [total, setTotal] = useState(0);
+    const [dropdownActive1, setDropdownActive1] = useState(false);
+    const [dropdownActive2, setDropdownActive2] = useState(false);
+    const [dropdownActive3, setDropdownActive3] = useState(false);
+
+    const toggleNav = () => {
+        if (width === 250 && marginLeft === 250) {
+            setWidth(50);
+            setMarginLeft(50);
+        } else {
+            setWidth(250);
+            setMarginLeft(250);
+        }
+    };
+
+    const toggleDropdown1 = () => {
+        setDropdownActive1(!dropdownActive1);
+    };
+
+    const toggleDropdown2 = () => {
+        setDropdownActive2(!dropdownActive2);
+    };
+
+    const toggleDropdown3 = () => {
+        setDropdownActive3(!dropdownActive3);
+    };
 
     // Get Current Data
     const pagesVisited = pageNumber * dataPerPage;
@@ -43,6 +74,7 @@ function Billing() {
     // Counts the filtered search results that will be displayed under the data table
     const searchCount = Math.ceil(combinedArrays.length);
 
+    // console.log(moment.unix(1678673801).format('MM/DD/YYYY'))
 
     // Search function using Device Id or Vehicle Name(VIN)
     function searchFilter(e) {
@@ -75,13 +107,32 @@ function Billing() {
         };
     }
 
+    // useEffect(() => {
+    //     fetch(`https://api.cloud-gms.com/v1/oauth2/token`, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             grant_type: 'authorization_code',
+    //             code: `${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`,
+    //             refresh_token: ''
+    //         })
+    //     })
+    //         .then(res => res.json())
+    //         .catch(err => {
+    //             console.error('Request failed', err)
+    //         })
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    // }, [])
+
     useEffect(() => {
         if (searchValue === '') {
             setFilterCombinedArray(combinedArrays)
         }
     }, [searchValue])
-
-
 
     // Handle PageChange in table pagination
     const handlePageChange = ({ selected }) => {
@@ -101,7 +152,7 @@ function Billing() {
         await fetch(`https://api.cloud-gms.com/v3/devices/${id}/status`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
             }
         })
             .then(res => res.json())
@@ -113,11 +164,26 @@ function Billing() {
                 setCenterPosition(data.position);
             })
 
+        // Get One Device Data
+        await fetch(`https://api.cloud-gms.com/v3/devices/${id}/`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
+            }
+        })
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Request failed', err)
+            })
+            .then(data => {
+                setSingleDeviceData(data);
+            })
+
         // Get reports of driving time and mileage time in 30 days
         await fetch(`https://api.cloud-gms.com/v3/stats/devices/${id}/reports?startDate=${monthAgo}&endDate=${yesterday}`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
             }
         })
             .then(res => res.json())
@@ -128,89 +194,28 @@ function Billing() {
                 setDrivingAndMileageTimeArray(data.data)
             })
     }
-    
+
     // Hide Map Modal
     const hideModal = () => {
         const modalEle = modalRef.current;
         const bsModal = bootstrap.Modal.getInstance(modalEle);
         bsModal.hide();
     }
-    
+
     // Show Playback Button in Map Modal
     const showPlayback = (e) => {
         e.preventDefault();
     }
 
-    useEffect(() => {
-        if (bcId === 'All') {
-            fetch(`https://api.cloud-gms.com/v3/devices`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
-            })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setNextDeviceData(data.next);
-                    console.log(data.next)
-                })
-            fetch(`https://api.cloud-gms.com/v3/devices/status`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
-            })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setNextStatusData(data.next);
-                })
-        } else {
-            fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
-            })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setNextDeviceData(data.next);
-                })
-
-            fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
-            })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setNextStatusData(data.next);
-                })
-        }
-
-    }, [])
-    
     // onChange of Select
     useEffect(() => {
         setLoading(true);
         if (bcId === 'All') {
 
-            fetch(`https://api.cloud-gms.com/v3/devices?start=1&limit=200`, {
+            fetch(`https://api.cloud-gms.com/v3/devices?limit=200`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
                 }
             })
                 .then(res => res.json())
@@ -223,31 +228,32 @@ function Billing() {
                     setSearchValue('');
                     setPageNumber(0);
                     setLoading(false);
+                    setTotal(data.total)
                 })
 
-            fetch(`https://api.cloud-gms.com/v3/devices/status?start=1&limit=200`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
+        fetch(`https://api.cloud-gms.com/v3/devices/status?limit=200`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
+            }
+        })
+            .then(res => res.json())
+            .catch(err => {
+                console.error('Request failed', err);
             })
-                .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setActivationStatus(data.data);
-                    setIsFiltered(false);
-                    setSearchValue('');
-                    setPageNumber(0);
-                    setLoading(false);
-                })
+            .then(data => {
+                setActivationStatus(data.data);
+                setIsFiltered(false);
+                setSearchValue('');
+                setPageNumber(0);
+                setLoading(false);
+            })
 
-        } else {
-            fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}&start=1&limit=200`, {
+    } else {
+        fetch(`https://api.cloud-gms.com/v3/devices?bc[]=${bcId}&start=1&limit=200`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
+                    'Authorization': `Bearer ${ process.env.REACT_APP_MSPF_ACCESS_TOKEN }`
                 }
             })
                 .then(res => res.json())
@@ -260,30 +266,196 @@ function Billing() {
                     setSearchValue('');
                     setPageNumber(0);
                     setLoading(false);
+                    setTotal(data.total);
                 })
 
             fetch(`https://api.cloud-gms.com/v3/devices/status?bc[]=${bcId}&start=1&limit=200`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`
-                }
+        method: 'GET',
+        headers: {
+        'Authorization': `Bearer ${process.env.REACT_APP_MSPF_ACCESS_TOKEN}`
+    }
             })
                 .then(res => res.json())
-                .catch(err => {
-                    console.error('Request failed', err);
-                })
-                .then(data => {
-                    setActivationStatus(data.data);
-                    setIsFiltered(false);
-                    setSearchValue('');
-                    setPageNumber(0);
-                    setLoading(false);
-                })
+    .catch(err => {
+        console.error('Request failed', err);
+    })
+    .then(data => {
+        setActivationStatus(data.data);
+        setIsFiltered(false);
+        setSearchValue('');
+        setPageNumber(0);
+        setLoading(false);
+    })
         }
     }, [bcId])
 
-    return (
-        <div >
+return (
+
+    <div>
+        <div className="icon-bar" id="sidenav" style={{ width: `${width}px` }}>
+
+            {width === 50 ? (
+                <>
+                    <div style={{ marginTop: "42px" }}>
+                        <a href="/#">
+                            <i className="fa fa-home"></i>
+                        </a>
+                        <button
+                            className={dropdownActive1 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown1}
+                        >
+                            <i className="fa fa-user-times"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
+                            <a href="/#" id='sideicon-dropdown'>Non Graduates</a>
+                        </div>
+                        <button
+                            className={dropdownActive2 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown2}
+                        >
+                            <i className="fa fa-list-alt"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none' }}>
+                            <a href="/billing" id='sideicon-dropdown'>Vehicles</a>
+                        </div>
+
+                        <button
+                            className={dropdownActive3 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown3}
+                        >
+                            <i className="fa fa-map-o"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
+                            <a href="/billing" id='sideicon-dropdown'>Vehicle</a>
+                            <a href="/#" id='sideicon-dropdown'>Organization</a>
+                            <a href="/#" id='sideicon-dropdown'>TODA</a>
+                            <a href="/#" id='sideicon-dropdown'>Sales Person</a>
+                            <a href="/#" id='sideicon-dropdown'>Guarantor</a>
+                            <a href="/#" id='sideicon-dropdown'>Employees</a>
+                        </div>
+
+                        <a href="/#">
+                            <i className="fa fa-user-plus"></i>
+                        </a>
+                        <a href="/#">
+                            <i className="fa fa-newspaper-o"></i>
+                        </a>
+                        <a href="/#">
+                            <i className="fa fa-user-secret"></i>
+                        </a>
+                        <a href="/#">
+                            <i className="fa fa-sign-out">
+                            </i>
+                        </a>
+                    </div>
+                </>
+            ) : null}
+            {width !== 50 ? (
+                <>
+                    <div style={{ marginTop: "42px" }}>
+                        <a href="/#" id='expanded-side-menu'>
+                            <i className="fa fa-home">
+                                <span id='expanded-menu-list' >Dashboard</span>
+                            </i>
+                        </a>
+                        <button
+                            className={dropdownActive1 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown1}
+                            id='expanded-side-menu'
+                        >
+                            <i className="fa fa-user-times"><span id='expanded-menu-list'>Admin Portal</span></i><i className="fa fa-caret-down mt-2"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
+                            <a href="/#" id='sidenav-dropdown'>Manage User</a>
+                            <a href="/#" id='sidenav-dropdown'>Branch</a>
+                            <a href="/#" id='sidenav-dropdown'>Department</a>
+                            <a href="/#" id='sidenav-dropdown'>Position</a>
+                            <a href="/#" id='sidenav-dropdown'>Access</a>
+                            <a href="/#" id='sidenav-dropdown'>Activity Logs</a>
+                        </div>
+
+                        <button
+                            className={dropdownActive2 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown2}
+                            id='expanded-side-menu'
+                        >
+                            <i className="fa fa-list-alt"><span id='expanded-menu-list'>Operation</span></i><i className="fa fa-caret-down mt-2"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive2 ? 'block' : 'none' }}>
+                            <a href="/#" id='sidenav-dropdown'>Product Vehicle</a>
+                            <a href="/#" id='sidenav-dropdown'>Organization</a>
+                            <a href="/#" id='sidenav-dropdown'>TODA</a>
+                            <a href="/#" id='sidenav-dropdown'>Finance Company</a>
+                            <a href="/#" id='sidenav-dropdown'>Vehicle</a>
+                            <a href="/#" id='sidenav-dropdown'>MCCS</a>
+                            <a href="/#" id='sidenav-dropdown'>Warehouse address</a>
+                        </div>
+
+                        <button
+                            className={dropdownActive3 ? 'dropdown-btn active' : 'dropdown-btn'}
+                            onClick={toggleDropdown3}
+                            id='expanded-side-menu'
+                        >
+                            <i className="fa fa-map-o"><span id='expanded-menu-list'>Catalog</span></i><i className="fa fa-caret-down mt-2"></i>
+                        </button>
+                        <div className="dropdown-container" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
+                            <a href="/billing" id='sidenav-dropdown'>Vehicle</a>
+                            <a href="/#" id='sidenav-dropdown'>Organization</a>
+                            <a href="/#" id='sidenav-dropdown'>TODA</a>
+                            <a href="/#" id='sidenav-dropdown'>Sales Person</a>
+                            <a href="/#" id='sidenav-dropdown'>Guarantor</a>
+                            <a href="/#" id='sidenav-dropdown'>Employees</a>
+                        </div>
+
+                        <a href="/#" id='expanded-side-menu'>
+                            <i className="fa fa-user-plus me-2">
+                                <span id='expanded-menu-list'>Loan Management</span>
+                            </i>
+                        </a>
+                        <a href="/#" id='expanded-side-menu'>
+                            <i className="fa fa-newspaper-o me-2">
+                                <span id='expanded-menu-list'>Billing</span>
+                            </i>
+                        </a>
+                        <a href="/#" id='expanded-side-menu'>
+                            <i className="fa fa-user-secret me-2">
+                                <span id='expanded-menu-list'>Admin Management</span>
+                            </i>
+                        </a>
+                        <div>
+                            <a href="/#" id='expanded-side-menu'>
+                                <i className="fa fa-sign-out me-2">
+                                    <span id='expanded-menu-list'>Log out</span>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </>
+            ) : null}
+        </div>
+
+        <Navbar className="topnav" style={{ marginLeft: `${marginLeft}px` }} fixed="top">
+            <span className='hamburger-navbar' onClick={toggleNav}>
+                {width === 50 ? '\u2630' : '\u2630'}
+            </span>
+            <div className='logo-container'>
+                <img src='/assets/gms_logo_w_r.svg' alt='gms-logo' width='140' height='25' />
+            </div>
+            <div className='spacer'></div>
+            <div className='profile-container'>
+                <div className='profile-pic-container'>
+                    <img src='/assets/jane_smith.jpg' alt='profile-pic' width='32' height='32' />
+                </div>
+                <div className='profile-name-container'>
+                    Jane Smith
+                </div>
+            </div>
+        </Navbar>
+        <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
+            <div style={{ marginTop: "70px" }}>
+
                 {
                     loading
                         ?
@@ -371,7 +543,7 @@ function Billing() {
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
-                                            <GoogleMaps position={centerPosition} />
+                                            <GoogleMaps key={singleDeviceData.id} position={centerPosition} singleDevice={singleDeviceData} />
                                             <DrivingAndMileageTimeChart drivingandmileagetime={drivingandmileagetimeArray} />
                                             {
                                                 singleActivationStatus.map((device) => {
@@ -396,7 +568,7 @@ function Billing() {
 
 
                             <div style={{ height: '800px', width: '100%', margin: 'auto' }}>
-
+                                <h2>Vehicles</h2>
                                 <table id="billingTable" className="table table-hover table-sm" >
                                     <div id='container'>
                                         <div id="filter-area">
@@ -497,7 +669,7 @@ function Billing() {
                                                     isFiltered
                                                         ? " " + Math.ceil(filterCombinedArray.length) + " "
                                                         : " " + searchCount + " "}
-                                                out of {searchCount}
+                                                out of {total}
                                             </>
                                             :
                                             ''
@@ -529,9 +701,10 @@ function Billing() {
 
                         </>
                 }
-
             </div>
-    )
+        </div>
+    </div>
+)
 
 }
 

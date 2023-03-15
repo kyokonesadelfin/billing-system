@@ -94,12 +94,16 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  line-height: 30px;
+  font-family: "Poppins", sans-serif;
+  padding: 20px ;
 }
 
 .testimonial {
   width: 400px;
   margin: 20px;
   text-align: center;
+
 }
 
 .testimonial img {
@@ -112,17 +116,15 @@ html {
 .testimonial h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  font-family: Proxima Nova, Arial, sans-serif;
   color: #f8fcfc;
-  font-style: italic;
+  font-weight: 700;
 }
 
 .testimonial p {
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
   font-size: 24px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   color: #f1f2f6;
+  font-style: italic;
 }
 
 .testimonial #description {
@@ -130,6 +132,7 @@ html {
   font-size: 16px;
   color: #f1f2f6;
   font-weight: 300;
+  margin-top: -10px;
 }
 
 #testimonials-identity {
@@ -160,7 +163,6 @@ html {
 #testimonials-title {
   text-align: center;
   font-weight: 400;
-  font-family: "Proxima Nova, Arial, sans-serif";
   font-size: 45px;
   color: #f4fafa;
   margin-top: 40px;
@@ -168,10 +170,22 @@ html {
 
 /* navbar */
 
+#navbar-brand-icon {
+  display: flex;
+  margin-left: 190px;
+}
+
+@media only screen and (max-width: 995px) {
+  #navbar-brand-icon {
+    margin-left: 30px;
+  }
+}
+
 @media (min-width: 768px) {
   .justify-content-md-end {
     justify-content: left;
   }
+
 }
 /* 
 @media (min-width: 768px) {
@@ -219,13 +233,14 @@ html {
 .nav-link-hover {
   position: relative;
   text-decoration: none;
-  color: #fbfcfc;
+  color: #F8FCFC;
+  margin-right: 10px;
 }
 
 .nav-link-hover::before {
   content: "";
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   left: 0;
   height: 2px;
   width: 0;
@@ -267,7 +282,7 @@ html {
   align-items: center;
   justify-content: center;
   height: 83vh;
-  background-color: #f1f2f6;
+  background-color: #ffffff;
   margin-top: 50px;
 }
 
@@ -287,54 +302,15 @@ html {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 5px;
+  padding: 1rem;
+  border-radius: 7px;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
-  line-height: 1.5;
-  height: 500px;
+  line-height: 2rem;
+  height: 530px;
 }
 
-#login-label {
-  margin-bottom: 0.5rem;
-}
 
-#login-input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-}
 
-#username {
-  width: 75%;
-  display: block;
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-#password {
-  width: 75%;
-  display: block;
-  margin-bottom: 15px;
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
-#label_username {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #818080;
-}
 
 #login-button {
   width: 75%;
@@ -384,8 +360,8 @@ html {
   justify-content: left;
   font-size: 16px;
   font-style: italic;
-  color: #666;
-  font-weight: 400;
+  color: #756868;
+  font-weight: 600;
 }
 
 /* Logout Button */
@@ -428,7 +404,7 @@ html {
 
 .footer-menu {
   text-decoration: none;
-  color: #837c7c;
+  color: #080707;
   font-size: 12.5px;
 }
 
@@ -440,18 +416,17 @@ html {
 /* Sidenav */
 
 .icon-bar {
-  width: 65px; /* Set a specific width */
-  background-color: #4169e1;
+  background-color: #1e90ff;
   height: 745px;
 }
 
 .icon-bar a {
   display: block; /* Make the links appear below each other instead of side-by-side */
   text-align: center; /* Center-align text */
-  padding: 14px; /* Add some padding */
+  padding: 16px 0px 18px 0px; /* Add some padding */
   transition: all 0.3s ease; /* Add transition for hover effects */
   color: white; /* White text color */
-  font-size: 17px; /* Increased font-size */
+  font-size: 15px; /* Increased font-size */
 }
 
 .icon-bar button {
@@ -470,12 +445,14 @@ html {
   transition: all 0.3s ease; /* Add transition for hover effects */
   color: white; /* White text color */
   font-size: 17px; /* Increased font-size */
+  text-decoration: none;
 }
 
 .icon-bar a:hover {
-  background-color: #1e90ff; /* Add a hover color */
+  background-color: #4169e1; /* Add a hover color */
   color: white;
 }
+
 
 .icon-bar button:hover {
   background-color: #1e90ff; /* Add a hover color */
@@ -487,17 +464,25 @@ html {
 
 #expanded-menu-list {
   margin-left: 15px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 #sidenav {
   height: 100%;
   position: fixed;
   z-index: 1;
-  overflow-x: hidden;
   transition: 0.5s;
   padding-top: 10px;
 }
+
+#sidenav-a {
+  margin-top: 42px;
+}
+
+#sidenav-b {
+  margin-top: 42px;
+}
+
 
 @media screen and (max-height: 450px) {
   #sidenav {
@@ -526,15 +511,20 @@ html {
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
-  display: none;
-  background-color: #1e90ff;
+  display: flex;
+  background-color: #4169e1;
   padding-left: 8px;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.8s;
+  line-height: 10px;
 }
 
 /* Optional: Style the caret down icon */
-.fa-caret-down {
+.fa-caret {
   float: right;
-  padding-right: 8px;
+  padding-right: 2px;
+  margin-top: 8px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -542,7 +532,7 @@ html {
   padding: 6px 8px 6px 12px;
   text-decoration: none;
   font-size: 14px;
-  color: #1e90ff;
+  color: #4169e1;
   display: block;
   border: none;
   background: none;
@@ -555,11 +545,10 @@ html {
 #sideicon-dropdown {
   font-size: 12px;
   text-decoration: none;
-  text-align: start;
 }
 
 #sidenav-dropdown {
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -569,8 +558,8 @@ html {
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #1e90ff;
-  overflow: hidden;
+  background-color: #4169e1;
+  overflow: visible;
 }
 
 /* Style the links inside the navigation bar */
@@ -606,13 +595,16 @@ html {
 
 .loading {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 3rem;
   font-weight: 800;
   /* font-family: Source Sans Pro, Consolas, "Courier New", monospace; */
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: #ffffff;
-  margin-left: 50px;
+
 }
 
 .loading span {
@@ -626,6 +618,8 @@ html {
   font-size: 16px;
   font-weight: 500;
   color: #fbfcfc;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
 }
 
 @keyframes rotate {
@@ -643,7 +637,8 @@ html {
   background-color: #004ea2;
   background-size: cover;
   position: relative;
-  height: 330px;
+  height: 250px;
+  padding-top: 90px;
 }
 
 .row-live-data {
@@ -683,7 +678,7 @@ html {
 .profile-name-container {
   display: inline-block;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .profile-container {
@@ -752,4 +747,204 @@ html {
 .user-footer .btn {
   margin-right: 5px;
   margin-bottom: 5px;
+}
+
+
+/* Profile Menu Dropdown */
+
+/* Style the button that toggles the dropdown */
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-container {
+  display: none;
+  transition: height 0.3s ease-out;
+  overflow: hidden;
+}
+
+.dropdown-btn.active + .dropdown-container {
+  display: block;
+}
+
+
+/* Show the dropdown content when the button is clicked */
+.show {
+  display: block;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change the background color of the links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Add a grey background color to dropdown links that are disabled */
+.dropdown-content .disabled {
+  color: #ccc;
+  pointer-events: none;
+  background-color: #f1f1f1;
+}
+
+/* Style the dropdown menu header */
+.dropdown-header {
+  font-weight: bold;
+  padding: 12px 16px;
+  color: #444;
+}
+
+/* Style the dropdown menu divider */
+.dropdown-divider {
+  height: 1px;
+  margin: 8px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+
+#myDropdown {
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  padding: 10px;
+  width: 300px;
+  font-size: 12px;
+  list-style: none;
+  position: absolute;
+  right: 20px;
+}
+
+.user-header img {
+  height: 90px;
+  width: 90px;
+  float: left;
+  margin-right: 10px;
+}
+
+.user-header p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.user-header small {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.user-body {
+  padding: 10px;
+}
+
+.user-body a {
+  color: #333;
+  display: block;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.user-footer {
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+  padding: 3px;
+
+}
+
+.user-footer .btn {
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+
+/* Dropdown Hover  */
+
+.dropdown-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-hover-content {
+  display: none;
+  position: absolute;
+  left: 55px;
+  top: 9px;
+  background-color: #878080;
+  opacity: 0.7;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:12px 4px;
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+  height: 40px;
+  font-weight: 600;
+}
+
+.dropdown-hover:hover .dropdown-hover-content {
+  display: block;
+}
+
+.dropdown-hover:hover .dropdown-hover-content-b {
+  display: block;
+}
+
+.dropdown-hover:hover .dropdown-hover-content-a {
+  display: block;
+}
+
+.dropdown-hover-content-b {
+  display: none;
+  position: absolute;
+  left: 55px;
+  top: 9px;
+  background-color: #878080;
+  opacity: 0.7;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:12px 4px;
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+  height: 300px;
+  font-weight: 600;
+}
+
+.dropdown-hover-content-a {
+  display: none;
+  position: absolute;
+  left: 55px;
+  top: 9px;
+  background-color: #878080;
+  opacity: 0.7;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding:12px 4px;
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+  height: 260px;
+  font-weight: 600;
 }

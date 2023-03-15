@@ -3,6 +3,8 @@ import { MDBFooter } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import LoginButton from './LoginButton';
 import NavbarMenu from '../landing_page/NavbarMenu';
+import TextField from '@mui/material/TextField';
+
 
 
 function LoginForm() {
@@ -44,31 +46,33 @@ function LoginForm() {
 
   return (
     <div>
-      <NavbarMenu/>
+      <NavbarMenu />
       <div className="login-form">
         <div className="login-form-container">
           <div className="form-login">
             <img id='logo_login' src='/assets/logo_gms_h_ph_f.png' alt='logo' width='100' height='80'
             />
-            <label htmlFor="username" id='label_username' style={{ width: "75%", textAlign: "left" }}>Username</label>
-            <input
+            <TextField id="outlined-basic" label="Username" variant="outlined"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              id="username"
-              placeholder='Enter username'
+              placeholder="Enter a username"
+              style={{ width: "75%", textAlign: "left", marginBottom: "20px", marginTop: "20px" }}
             />
-            <label htmlFor="username" id='label_username' style={{ width: "75%", textAlign: "left" }}>Password</label>
-            <input
+
+            <TextField
+              id="outlined-password-input"
+              label="Password"
               type="password"
+              autoComplete="current-password"
+              style={{ width: "75%", textAlign: "left", marginBottom: "20px" }}
               value={password}
+              placeholder="Enter a password"
               onChange={(e) => setPassword(e.target.value)}
-              id="password"
-              placeholder='Enter password'
             />
             <button id="login-button" onClick={handleLogin}>
-            <i className="fa fa-sign-in me-2"></i>
-            Sign in
+              <i className="fa fa-sign-in me-2"></i>
+              Sign in
             </button>
             <div className="separator"></div>
 
@@ -76,15 +80,15 @@ function LoginForm() {
               Or
             </div>
             <div className="google-signin-container">
-                {/* Login/Logout Button */}
-                <LoginButton/>
+              {/* Login/Logout Button */}
+              <LoginButton />
             </div>
           </div>
         </div>
       </div>
 
       <section>
-        <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
+        <MDBFooter style={{ backgroundColor: 'rgb(245,245,247)' }} className='text-center text-lg-start text-dark'>
           {/* <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div className="d-none d-lg-block">
               <span>Get connected with us on social networks:</span>
@@ -112,25 +116,25 @@ function LoginForm() {
             </div>
           </section> */}
 
-          <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-           <a href='/#' className='footer-menu m-2'>
-            About Us 
-           </a> 
-           | 
-           <a href='/#' className='footer-menu m-2'>
-            Contact Us 
-           </a>  
-           |
-           <a href='/#' className='footer-menu m-2'>
-           Privacy Policy 
-           </a>  
-           | 
-           <a href='/#' className='footer-menu m-2'>
-           Terms and Conditions
-           </a>
-           <span style={{fontSize: "12px"}}>
-            Copyright © 2023 Global Mobility Service, Inc.
-             All Rights Reserved.
+          <div className='text-center p-4' >
+            <a href='/#' className='footer-menu m-3'>
+              About Us
+            </a>
+            |
+            <a href='/#' className='footer-menu m-3'>
+              Contact Us
+            </a>
+            |
+            <a href='/#' className='footer-menu m-3'>
+              Privacy Policy
+            </a>
+            |
+            <a href='/#' className='footer-menu m-3'>
+              Terms and Conditions
+            </a>
+            <span style={{ fontSize: "12px" }}>
+              Copyright © 2023 Global Mobility Service, Inc.
+              All Rights Reserved.
             </span>
           </div>
         </MDBFooter>

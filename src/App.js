@@ -7,8 +7,6 @@ import Dashboard from './pages/Dashboard';
 import Billing from './pages/Billing';
 
 
-
-
 function App() {
   return (
     <>

@@ -155,30 +155,30 @@ const LandingPage = () => {
 
 
       <section>
-        <Card fluid id='live-data'>
+        <div fluid id='live-data'>
           <Container>
-            <Row className="row-live-data align-items-center">
+            <Row className="row-live-data align-items-center" style={{lineHeight: '20px'}}>
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
+                  {unitsReleased !== null ? <p className="loading">{unitsReleased}</p> : <p className="loading">17,755</p>}
                   <p id='loading-description'>Units released through GMS</p>
                 </div>
               </Col>
               <Col md="4" className="text-center mb-3 mb-md-0">
                 <div>
-                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
+                  {dailyActiveUnits !== null ? <p className="loading">{dailyActiveUnits}</p> : <p className="loading">11,799</p>}
                   <p id='loading-description'>Daily active units</p>
                 </div>
               </Col>
               <Col md="4" className="text-center">
                 <div>
-                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading"><span><i className='fa fa-spinner text-white'></i></span>Loading</p>}
+                  {totalMileage !== null ? <p>{totalMileage}</p> : <p className="loading">521M</p>}
                   <p id='loading-description'>Total mileage of vehicles (km)</p>
                 </div>
               </Col>
             </Row>
           </Container>
-        </Card>
+        </div>
       </section>
 
 
@@ -193,7 +193,7 @@ const LandingPage = () => {
 
 
       <section>
-        <Card fluid id='testimonials-card'>
+        <div fluid id='testimonials-card' className='p-5'>
           <Container id='testimonials-container'>
             <Row className="justify-content-md-center">
               <Col lg="6" id='testimonials-col'>
@@ -204,7 +204,7 @@ const LandingPage = () => {
               </Col>
             </Row>
           </Container>
-        </Card>
+        </div>
       </section>
 
 

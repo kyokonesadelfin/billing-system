@@ -47,6 +47,7 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
     }
 
     const options = {
+        maintainAspectRatio: false,
         responsive: true,
         scales: {
             y: {
@@ -54,7 +55,7 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
                 min: 0,
                 ticks: {
                     callback: function (value) {
-                        return value + ' km';
+                        return value + (value === 0 ? '' :' km');
                     },
                     maxTicksLimit: 6,
                     beginAtZero: true
@@ -66,7 +67,7 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
                 max: 10,
                 ticks: {
                     callback: function (value) {
-                        return '' + value + ' h';
+                        return '' + value + (value === 0 ? '' : ' h')   ;
                     },
                     stepSize: 2,
                     maxTicksLimit: 6,
@@ -87,17 +88,36 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
                     labelString: "Hehe",
                     padding: 10
                 }
+            }
+        },
+        plugins: {
+            title: {
+              display: true,
+              text: "Driving Time and Mileage Data for the past 30 days",
+              padding: {
+                bottom: 30
+              },
+              weight: "bold",
+              color: "#00325c",
+              font: {
+                size: 13
+              },
+              align: "start"
             },
-
-        }
+            datalabels: {
+              display: true,
+              color: "white"
+            }
+          }
     }
 
     return (
-        <div style={{ height: '30vh', width: '100%' }}>
-            <h3></h3>
+        <div style={{ height: '35vh', width: '100%' }}>
             <Line
                 data={data}
                 options={options}
+                width={'500%'}
+                height={'100%'}
             />
         </div>
     )

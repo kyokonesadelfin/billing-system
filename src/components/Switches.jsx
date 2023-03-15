@@ -5,7 +5,6 @@ import '../sass/billing.scss'
 const Switches = ({ data }) => {
   const [toggled, setToggled] = useState(false);
 
-
   useEffect(() => {
     
     if (data.activation.desiredStatus === 'ACTIVE' || data.activation.desiredStatus === 'ACTIVE_ONESHOT') {
@@ -20,6 +19,8 @@ const Switches = ({ data }) => {
 
   }, [data.activation.desiredStatus, data.activation.currentStatus])
 
+  
+  
   const handleChange = (nextChecked) => {
 
     setToggled(nextChecked);
@@ -35,7 +36,7 @@ const Switches = ({ data }) => {
         fetch(`https://api.cloud-gms.com/v3/devices/10227026/activation`, {
           method: 'PUT',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
@@ -78,7 +79,7 @@ const Switches = ({ data }) => {
         fetch(`https://api.cloud-gms.com/v3/devices/10227026/activation`, {
           method: 'PUT',
           headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_MSPF_API_KEY}`,
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({

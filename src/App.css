@@ -512,7 +512,7 @@ html {
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: flex;
-  background-color: #4169e1;
+  background-color: #1e90ff;
   padding-left: 8px;
   z-index: 1;
   overflow-x: hidden;
@@ -552,9 +552,6 @@ html {
   text-decoration: none;
 }
 
-#sidenav-dropdown:hover {
-  text-decoration: underline;
-}
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -772,10 +769,17 @@ html {
 
 
 .dropdown-container {
-  display: none;
-  transition: height 0.3s ease-out;
-  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
 }
+
+
+.dropdown-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .dropdown-btn.active + .dropdown-container {
   display: block;

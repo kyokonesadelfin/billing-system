@@ -34,34 +34,8 @@ function Billing() {
     const today = (new Date());
     const yesterday = moment(today.setDate(today.getDate() - 1)).format('YYYY-MM-DD');
     const monthAgo = moment(today.setDate(today.getDate() - 29)).format('YYYY-MM-DD');
-    const [width, setWidth] = useState(50);
-    const [marginLeft, setMarginLeft] = useState(50);
     const [total, setTotal] = useState(0);
-    const [dropdownActive1, setDropdownActive1] = useState(false);
-    const [dropdownActive2, setDropdownActive2] = useState(false);
-    const [dropdownActive3, setDropdownActive3] = useState(false);
 
-    const toggleNav = () => {
-        if (width === 250 && marginLeft === 250) {
-            setWidth(50);
-            setMarginLeft(50);
-        } else {
-            setWidth(250);
-            setMarginLeft(250);
-        }
-    };
-
-    const toggleDropdown1 = () => {
-        setDropdownActive1(!dropdownActive1);
-    };
-
-    const toggleDropdown2 = () => {
-        setDropdownActive2(!dropdownActive2);
-    };
-
-    const toggleDropdown3 = () => {
-        setDropdownActive3(!dropdownActive3);
-    };
 
     // Get Current Data
     const pagesVisited = pageNumber * dataPerPage;
@@ -71,9 +45,12 @@ function Billing() {
 
     // Counts the filtered search results that will be displayed under the data table
     const searchCount = Math.ceil(combinedArrays.length);
-
-    // console.log(moment.unix(1678673801).format('MM/DD/YYYY'))
-
+    console.log(('{\"id\":10141673,\"timestamp\":1678847034}'))
+    // console.log(moment.unix(1678849946).format('YYYY-MM-DDThh:mm:ssZ'))
+    console.log(moment.unix(1678847034).format('YYYY-MM-DDThh:mm:ssZ'))
+    // console.log(moment('2023-03-15T01:22:28Z').format('MM/DD/YYYYThh:mm:ssZ'))
+    console.log(moment('2023-03-16T01:22:28Z').format('MM/DD/YYYY, hh:mm:ss'))
+    
     // Search function using Device Id or Vehicle Name(VIN)
     function searchFilter(e) {
         e.preventDefault();
@@ -105,6 +82,8 @@ function Billing() {
         };
     }
 
+    console.log(encodeURI("{\"id\":10145276,\"timestamp\":1678870442}"))
+    
     // useEffect(() => {
     //     fetch(`https://api.cloud-gms.com/v1/oauth2/token`, {
     //         method: 'POST',
@@ -198,11 +177,6 @@ function Billing() {
         const modalEle = modalRef.current;
         const bsModal = bootstrap.Modal.getInstance(modalEle);
         bsModal.hide();
-    }
-
-    // Show Playback Button in Map Modal
-    const showPlayback = (e) => {
-        e.preventDefault();
     }
 
     // onChange of Select
@@ -373,9 +347,9 @@ function Billing() {
                         <div className="modal fade show" ref={modalRef} id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
                             <div className="modal-dialog modal-dialog-centered modal-xl">
                                 <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalCenterTitle">Vehicle/Device Location</h5>
-                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div className="modal-header" style={{backgroundColor: '#39f'}}>
+                                        <h5 className="modal-title" id="exampleModalCenterTitle" style={{color:'#FFFFFF'}}><i type='button' className="fa fa-map-marker" aria-hidden="true" style={{color:'#FFFFFF'}}></i>{' '}{' '}Vehicle/Device Location</h5>
+                                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div className="modal-body">
                                         <GoogleMaps key={singleDeviceData.id} position={centerPosition} singleDevice={singleDeviceData} />
@@ -393,7 +367,6 @@ function Billing() {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={hideModal}>Close</button>
-                                        <button type="button" className="btn btn-primary" onClick={showPlayback}>Show Playback</button>
                                     </div>
                                 </div>
                             </div>
@@ -441,7 +414,8 @@ function Billing() {
                                         <th>Vehicle Name</th>
                                         <th>Desired Status</th>
                                         <th>Current Status</th>
-                                        <th>Map</th>
+                                        <th style={{width: '10%'}}>Map</th>
+                                        <th style={{width: '10%'}}>Route Playback</th>
                                         <th>Activation</th>
                                     </tr>
                                 </thead>
@@ -460,7 +434,10 @@ function Billing() {
                                                                     <td>{device?.tags?.VIN !== undefined ? device?.tags?.VIN : 'UNKNOWN'}</td>
                                                                     <td>{device.activation.desiredStatus === null ? 'UNKNOWN' : device.activation.desiredStatus}</td>
                                                                     <td>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</td>
-                                                                    <td>
+                                                                    <td style={{width: '10%'}}>
+                                                                        <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
+                                                                    </td>
+                                                                    <td style={{width: '10%'}}>
                                                                         <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
                                                                     </td>
                                                                     <td><Switches data={device} /></td>
@@ -475,7 +452,10 @@ function Billing() {
                                                                     <td>{device?.tags?.VIN !== undefined ? device?.tags?.VIN : 'UNKNOWN'}</td>
                                                                     <td>{device.activation.desiredStatus === null ? 'UNKNOWN' : device.activation.desiredStatus}</td>
                                                                     <td>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</td>
-                                                                    <td>
+                                                                    <td style={{width: '10%'}}> 
+                                                                        <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
+                                                                    </td>
+                                                                    <td style={{width: '10%'}}>
                                                                         <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
                                                                     </td>
                                                                     <td><Switches data={device} /></td>
@@ -536,7 +516,7 @@ function Billing() {
 
                     </>
             }
-            <PlaygroundSpeedDial />
+            <PlaygroundSpeedDial/>
         </div>
     )
 

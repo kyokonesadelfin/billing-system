@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Navbar } from "react-bootstrap";
-import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
+import AddUserModal from "./AddUserModal";
 
 
 
@@ -95,13 +96,13 @@ function handleDropdownClick() {
           <>
             <div id="sidenav-a">
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-home-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-home-94.png" alt="house-logo" width='30' height='30'/>
                 <div class="dropdown-hover-content">
                   <p>Dashboard</p>
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content-a">
                   <p>Admin Portal</p>
                   <p>Manage User</p>
@@ -113,7 +114,7 @@ function handleDropdownClick() {
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-business-building-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-business-building-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content-b">
                   <p>Operation</p>
                   <p>Product Vehicle</p>
@@ -128,26 +129,26 @@ function handleDropdownClick() {
 
 
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-cash-in-hand-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-cash-in-hand-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content">
                   <p>Loan Management</p>
                 </div>
               </a>
 
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-bill-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-bill-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content">
                   <p>Billing</p>
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-two-tickets-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-two-tickets-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content">
                   <p>Service Ticket</p>
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-close-window-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-close-window-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content">
                   <p>Log Out</p>
                 </div>
@@ -158,8 +159,9 @@ function handleDropdownClick() {
         {width !== 60 ? (
           <>
             <div id="sidenav-b">
+            <hr id="my-hr"/>
               <a href="/#" id='expanded-side-menu'>
-                <img src="/assets/icons8-home-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-home-94.png" alt="house-logo" width='30' height='30' />
                 <span id='expanded-menu-list'>Dashboard</span>
               </a>
               <button
@@ -167,7 +169,7 @@ function handleDropdownClick() {
                 onClick={toggleDropdown1}
                 id='expanded-side-menu'
               >
-                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='26' height='22' /><span id='expanded-menu-list'>Admin Portal</span> <FontAwesomeIcon icon={dropdownActive1 ? faCaretDown : faCaretLeft} className="fa-caret" />
+                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' /><span id='expanded-menu-list'>Admin Portal</span> <FontAwesomeIcon icon={dropdownActive1 ? faCaretDown : faCaretLeft} className="fa-caret" />
               </button>
  
               <div className="dropdown-container show" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
@@ -185,7 +187,7 @@ function handleDropdownClick() {
                 onClick={toggleDropdown2}
                 id='expanded-side-menu'
               >
-                <img src="/assets/icons8-business-building-94.png" alt="house-logo" width='26' height='22' /><span id='expanded-menu-list'>Operations</span><FontAwesomeIcon icon={dropdownActive2 ? faCaretDown : faCaretLeft} className="fa-caret" />
+                <img src="/assets/icons8-business-building-94.png" alt="house-logo" width='30' height='30' /><span id='expanded-menu-list'>Operations</span><FontAwesomeIcon icon={dropdownActive2 ? faCaretDown : faCaretLeft} className="fa-caret" />
               </button>
 
               <div className="dropdown-container show" style={{ display: dropdownActive2 ? 'block' : 'none' }}>
@@ -197,13 +199,14 @@ function handleDropdownClick() {
                 <a href="/#" id='sidenav-dropdown'>MCCS</a>
                 <a href="/#" id='sidenav-dropdown'>Warehouse address</a>
               </div>
+              <hr id="my-hr"/>
  
               <button
                 className={dropdownActive3 ? 'dropdown-btn active' : 'dropdown-btn'}
                 onClick={toggleDropdown3}
                 id='expanded-side-menu'
               >
-                <img src="/assets/icons8-cash-in-hand-94.png" alt="house-logo" width='26' height='22' /> <span id='expanded-menu-list'>Loan Management</span><FontAwesomeIcon icon={dropdownActive3 ? faCaretDown : faCaretLeft} className="fa-caret" />
+                <img src="/assets/icons8-cash-in-hand-94.png" alt="house-logo" width='30' height='30' /> <span id='expanded-menu-list'>Loan Management</span><FontAwesomeIcon icon={dropdownActive3 ? faCaretDown : faCaretLeft} className="fa-caret" />
               </button>
 
               <div className="dropdown-container show" style={{ display: dropdownActive3 ? 'block' : 'none' }}>
@@ -221,7 +224,7 @@ function handleDropdownClick() {
                 onClick={toggleDropdown4}
                 id='expanded-side-menu'
               >
-                <img src="/assets/icons8-bill-94.png" alt="house-logo" width='26' height='22' /><span id='expanded-menu-list'>Billing</span>
+                <img src="/assets/icons8-bill-94.png" alt="house-logo" width='30' height='30' /><span id='expanded-menu-list'>Billing</span>
                 <FontAwesomeIcon icon={dropdownActive4 ? faCaretDown : faCaretLeft} className="fa-caret" />
               </button>
 
@@ -236,13 +239,15 @@ function handleDropdownClick() {
 
 
               <a href="/#" id='expanded-side-menu'>
-                <img src="/assets/icons8-two-tickets-94.png" alt="house-logo" width='26' height='22' />
+                <img src="/assets/icons8-two-tickets-94.png" alt="house-logo" width='30' height='30' />
                 <span id='expanded-menu-list'>Service Ticket</span>
 
               </a>
+              <hr id="my-hr"/>
+
               <div>
                 <a href="/#" id='expanded-side-menu'>
-                  <img src="/assets/icons8-close-window-94.png" alt="house-logo" width='26' height='22' />
+                  <img src="/assets/icons8-close-window-94.png" alt="house-logo" width='30' height='30' />
                   <span id='expanded-menu-list'>Log out</span>
                 </a>
               </div>
@@ -316,9 +321,12 @@ function handleDropdownClick() {
 
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
         <div style={{ marginTop: "70px" }}>
+        <AddUserModal/>
           <PlaygroundSpeedDial />
         </div>
       </div>
+      
+ 
 
     </div>
   );

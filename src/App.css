@@ -172,7 +172,7 @@ html {
 
 #navbar-brand-icon {
   display: flex;
-  margin-left: 190px;
+  margin-left: 240px;
 }
 
 @media only screen and (max-width: 995px) {
@@ -423,19 +423,19 @@ html {
 .icon-bar a {
   display: block; /* Make the links appear below each other instead of side-by-side */
   text-align: center; /* Center-align text */
-  padding: 16px 0px 18px 0px; /* Add some padding */
+  padding: 14px 0px 14px 0px; /* Add some padding */
   transition: all 0.3s ease; /* Add transition for hover effects */
   color: white; /* White text color */
-  font-size: 15px; /* Increased font-size */
+  font-size: 24px; /* Increased font-size */
 }
 
 .icon-bar button {
   display: block; /* Make the links appear below each other instead of side-by-side */
   text-align: center; /* Center-align text */
-  padding: 14px; /* Add some padding */
+  padding: 16px; /* Add some padding */
   transition: all 0.3s ease; /* Add transition for hover effects */
   color: white; /* White text color */
-  font-size: 17px; /* Increased font-size */
+  font-size: 15px; /* Increased font-size */
 }
 
 #expanded-side-menu {
@@ -444,7 +444,7 @@ html {
   padding: 14px; /* Add some padding */
   transition: all 0.3s ease; /* Add transition for hover effects */
   color: white; /* White text color */
-  font-size: 17px; /* Increased font-size */
+  font-size: 15px; /* Increased font-size */
   text-decoration: none;
 }
 
@@ -473,6 +473,7 @@ html {
   z-index: 1;
   transition: 0.5s;
   padding-top: 10px;
+  font-family: "Roboto", "Noto", sans-serif;
 }
 
 #sidenav-a {
@@ -524,7 +525,7 @@ html {
 .fa-caret {
   float: right;
   padding-right: 2px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -543,13 +544,17 @@ html {
 }
 
 #sideicon-dropdown {
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
 }
 
 #sidenav-dropdown {
-  font-size: 13px;
+  font-size: 12px;
   text-decoration: none;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 40px;
 }
 
 
@@ -909,6 +914,7 @@ html {
   border-radius: 10px;
   height: 40px;
   font-weight: 600;
+  font-family: "Roboto", "Noto", sans-serif;
 }
 
 .dropdown-hover:hover .dropdown-hover-content {
@@ -938,6 +944,7 @@ html {
   border-radius: 10px;
   height: 300px;
   font-weight: 600;
+  font-family: "Roboto", "Noto", sans-serif;
 }
 
 .dropdown-hover-content-a {
@@ -955,4 +962,87 @@ html {
   border-radius: 10px;
   height: 260px;
   font-weight: 600;
+  font-family: "Roboto", "Noto", sans-serif;
 }
+
+
+
+/* css for hr */
+#my-hr {
+  border: none;
+  border-top: 2.2px solid #ccc;
+  margin: 20px 0;
+}
+
+/* CSS for Form */
+
+#myForm {
+  display: inline-block;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  height:  100%;
+  margin-left: 30px;
+  padding: 5px 20px;
+}
+
+#myForm label {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#myForm input,
+#myForm select {
+  margin-top: 10px;
+  width: 50%;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#myForm input:focus,
+#myForm select:focus {
+  outline: none;
+  border-color: #6ab5ff;
+  box-shadow: 0px 0px 5px #6ab5ff;
+}
+
+#myForm select option:first-child {
+  display: block;
+}
+
+#myForm select[name="phoneNo"] {
+  width: 50%;
+}
+
+#myForm select[name="department"],
+#myForm select[name="departmentNo"],
+#myForm select[name="departmentName"] {
+  width: 500px;
+} */
+
+#myForm button[type="submit"] {
+  background-color: #6ab5ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#myForm button[type="submit"]:hover {
+  background-color: #007fff;
+}
+
+

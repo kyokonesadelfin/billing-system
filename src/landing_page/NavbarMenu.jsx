@@ -31,10 +31,10 @@ function NavbarMenu() {
             <Nav.Link className="nav-link-hover" href="/#home">Contact</Nav.Link>
           </Nav>
 
-          <Form className="my-2 my-lg-0 mr-auto" style={{ display: "flex", marginRight: "180px" }} id='navbar-search-form'>
+          <Form className="my-2 my-lg-0 mr-auto" style={{ display: "flex", marginRight: "240px" }} id='navbar-search-form'>
             <NavLink to='/login'>
               <Button variant='outline-light' style={{ width: "80px", fontSize: "12px", marginRight: "20px" }}
-              ><i className="fa fa-sign-in me-2"></i>Log in</Button>
+              ><i className="fa fa-sign-in me-2"></i>Log in</Button>  
             </NavLink>
             <NavLink to='/login'>
               <Button variant='outline-light' style={{ width: "190px", fontSize: "12px" }}

@@ -5,6 +5,7 @@ import LoginForm from './login_page/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Billing from './pages/Billing_Navbar';
+import AddUserModal from './pages/AddUserModal';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/' element={<LandingPage />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/adduser' element={<AddUserModal />} />
       </Routes>
     </>
   );

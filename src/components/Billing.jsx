@@ -11,6 +11,7 @@ import moment from 'moment';
 import PlaygroundSpeedDial from "./PlaygroundSpeedDial";
 
 function Billing() {
+    const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
     const [device, setDevice] = useState([]);
     const [loading, setLoading] = useState(false);
     const [dataPerPage] = useState(200);
@@ -124,7 +125,7 @@ function Billing() {
             keyboard: false
         })
         bsModal.show();
-
+        setIsInfoWindowOpen(true);
         // Get One Device Status
         await fetch(`https://api.cloud-gms.com/v3/devices/${id}/status`, {
             method: 'GET',
@@ -177,8 +178,11 @@ function Billing() {
         const modalEle = modalRef.current;
         const bsModal = bootstrap.Modal.getInstance(modalEle);
         bsModal.hide();
+        setIsInfoWindowOpen(false);
     }
-
+    
+    console.log(isInfoWindowOpen)
+    
     // onChange of Select
     useEffect(() => {
         setLoading(true);
@@ -349,10 +353,10 @@ function Billing() {
                                 <div className="modal-content">
                                     <div className="modal-header" style={{backgroundColor: '#39f'}}>
                                         <h5 className="modal-title" id="exampleModalCenterTitle" style={{color:'#FFFFFF'}}><i type='button' className="fa fa-map-marker" aria-hidden="true" style={{color:'#FFFFFF'}}></i>{' '}{' '}Vehicle/Device Location</h5>
-                                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onClick={hideModal}></button>
                                     </div>
                                     <div className="modal-body">
-                                        <GoogleMaps key={singleDeviceData.id} position={centerPosition} singleDevice={singleDeviceData} />
+                                        <GoogleMaps key={singleDeviceData.id} position={centerPosition} singleDevice={singleDeviceData} isOpen={isInfoWindowOpen}/>
                                         <DrivingAndMileageTimeChart drivingandmileagetime={drivingandmileagetimeArray} />
                                         {
                                             singleActivationStatus.map((device) => {
@@ -366,6 +370,7 @@ function Billing() {
                                         }
                                     </div>
                                     <div className="modal-footer">
+                                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal"><a href='/playback' target='_blank' style={{color: '#FFFFFF', textDecoration: 'none'}}>Show Playback</a></button>
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={hideModal}>Close</button>
                                     </div>
                                 </div>
@@ -415,7 +420,6 @@ function Billing() {
                                         <th>Desired Status</th>
                                         <th>Current Status</th>
                                         <th style={{width: '10%'}}>Map</th>
-                                        <th style={{width: '10%'}}>Route Playback</th>
                                         <th>Activation</th>
                                     </tr>
                                 </thead>
@@ -437,9 +441,6 @@ function Billing() {
                                                                     <td style={{width: '10%'}}>
                                                                         <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
                                                                     </td>
-                                                                    <td style={{width: '10%'}}>
-                                                                        <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
-                                                                    </td>
                                                                     <td><Switches data={device} /></td>
                                                                 </tr>
                                                             )
@@ -453,9 +454,6 @@ function Billing() {
                                                                     <td>{device.activation.desiredStatus === null ? 'UNKNOWN' : device.activation.desiredStatus}</td>
                                                                     <td>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</td>
                                                                     <td style={{width: '10%'}}> 
-                                                                        <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
-                                                                    </td>
-                                                                    <td style={{width: '10%'}}>
                                                                         <i type='button' className="fa fa-map-marker" aria-hidden="true" onClick={() => showModal(device.deviceId)}></i>
                                                                     </td>
                                                                     <td><Switches data={device} /></td>

@@ -6,6 +6,8 @@ import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Billing from './pages/Billing_Navbar';
 import Playback from './pages/Playback';
+import AddUserModal from './pages/AddUserModal';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/adduser' element={<AddUserModal />} />
       </Routes>
     </>
   );

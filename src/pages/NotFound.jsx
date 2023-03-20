@@ -7,7 +7,6 @@ const NotFound = () => {
   return (
     <div>
       <NavbarMenu />
-
       <div className='not-found'>
         <h1>404 Error: Page Not Found</h1>
         <p>Sorry, the requested page could not be found.</p>
@@ -15,9 +14,6 @@ const NotFound = () => {
       <section>
         <Footer />
       </section>
-
- 
-
     </div>
   );
 };

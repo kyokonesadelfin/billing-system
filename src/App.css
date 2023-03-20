@@ -525,7 +525,7 @@ html {
 .fa-caret {
   float: right;
   padding-right: 2px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -970,35 +970,55 @@ html {
 /* css for hr */
 #my-hr {
   border: none;
-  border-top: 2.2px solid #ccc;
+  border-top: 5px solid #ccc;
   margin: 20px 0;
 }
 
 /* CSS for Form */
 
-#myForm {
-  display: inline-block;
-  flex-direction: column;
+#form-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+#form-div {
+  display: flex;       
+  flex-wrap: wrap;   
   align-items: left;
+  justify-content: left;
+}
+
+#myForm {
+  display: flex;       
+  flex-wrap: wrap;   
+  align-items: left;  
   margin-top: 10px;
   font-family: Arial, sans-serif;
   height:  100%;
-  margin-left: 30px;
-  padding: 5px 20px;
+  width: 100%;
+  max-width: 146vh;
+  padding: 30px 50px;
 }
 
 #myForm label {
   margin-top: 20px;
   font-weight: bold;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 
 #myForm input,
 #myForm select {
   margin-top: 10px;
-  width: 50%;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: 300px;
   display: block;
-  width: 100%;
-  padding: .375rem .75rem;
+  padding: .355rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
@@ -1008,6 +1028,11 @@ html {
   border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+#myForm #address {
+  width: 800px;
+}
+
 
 #myForm input:focus,
 #myForm select:focus {
@@ -1021,14 +1046,14 @@ html {
 }
 
 #myForm select[name="phoneNo"] {
-  width: 50%;
+  width: 200px;
 }
 
 #myForm select[name="department"],
 #myForm select[name="departmentNo"],
 #myForm select[name="departmentName"] {
-  width: 500px;
-} */
+  width: 200px;
+} 
 
 #myForm button[type="submit"] {
   background-color: #6ab5ff;

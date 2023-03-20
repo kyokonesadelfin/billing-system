@@ -3,9 +3,6 @@ import { Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
-import AddUserModal from "./AddUserModal";
-
-
 
 
 
@@ -31,7 +28,6 @@ function Dashboard() {
       setMarginLeft(250);
     }
   };
-
 
 
   const toggleDropdown1 = () => {
@@ -321,7 +317,6 @@ function handleDropdownClick() {
 
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
         <div style={{ marginTop: "70px" }}>
-        <AddUserModal/>
           <PlaygroundSpeedDial />
         </div>
       </div>

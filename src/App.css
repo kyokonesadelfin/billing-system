@@ -578,7 +578,7 @@ html {
   font-size: 20px;
   cursor: pointer;
   color: white;
-  padding: 5px 5px 5px 15px;
+  padding: 3px 0px 5px 15px;
 }
 
 /* main content */
@@ -666,6 +666,7 @@ html {
 
 .logo-container {
   display: inline-block;
+  padding-bottom: 2px;
 }
 
 .spacer {
@@ -680,7 +681,7 @@ html {
 .profile-name-container {
   display: inline-block;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .profile-container {

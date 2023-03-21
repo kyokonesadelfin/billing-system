@@ -207,6 +207,13 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+    #status {
+        span:after{
+            content:" "; 
+            display:inline-block; 
+            width: 15px;
+        }
+    }
 }
 
 .map-container {

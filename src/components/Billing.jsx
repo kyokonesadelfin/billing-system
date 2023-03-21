@@ -9,6 +9,7 @@ import { InputText } from 'primereact/inputtext';
 import { Modal } from 'bootstrap';
 import moment from 'moment';
 import PlaygroundSpeedDial from "./PlaygroundSpeedDial";
+import { Link } from 'react-router-dom';
 
 function Billing() {
     const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
@@ -35,6 +36,7 @@ function Billing() {
     const today = (new Date());
     const yesterday = moment(today.setDate(today.getDate() - 1)).format('YYYY-MM-DD');
     const monthAgo = moment(today.setDate(today.getDate() - 29)).format('YYYY-MM-DD');
+    const [showGraph, setShowGraph] = useState(false);
     const [total, setTotal] = useState(0);
 
 
@@ -46,11 +48,6 @@ function Billing() {
 
     // Counts the filtered search results that will be displayed under the data table
     const searchCount = Math.ceil(combinedArrays.length);
-    console.log(('{\"id\":10141673,\"timestamp\":1678847034}'))
-    // console.log(moment.unix(1678849946).format('YYYY-MM-DDThh:mm:ssZ'))
-    console.log(moment.unix(1678847034).format('YYYY-MM-DDThh:mm:ssZ'))
-    // console.log(moment('2023-03-15T01:22:28Z').format('MM/DD/YYYYThh:mm:ssZ'))
-    console.log(moment('2023-03-16T01:22:28Z').format('MM/DD/YYYY, hh:mm:ss'))
     
     // Search function using Device Id or Vehicle Name(VIN)
     function searchFilter(e) {
@@ -77,13 +74,12 @@ function Billing() {
 
         if (event.target === modalEle) {
             bsModal.hide();
+            setIsInfoWindowOpen(false);
         }
         if (modalRef?.current?.contains(event.target)) {
             return
         };
     }
-
-    console.log(encodeURI("{\"id\":10145276,\"timestamp\":1678870442}"))
     
     // useEffect(() => {
     //     fetch(`https://api.cloud-gms.com/v1/oauth2/token`, {
@@ -119,13 +115,14 @@ function Billing() {
 
     // Show Map Modal
     const showModal = async (id) => {
+        setIsInfoWindowOpen(true);
         const modalEle = modalRef.current;
         const bsModal = new Modal(modalEle, {
             backdrop: 'static',
             keyboard: false
         })
         bsModal.show();
-        setIsInfoWindowOpen(true);
+        setShowGraph(false);
         // Get One Device Status
         await fetch(`https://api.cloud-gms.com/v3/devices/${id}/status`, {
             method: 'GET',
@@ -173,15 +170,23 @@ function Billing() {
             })
     }
 
+    // Show Graph
+    const showGraphBtn = () => {
+        setShowGraph(prev => prev === false ? true : false);
+    }
+
     // Hide Map Modal
     const hideModal = () => {
         const modalEle = modalRef.current;
         const bsModal = bootstrap.Modal.getInstance(modalEle);
         bsModal.hide();
         setIsInfoWindowOpen(false);
+        document.addEventListener('keyup',function(e){
+            if (e.key === "Escape") { 
+                hideModal()
+            }
+        });
     }
-    
-    console.log(isInfoWindowOpen)
     
     // onChange of Select
     useEffect(() => {
@@ -199,7 +204,6 @@ function Billing() {
                     console.error('Request failed', err);
                 })
                 .then(data => {
-                    console.log(data.next)
                     setDevice(data.data);
                     setIsFiltered(false);
                     setSearchValue('');
@@ -350,28 +354,34 @@ function Billing() {
                     :
                     <>
                         <div className="modal fade show" ref={modalRef} id="exampleModalCenter" tabIndex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
-                            <div className="modal-dialog modal-dialog-centered modal-xl">
+                            <div className="modal-dialog modal-xl">
                                 <div className="modal-content">
                                     <div className="modal-header" style={{backgroundColor: '#39f'}}>
                                         <h5 className="modal-title" id="exampleModalCenterTitle" style={{color:'#FFFFFF'}}><i type='button' className="fa fa-map-marker" aria-hidden="true" style={{color:'#FFFFFF'}}></i>{' '}{' '}Vehicle/Device Location</h5>
-                                        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onClick={hideModal}></button>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={hideModal}></button>
                                     </div>
                                     <div className="modal-body">
                                         <GoogleMaps key={singleDeviceData.id} position={centerPosition} singleDevice={singleDeviceData} isOpen={isInfoWindowOpen}/>
-                                        <DrivingAndMileageTimeChart drivingandmileagetime={drivingandmileagetimeArray} />
+                                        { showGraph ? <DrivingAndMileageTimeChart key={filterCombinedArray.deviceId} drivingandmileagetime={drivingandmileagetimeArray} /> : null}
                                         {
                                             singleActivationStatus.map((device) => {
                                                 return (
-                                                    <div key={device.deviceId} style={{ fontSize: '.9em', display: 'inline-block' }}>
-                                                        <span style={{ fontWeight: '500', display: 'inline-block' }}>Status:</span><span>  {device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}<span style={{ fontWeight: '500' }}>{' '}{' '}<br />Updated At:{' '}</span><span>{device.activation.updatedAt === null ? 'UNKNOWN' : moment(device.activation.updatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span></span><br />
-                                                        <span style={{ fontWeight: '500' }}>Device was Last Communicated At: </span><span>{' '}{' '}{moment(device.lastCommunicatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span>
+                                                    <div id='status' key={device.deviceId} style={{ fontSize: '.9em', display: 'inline-block'}}>
+                                                        <span>Status:</span>
+                                                        <span style={{ fontWeight: '500' }}>{device.activation.currentStatus === null ? 'UNKNOWN' : device.activation.currentStatus}</span>
+                                                        {' '}{' '}<span>Updated At:{' '}</span>
+                                                        <span style={{ fontWeight: '500' }}>{device.activation.updatedAt === null ? 'UNKNOWN' : moment(device.activation.updatedAt).format('MM-DD-YYYY, hh:mm:ss')}
+                                                        </span>
+                                                        <span>Device was Last Communicated At: </span>
+                                                        <span style={{ fontWeight: '500' }}>{' '}{' '}{moment(device.lastCommunicatedAt).format('MM-DD-YYYY, hh:mm:ss')}</span>
                                                     </div>
                                                 )
                                             })
                                         }
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal"><a href='/playback' target='_blank' style={{color: '#FFFFFF', textDecoration: 'none'}}>Show Playback</a></button>
+                                        <Link to={{pathname: "/playback"}} target='_blank' onClick={() => localStorage.setItem("activationStatus", JSON.stringify(singleActivationStatus))} className='btn btn-primary' style={{ textDecoration:'none', color: '#FFFFFF' }}>Show Playback</Link>
+                                        <button type="button" className="btn btn-primary" style={{ color: '#FFFFFF' }} onClick={() => showGraphBtn()}>{showGraph ? 'Close Graph' : ' Driving Time and Mileage Graph'}</button>
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={hideModal}>Close</button>
                                     </div>
                                 </div>

@@ -59,7 +59,6 @@ function LoginForm() {
               placeholder="Enter a username"
               style={{ width: "75%", textAlign: "left", marginBottom: "20px", marginTop: "20px" }}
             />
-
             <TextField
               id="outlined-password-input"
               label="Password"

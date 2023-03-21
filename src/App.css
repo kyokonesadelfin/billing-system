@@ -948,7 +948,7 @@ html {
   font-family: "Roboto", "Noto", sans-serif;
 }
 
-.dropdown-hover-content-a {
+.dropdown-hover-content-a{
   display: none;
   position: absolute;
   left: 55px;
@@ -977,6 +977,10 @@ html {
 
 /* CSS for Form */
 
+#branch-form {
+  margin: 30px 0;
+}
+
 #form-header {
   display: flex;
   justify-content: flex-start;
@@ -985,6 +989,13 @@ html {
 }
 
 #form-div {
+  display: flex;       
+  flex-wrap: wrap;   
+  align-items: left;
+  justify-content: left;
+}
+
+#position-form {
   display: flex;       
   flex-wrap: wrap;   
   align-items: left;

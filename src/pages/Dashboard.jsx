@@ -6,6 +6,7 @@ import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
 
 
 
+
 function Dashboard() {
   const [width, setWidth] = useState(60);
   const [marginLeft, setMarginLeft] = useState(60);
@@ -77,12 +78,9 @@ function Dashboard() {
 }, [dropdownRef]);
 
 
-
-
 function handleDropdownClick() {
     setIsDropdownOpen(!isDropdownOpen);
 }
-
 
 
   return (
@@ -100,7 +98,7 @@ function handleDropdownClick() {
               <a href="/#" className="dropdown-hover">
                 <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' />
                 <div class="dropdown-hover-content-a">
-                  <p>Admin Portal</p>
+                  <h6>Admin Portal</h6>
                   <p>Manage User</p>
                   <p>Branch</p>
                   <p>Department</p>
@@ -169,7 +167,7 @@ function handleDropdownClick() {
               </button>
  
               <div className="dropdown-container show" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
-                <a href="/#" id='sidenav-dropdown'>Manage User</a>
+                <a href="/adduser" id='sidenav-dropdown'>Manage User</a>
                 <a href="/#" id='sidenav-dropdown'>Branch</a>
                 <a href="/#" id='sidenav-dropdown'>Department</a>
                 <a href="/#" id='sidenav-dropdown'>Position</a>
@@ -302,7 +300,7 @@ function handleDropdownClick() {
                             </div>
                         </div>
                     </li>
-                    
+
                     <li class="user-footer">
                         <div class="pull-left">
                             <a href="/#" class="btn btn-default btn-flat">Profile</a>

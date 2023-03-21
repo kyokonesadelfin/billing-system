@@ -1,28 +1,8 @@
 import React, { useState } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-
-
-
-
-function createData(name, calories, fat, carbs) {
-    return { name, calories, fat, carbs };
-}
-
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24),
-    createData('Ice cream sandwich', 237, 9.0, 37),
-    createData('Eclair', 262, 16.0, 24),
-    createData('Cupcake', 305, 3.7, 67),
-    createData('Gingerbread', 356, 16.0, 49),
-];
-
+import Button from '@mui/material/Button';
+import { DataGridPremium } from '@mui/x-data-grid-premium';
+import { useDemoData } from '@mui/x-data-grid-generator';
+import { GridToolbar } from '@mui/x-data-grid';
 
 
 
@@ -33,6 +13,13 @@ const AddUserModal = () => {
     const [position, setPosition] = useState({ position: '', role: '', accessLevel: '' });
     const [personalInfo, setPersonalInfo] = useState({ lastName: '', firstName: '', middleName: '', contactNo: '', gender: '', address: '', birthdate: '' });
     const [step, setStep] = useState(1);
+    const [rowSelection, setRowSelection] = React.useState(true);
+
+    const { data } = useDemoData({
+        dataSet: 'Commodity',
+        rowLength: 10,
+        maxColumns: 5,
+    });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -90,59 +77,80 @@ const AddUserModal = () => {
                             <input type="email" id="altEmail" value={altEmail} onChange={(e) => setAltEmail(e.target.value)} required />
 
                             <div id='branch-form'>
-                                <label htmlFor="branch">Branch</label>
-                                <TableContainer component={Paper}>
-                                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell>Branch no.</TableCell>
-                                                <TableCell align="right">Branch name</TableCell>
-                                                <TableCell align="right">Address</TableCell>
-                                                <TableCell align="right">Phone no.</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            {rows.map((row) => (
-                                                <TableRow
-                                                    key={row.name}
-                                                    sx={{ '&:last-child td, &:last-child th': { border: 0.9 } }}
-                                                >
-                                                    <TableCell component="th" scope="row">
-                                                        {row.name}
-                                                    </TableCell>
-                                                    <TableCell align="right">{row.calories}</TableCell>
-                                                    <TableCell align="right">{row.fat}</TableCell>
-                                                    <TableCell align="right">{row.carbs}</TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
+                                <h5>Access Info</h5>
+
+                                <div style={{ width: '100%' }}>
+                                    <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
+                                        <label htmlFor="branch">Branch</label>
+                                    </Button>
+
+                                    <div style={{ float: "right" }}>
+                                        <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
+                                    </div>
+                                    <div style={{ height: 350, width: 800 }}>
+                                        <DataGridPremium
+                                            rowSelection={rowSelection}
+                                            checkboxSelection={rowSelection}
+                                            unstable_cellSelection
+                                            {...data}
+                                            slots={{
+                                                toolbar: GridToolbar,
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div style={{ width: '100%', marginTop: "40px" }}>
+                                    <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
+                                        <label htmlFor="branch">Department</label>
+                                    </Button>
+
+                                    <div style={{ float: "right" }}>
+                                        <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
+                                    </div>
+                                    <div style={{ height: 350, width: 800 }}>
+                                        <DataGridPremium
+                                            rowSelection={rowSelection}
+                                            checkboxSelection={rowSelection}
+                                            unstable_cellSelection
+                                            {...data}
+                                            slots={{
+                                                toolbar: GridToolbar,
+                                            }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
 
                             <div>
-                                <div> <label htmlFor="department">Department</label></div>
+                                <div id='position-form'>
+                                    <label htmlFor="department">Position</label>
+                                    <select name="position" required value={position.position} onClick={(e) => setPosition({ ...position, position: e.target.value })}>
+                                        <option value="">Position</option>
+                                        <option value="branch1">Branch 1</option>
+                                        <option value="branch2">Branch 2</option>
+                                    </select>
+                                </div>
 
-                                <label htmlFor="department">Position</label>
-                                <select name="position" required value={position.position} onClick={(e) => setPosition({ ...position, position: e.target.value })}>
-                                    <option value="">Position</option>
-                                    <option value="branch1">Branch 1</option>
-                                    <option value="branch2">Branch 2</option>
-                                </select>
-
-
-
-                                <select name="role" required value={position.role} onClick={(e) => setPosition({ ...position, role: e.target.value })}>
-                                    <option value="">Role</option>
-                                    <option value="branch1">Branch 1</option>
-                                    <option value="branch2">Branch 2</option>
-                                </select>
-
-                                <select name="branch" required>
-                                    <option value="">Access Level</option>
-                                    <option value="branch1">Branch 1</option>
-                                    <option value="branch2">Branch 2</option>
-                                </select>
+                                <div style={{ width: '100%' }}>
+                                    <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
+                                        <label htmlFor="branch">Role</label>
+                                    </Button> 
+                                    <div style={{ float: "right" }}>
+                                        <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
+                                    </div>
+                                    <div style={{ height: 350, width: 800 }}>
+                                        <DataGridPremium
+                                            rowSelection={rowSelection}
+                                            checkboxSelection={rowSelection}
+                                            unstable_cellSelection
+                                            {...data}
+                                            slots={{
+                                                toolbar: GridToolbar,
+                                            }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" onClick={handleNext}>Next</button>

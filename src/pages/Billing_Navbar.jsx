@@ -17,7 +17,7 @@ function Dashboard() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-
+ 
   const toggleNav = () => {
     if (width === 250 && marginLeft === 250) {
       setWidth(60);

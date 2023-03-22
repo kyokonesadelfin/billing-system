@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 // import SearchForm from './SearchForm';
 import Imagescarousel from './Imagescarousel';
-import Testimonials from './Testimonials';
 // import ForMoreInfoButton from './ForMoreInfoButton';
 import axios from 'axios';
 import Footer from './Footer';
@@ -196,12 +195,6 @@ const LandingPage = () => {
         <div fluid id='testimonials-card' className='p-5'>
           <Container id='testimonials-container'>
             <Row className="justify-content-md-center">
-              <Col lg="6" id='testimonials-col'>
-                <Card.Title id='testimonials-title'>Testimonials</Card.Title>
-                  <Card.Body>
-                    <Testimonials />
-                  </Card.Body>
-              </Col>
             </Row>
           </Container>
         </div>

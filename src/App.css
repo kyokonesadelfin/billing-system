@@ -682,6 +682,9 @@ html {
   display: inline-block;
   font-size: 14px;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-container {

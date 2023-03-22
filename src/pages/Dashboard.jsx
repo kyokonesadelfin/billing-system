@@ -3,6 +3,7 @@ import { Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
+import ManageUsers from "../admin_portal/ManageUsers";
 
 
 
@@ -10,7 +11,7 @@ import PlaygroundSpeedDial from "../components/PlaygroundSpeedDial";
 function Dashboard() {
   const [width, setWidth] = useState(60);
   const [marginLeft, setMarginLeft] = useState(60);
-  const [dropdownActive1, setDropdownActive1] = useState(false);
+  // const [dropdownActive1, setDropdownActive1] = useState(false);
   const [dropdownActive2, setDropdownActive2] = useState(false);
   const [dropdownActive3, setDropdownActive3] = useState(false);
   const [dropdownActive4, setDropdownActive4] = useState(false);
@@ -31,17 +32,17 @@ function Dashboard() {
   };
 
 
-  const toggleDropdown1 = () => {
-    setDropdownActive1(!dropdownActive1);
-    setDropdownActive2(false);
-    setDropdownActive3(false);
-    setDropdownActive4(false);
-    setIsOpen(!isOpen);
-  };
+  // const toggleDropdown1 = () => {
+  //   setDropdownActive1(!dropdownActive1);
+  //   setDropdownActive2(false);
+  //   setDropdownActive3(false);
+  //   setDropdownActive4(false);
+  //   setIsOpen(!isOpen);
+  // };
 
   const toggleDropdown2 = () => {
     setDropdownActive2(!dropdownActive2);
-    setDropdownActive1(false);
+    // setDropdownActive1(false);
     setDropdownActive3(false);
     setDropdownActive4(false);
     setIsOpen(!isOpen);
@@ -50,7 +51,7 @@ function Dashboard() {
   const toggleDropdown3 = () => {
     setDropdownActive3(!dropdownActive3);
     setDropdownActive2(false);
-    setDropdownActive1(false);
+    // setDropdownActive1(false);
     setDropdownActive4(false);
     setIsOpen(!isOpen);
   };
@@ -59,7 +60,7 @@ function Dashboard() {
     setDropdownActive4(!dropdownActive4);
     setDropdownActive2(false);
     setDropdownActive3(false);
-    setDropdownActive1(false);
+    // setDropdownActive1(false);
     setIsOpen(!isOpen);
   };
 
@@ -96,15 +97,9 @@ function handleDropdownClick() {
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
-                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' />
-                <div class="dropdown-hover-content-a">
-                  <h6>Admin Portal</h6>
-                  <p>Manage User</p>
-                  <p>Branch</p>
-                  <p>Department</p>
-                  <p>Position</p>
-                  <p>Access</p>
-                  <p>Activity Logs</p>
+                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30'/>
+                <div class="dropdown-hover-content">
+                  <p>Admin Portal</p>
                 </div>
               </a>
               <a href="/#" className="dropdown-hover">
@@ -158,23 +153,10 @@ function handleDropdownClick() {
                 <img src="/assets/icons8-home-94.png" alt="house-logo" width='30' height='30' />
                 <span id='expanded-menu-list'>Dashboard</span>
               </a>
-              <button
-                className={dropdownActive1 ? 'dropdown-btn active' : 'dropdown-btn'}
-                onClick={toggleDropdown1}
-                id='expanded-side-menu'
-              >
-                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' /><span id='expanded-menu-list'>Admin Portal</span> <FontAwesomeIcon icon={dropdownActive1 ? faCaretDown : faCaretLeft} className="fa-caret" />
-              </button>
- 
-              <div className="dropdown-container show" style={{ display: dropdownActive1 ? 'block' : 'none' }}>
-                <a href="/adduser" id='sidenav-dropdown'>Manage User</a>
-                <a href="/#" id='sidenav-dropdown'>Branch</a>
-                <a href="/#" id='sidenav-dropdown'>Department</a>
-                <a href="/#" id='sidenav-dropdown'>Position</a>
-                <a href="/#" id='sidenav-dropdown'>Access</a>
-                <a href="/#" id='sidenav-dropdown'>Activity Logs</a>
-              </div>
-
+              <a href="/#" id='expanded-side-menu'>
+                <img src="/assets/icons8-administrator-male-94.png" alt="house-logo" width='30' height='30' />
+                <span id='expanded-menu-list'>Admin Portal</span>
+              </a>
 
               <button
                 className={dropdownActive2 ? 'dropdown-btn active' : 'dropdown-btn'}
@@ -303,10 +285,10 @@ function handleDropdownClick() {
 
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="/#" class="btn btn-default btn-flat">Profile</a>
+                            <a href="/#" class="btn btn-default btn-flat btn-outline-dark">Profile</a>
                         </div>
                         <div class="pull-right">
-                            <a href="/#" class="btn btn-default btn-flat">Sign Out</a>
+                            <a href="/#" class="btn btn-default btn-flat btn-outline-dark">Sign Out</a>
                         </div>
                     </li>
                 </div>
@@ -314,12 +296,11 @@ function handleDropdownClick() {
       </Navbar>
 
       <div id="main" style={{ marginLeft: `${marginLeft}px` }}>
-        <div style={{ marginTop: "70px" }}>
+        <div style={{ marginTop: "50px", marginLeft: "10px" }}>
+          <ManageUsers/>
           <PlaygroundSpeedDial />
         </div>
       </div>
-      
- 
 
     </div>
   );

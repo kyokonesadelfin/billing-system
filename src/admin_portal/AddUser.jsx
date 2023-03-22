@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { DataGridPremium } from '@mui/x-data-grid-premium';
-import { useDemoData } from '@mui/x-data-grid-generator';
-import { GridToolbar } from '@mui/x-data-grid';
+import BranchGrid from './BranchGrid';
+import DepartmentGrid from './DepartmentGrid';
+import RoleGrid from './RoleGrid';
 
 
 
-const AddUserModal = () => {
+const AddUser = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [altEmail, setAltEmail] = useState('');
@@ -15,11 +15,7 @@ const AddUserModal = () => {
     const [step, setStep] = useState(1);
     const [rowSelection, setRowSelection] = React.useState(true);
 
-    const { data } = useDemoData({
-        dataSet: 'Commodity',
-        rowLength: 10,
-        maxColumns: 5,
-    });
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -54,15 +50,17 @@ const AddUserModal = () => {
         setStep(step + 1); // move to the next step
     };
 
+
     const handleBack = (event) => {
         event.preventDefault();
-        setStep(step - 1); // move to the next step
+        setStep(step - 1); // move to the previous step
     };
 
     return (
         <div>
 
             <form onSubmit={handleSubmit} id="myForm">
+            
                 {step === 1 && (
                     <>
                         <h5 id='form-header'>Account Info</h5>
@@ -87,20 +85,10 @@ const AddUserModal = () => {
                                     <div style={{ float: "right" }}>
                                         <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
                                     </div>
-                                    <div style={{ height: 350, width: 800 }}>
-                                        <DataGridPremium
-                                            rowSelection={rowSelection}
-                                            checkboxSelection={rowSelection}
-                                            unstable_cellSelection
-                                            {...data}
-                                            slots={{
-                                                toolbar: GridToolbar,
-                                            }}
-                                        />
-                                    </div>
+                                    <BranchGrid/>
                                 </div>
 
-                                <div style={{ width: '100%', marginTop: "40px" }}>
+                                <div style={{ width: '100%', marginTop: "25px" }}>
                                     <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
                                         <label htmlFor="branch">Department</label>
                                     </Button>
@@ -108,22 +96,23 @@ const AddUserModal = () => {
                                     <div style={{ float: "right" }}>
                                         <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
                                     </div>
-                                    <div style={{ height: 350, width: 800 }}>
-                                        <DataGridPremium
-                                            rowSelection={rowSelection}
-                                            checkboxSelection={rowSelection}
-                                            unstable_cellSelection
-                                            {...data}
-                                            slots={{
-                                                toolbar: GridToolbar,
-                                            }}
-                                        />
-                                    </div>
+                                    <DepartmentGrid/>
                                 </div>
                             </div>
 
                             <div>
-                                <div id='position-form'>
+
+                                <div style={{ width: '100%' }}>
+                                    <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
+                                        <label htmlFor="branch">Role</label>
+                                    </Button>
+                                    <div style={{ float: "right" }}>
+                                        <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
+                                    </div>
+                                    <RoleGrid/>
+                                </div>
+
+                                <div id='position-form' className='mt-5'>
                                     <label htmlFor="department">Position</label>
                                     <select name="position" required value={position.position} onClick={(e) => setPosition({ ...position, position: e.target.value })}>
                                         <option value="">Position</option>
@@ -131,30 +120,9 @@ const AddUserModal = () => {
                                         <option value="branch2">Branch 2</option>
                                     </select>
                                 </div>
-
-                                <div style={{ width: '100%' }}>
-                                    <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
-                                        <label htmlFor="branch">Role</label>
-                                    </Button> 
-                                    <div style={{ float: "right" }}>
-                                        <Button className='mt-4'><i className="fa fa-plus fa-lg"></i> </Button>
-                                    </div>
-                                    <div style={{ height: 350, width: 800 }}>
-                                        <DataGridPremium
-                                            rowSelection={rowSelection}
-                                            checkboxSelection={rowSelection}
-                                            unstable_cellSelection
-                                            {...data}
-                                            slots={{
-                                                toolbar: GridToolbar,
-                                            }}
-                                        />
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <button type="submit" onClick={handleNext}>Next</button>
-
                     </>
                 )}
 
@@ -202,4 +170,4 @@ const AddUserModal = () => {
     );
 };
 
-export default AddUserModal;
+export default AddUser;

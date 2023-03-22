@@ -45,7 +45,7 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
             }
         ],
     }
-
+        
     const options = {
         maintainAspectRatio: false,
         responsive: true,
@@ -64,12 +64,10 @@ export default function DrivingAndMileageTimeChart({ drivingandmileagetime }) {
             y1: {
                 display: true,
                 min: 0,
-                max: 10,
                 ticks: {
                     callback: function (value) {
                         return '' + value + (value === 0 ? '' : ' h')   ;
                     },
-                    stepSize: 2,
                     maxTicksLimit: 6,
                     beginAtZero: true
                 },

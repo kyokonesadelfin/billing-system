@@ -5,22 +5,21 @@ import LoginForm from './login_page/LoginForm';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Billing from './pages/Billing_Navbar';
-import AddUser from './admin_portal/AddUser';
-import ManageUsers from './admin_portal/ManageUsers';
-
+import Playback from './pages/Playback';
+import AddUserModal from './pages/AddUserModal';
 
 
 function App() {
   return (
     <>
       <Routes>
+        <Route exact path='/playback' element={<Playback />} />
+        <Route exact path='/dashboard' element={<Dashboard />} />
         <Route path='/billing' element={<Billing />} />
-        <Route path='/adduser' element={<AddUser />} />
-        <Route path='/manage' element={<ManageUsers />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route path='/login' element={<LoginForm />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/adduser' element={<AddUserModal />} />
       </Routes>
     </>
   );

@@ -6,7 +6,6 @@ import moment from 'moment-timezone';
 export default function Playback() {
 
     const device = JSON.parse(localStorage.getItem('activationStatus'))[0]
-
     const deviceId = device.deviceId;
     const lat = device.position.lat
     const lng = device.position.lon

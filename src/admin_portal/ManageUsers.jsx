@@ -29,7 +29,7 @@ function ManageUsers() {
     return (    
         <div>
         <BasicTabs/>
-            <div style={{ height: 500, width: 1130 }}>
+            <div style={{ height: 500, width: 1150 }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}

@@ -68,7 +68,7 @@ export default function BasicTabs() {
       <SearchBar />
         <Stack spacing={2} direction="row">
           <Button  variant="contained" style={{height: '40px', marginTop: '10px', marginLeft: '30px'}}>
-          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add new user</NavLink></Button>
+          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add user</NavLink></Button>
         </Stack>
       </div>
       </TabPanel>
@@ -77,7 +77,7 @@ export default function BasicTabs() {
       <SearchBar />
         <Stack spacing={2} direction="row">
           <Button  variant="contained" style={{height: '40px', marginTop: '10px', marginLeft: '30px'}}>
-          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add new user</NavLink></Button>
+          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add user</NavLink></Button>
         </Stack>
       </div>
       </TabPanel>
@@ -86,7 +86,7 @@ export default function BasicTabs() {
       <SearchBar />
         <Stack spacing={2} direction="row">
           <Button  variant="contained" style={{height: '40px', marginTop: '10px', marginLeft: '30px'}}>
-          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add new user</NavLink></Button>
+          <NavLink to='/adduser' style={{textDecoration: 'none', color: 'white'}}>Add user</NavLink></Button>
         </Stack>
       </div>
       </TabPanel>

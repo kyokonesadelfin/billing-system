@@ -76,7 +76,6 @@ const AddUser = () => {
 
                             <div id='branch-form'>
                                 <h5>Access Info</h5>
-
                                 <div style={{ width: '100%' }}>
                                     <Button sx={{ mb: -3 }} onClick={() => setRowSelection(!rowSelection)}>
                                         <label htmlFor="branch">Branch</label>
